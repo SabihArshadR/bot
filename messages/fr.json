@@ -1,0 +1,463 @@
+{
+  "Login": {
+    "button1": "CONNEXION",
+    "button2": "S'INSCRIRE",
+    "enter_credentials": "Veuillez entrer l'email et le mot de passe",
+    "email_not_verified": "Email non vérifié. Veuillez vérifier votre email d'abord.",
+    "login_success": "Connexion réussie !",
+    "login_failed": "La connexion a échoué. Nom d’utilisateur incorrect.",
+    "loading": "Connexion en cours...",
+    "or": "OU",
+    "continue_google": "Continuer avec Google",
+    "continue_microsoft": "Continuer avec Microsoft"
+  },
+  "Register": {
+    "field1": "Nom d’utilisateur",
+    "field2": "Nom de famille",
+    "field3": "E-mail",
+    "field4": "Mot de passe",
+    "field5": "Numéro de téléphone portable",
+    "field6": "Lieu d'origine",
+    "check1": "J'accepte de recevoir des newsletters et des promotions de Ajuntament de Canyelles",
+    "check21": "J'ai lu et j'accepte la",
+    "check22": "Politique de confidentialité",
+    "button1": "S'INSCRIRE",
+    "processing": "Traitement",
+    "button2": "JE SUIS DÉJÀ INSCRIT",
+    "enterPassword": "Veuillez entrer un nouveau mot de passe",
+    "enterEmail": "Veuillez entrer votre e-mail",
+    "resetSuccess": "Réinitialisation du mot de passe réussie !",
+    "resetFailed": "Échec de la réinitialisation du mot de passe",
+    "somethingWrong": "Une erreur est survenue",
+    "resetting": "Réinitialisation...",
+    "resetButton": "Réinitialiser le mot de passe",
+    "placeholder": "Entrez le nouveau mot de passe",
+    "sending": "Envoi...",
+    "sendLink": "Envoyer le lien de réinitialisation",
+    "emailSent": "E-mail de réinitialisation envoyé !",
+    "sendFailed": "Échec de l'envoi de l'e-mail de réinitialisation",
+    "invalidEmail": "Veuillez entrer une adresse e-mail valide.",
+    "invalidPhone": "Le numéro de téléphone ne peut contenir que '+', des chiffres et des espaces.",
+    "termsRequired": "Vous devez accepter les Conditions générales.",
+    "privacyRequired": "Vous devez accepter la Politique de confidentialité.",
+    "registerSuccess": "Inscription réussie. Veuillez vous connecter pour continuer.",
+    "updateSuccess": "Informations mises à jour avec succès.",
+    "updateError": "Échec de la mise à jour des informations.",
+    "generalError": "Une erreur s'est produite.",
+    "enterAddress": "Veuillez entrer votre adresse"
+  },
+  "Verify Email": {
+    "verify_email": "Vérifier l'email",
+    "resend_code": "Renvoyer le code",
+    "loading": "Vérification...",
+    "sending": "Envoi...",
+    "enter_full_code": "Veuillez entrer le code complet",
+    "email_verified": "Email vérifié avec succès !",
+    "already_verified": "Utilisateur déjà vérifié",
+    "verification_failed": "Échec de la vérification. Code incorrect",
+    "something_wrong": "🚨 Quelque chose a mal tourné",
+    "resend_timer": "Renvoi disponible dans {seconds}s",
+    "new_code_sent": "Nouveau code de vérification envoyé à votre email"
+  },
+  "Dashboard": {
+    "card1": "CARTE",
+    "card2": "PROFIL",
+    "card3": "COFFRE",
+    "card4": "LE SAVIEZ-VOUS",
+    "card5": "FAQ",
+    "card6": "NOUS RECOMMANDONS",
+    "lang1": "Catalan",
+    "lang2": "Espagnol",
+    "lang3": "Anglais",
+    "lang4": "Français",
+    "complete": "Félicitations ! Vous avez terminé l’aventure 'Les Amis de la Falaise Basaltique'. Si vous souhaitez la refaire, allez dans votre profil où vous trouverez le bouton pour recommencer.",
+    "keep_playing": "Continuer",
+    "read_more": "En savoir plus",
+    "pic1": "Mairie de Bot",
+    "pic2": "Tourisme de Bot",
+    "pic3": "Espaces de la bataille de l’Èbre",
+    "pic4": "Mémorial démocratique",
+    "pic5": "Terra Enllà",
+    "pic6": "Marqués par 38"
+  },
+  "Map": {
+    "first": "PREMIER",
+    "second": "DEUXIÈME",
+    "third": "TROISIÈME",
+    "fourth": "QUATRIÈME",
+    "fifth": "CINQUIÈME",
+    "sixth": "SIXIÈME",
+    "seventh": "SEPTIÈME",
+    "eighth": "HUITIÈME",
+    "ninth": "NEUVIÈME",
+    "title1": "ARRÊT",
+    "title2": "Les secrets des routes romaines",
+    "first_title": "Le train et l’arrivée de la guerre",
+    "second_title": "Bot, capitale sanitaire en temps de guerre",
+    "third_title": "Quand le village a changé du jour au lendemain",
+    "fourth_title": "Un lieu plein de silence et de mémoire",
+    "fifth_title": "Quand le chemin de fer a été construit avec du travail forcé",
+    "button": "JOUER"
+  },
+  "Progress": {
+    "title1": "Bonjour, ",
+    "title2": "NIVEAU ",
+    "title3": "Fragments de la météorite",
+    "button1": "PROGRÈS",
+    "title4": "Récompenses du festival",
+    "title5": "Points",
+    "title6": "Terminé",
+    "button2": "sac à dos",
+    "button3": "Redémarrage",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "confirmMessage": "Etes-vous sûr de vouloir redémarrer ?",
+    "text1a": "Le panier est vide et la danse ne résonne plus",
+    "text1b": "Collecte les aliments pour faire revenir la danse !",
+    "text2a": "Tu as très bien commencé !",
+    "text2b": "Tu as collecté",
+    "text2c": "1 aliment",
+    "text2d": "Continue l’aventure et collecte 4 aliments de plus pour faire revenir la danse !",
+    "text3a": "Parfait !",
+    "text3b": "Tu as collecté",
+    "text3c": "2 aliments",
+    "text3d": "Continue l’aventure et collecte 3 aliments de plus pour faire revenir la danse !",
+    "text4a": "Impressionnant !",
+    "text4b": "Tu as collecté",
+    "text4c": "3 aliments",
+    "text4d": "Continue l’aventure et collecte 2 aliments de plus pour faire revenir la danse !",
+    "text5a": "On y est presque !",
+    "text5b": "Tu as collecté",
+    "text5c": "4 aliments",
+    "text5d": "Continue l’aventure et collecte 1 aliment de plus pour faire revenir la danse !",
+    "text6a": "Génial !",
+    "text6b": "Tu as collecté les",
+    "text6c": "5 aliments",
+    "text6d": "Enfin, nous avons fait revenir la danse et le géant peut enfin se rendormir !"
+  },
+  "Level": {
+    "title1": "Bonjour, ",
+    "title2": "NIVEAU ",
+    "title3": "Fragments de la météorite",
+    "button": "NIVEAU",
+    "row1": "NIVEAU PLANÈTE",
+    "row2": "NIVEAU SYSTÈME SOLAIRE",
+    "row3": "NIVEAU GALAXIE",
+    "rowtitle": "Gagner 1000 points"
+  },
+  "StartQuiz": {
+    "title": "GRAND MAGMA",
+    "description": "C'est maintenant le moment de tester vos connaissances sur l'Empire romain en répondant à la question suivante.",
+    "button1": "COMMENCER"
+  },
+  "Quiz": {
+    "title": "Laquelle de ces affirmations n'est PAS vraie ?",
+    "option1": "Les Romains ont construit de longues routes pavées",
+    "option2": "Les Romains ont construit des aqueducs",
+    "option3": "Les Romains ont construit 2 fusées pour aller sur la lune",
+    "option4": "Les Romains n'ont pas construit d'aqueducs"
+  },
+  "DidYouKnow": {
+    "title": "Le saviez-vous ?",
+    "description": "Demain appartient à ceux qui le construisent aujourd'hui. Restez fort avec un objectif, et ne laissez aucune peur obscurcir votre esprit. La force naît de la persévérance et de l'unité.",
+    "button": "ALLONS-Y"
+  },
+  "Classification": {
+    "title": "CLASSEMENT",
+    "tablehead1": "Prénom",
+    "tablehead2": "Nom de famille",
+    "tablehead3": "Points",
+    "row1data1": "Craig",
+    "row1data2": "Bloemsma",
+    "row1data3": "1000",
+    "row2data1": "Albert",
+    "row2data2": "Mozé Fàbregasx",
+    "row3data3": "654"
+  },
+  "FAQS": {
+    "title": "FAQ'S",
+    "button1": "AR FAQ",
+    "button2": "JEU FAQ",
+    "button3": "CARTE FAQ",
+    "ar": {
+      "q1": "Qu’est-ce que la réalité augmentée (AR) et comment l’utilise-t-on ici ?",
+      "a1": "La réalité augmentée est une technologie qui permet de voir des éléments numériques —comme des personnages, des objets ou des scènes— superposés à l’environnement réel grâce à la caméra de ton téléphone. Dans ce jeu, elle sert à voir Roc, à collecter des fragments de météorite et à découvrir les trouvailles.",
+      "q2": "Dois-je télécharger une application ?",
+      "a2": "Non. Il s'agit d'une application web : il suffit d'accéder au lien via votre navigateur (Chrome, Safari...). Rien ne doit être téléchargé.",
+      "q3": "Mon téléphone est-il compatible avec la RA ?",
+      "a3": "Cela fonctionne avec la plupart des appareils récents équipés d'une caméra et d'un navigateur à jour. Vous devez autoriser l'accès à la caméra. En cas de problème, essayez un autre navigateur ou appareil.",
+      "q4": "Je ne vois rien lorsque j'ouvre la caméra. Que puis-je faire ?",
+      "a4": "Assurez-vous que :\n\n● Vous êtes physiquement au bon point sur la carte (géolocalisation).\n● Vous avez autorisé l'accès à la caméra.\n● Il y a suffisamment de lumière autour.\nSi cela ne fonctionne toujours pas, fermez et rouvrez le navigateur.",
+      "q5": "Faut-il une connexion internet pour utiliser la RA ?",
+      "a5": "Oui. La RA se charge dans le navigateur, vous avez donc besoin de données mobiles ou d'une connexion Wi-Fi pendant l'expérience.",
+      "q6": "Est-il sûr d'utiliser la RA en marchant ?",
+      "a6": "Oui, mais soyez attentif à votre environnement lorsque vous utilisez la caméra. Ne marchez pas en regardant votre téléphone et gardez toujours un œil sur ce qui vous entoure.",
+      "q7": "Puis-je prendre des photos ou des vidéos avec la RA ?",
+      "a7": "Oui ! Vous pouvez prendre des captures d'écran et enregistrer des vidéos avec Roc et les différentes expériences de RA, puis les partager. C'est un excellent moyen de conserver et de partager votre aventure."
+    },
+    "game": {
+      "q1": "Quel est l'objectif du jeu ?",
+      "a1": "L’objectif est de découvrir les six pierres précieuses de Canyelles en relevant des défis en réalité augmentée. Tout au long du parcours, tu devras collecter des fragments de météorite et obtenir des minéraux uniques.",
+      "q2": "Quelle est la différence entre un fragment de météorite et une trouvaille ?",
+      "a2": "Les fragments de météorite sont des éléments naturels à collecter grâce à des défis interactifs en AR.\nLes trouvailles sont les pierres précieuses de Canyelles.",
+      "q3": "Comment puis-je obtenir des fragments de météorite et des pierres précieuses ?",
+      "a3": "Tu dois te rendre physiquement aux points géolocalisés indiqués sur la carte. Là, Roc te racontera une histoire et te proposera un défi interactif et une question. Si tu réussis, tu obtiendras des fragments de météorite et la pierre précieuse associée à ce point.",
+      "q4": "Que se passe-t-il si je rate un défi ou une question ?",
+      "a4": "Les défis interactifs se terminent lorsque tu as collecté un certain nombre de fragments de météorite en AR. Le défi ne se termine pas avant d’avoir tout recueilli, généralement entre six et sept fragments. Si tu rates une question, le système te demande de réessayer.",
+      "q5": "Faut-il être inscrit pour jouer ?",
+      "a5": "Oui, l’inscription est obligatoire pour participer au jeu, accéder aux points de réalité augmentée et débloquer les fragments de météorite et les pierres précieuses. Cela nous permet de sauvegarder ta progression, de t’offrir une expérience personnalisée et d’assurer le bon fonctionnement du système. L’inscription est rapide et ne doit être faite qu’une seule fois.",
+      "q6": "Puis-je jouer en groupe ou avec ma famille ?",
+      "a6": "Oui ! Le jeu est conçu pour être joué en groupe : avec des amis, en famille ou à l'école. Vous n'avez besoin que d'un téléphone ou d'une tablette par équipe et de l'envie d'explorer ensemble.",
+      "q7": "Combien de temps dure le jeu complet ?",
+      "a7": "Cela dépend de ton rythme. Le parcours complet dure généralement entre 45 et 60 minutes, mais tu peux le faire en une seule fois ou le répartir sur plusieurs moments."
+    },
+    "map": {
+      "q1": "Comment fonctionne la carte du jeu ?",
+      "a1": "La carte interactive affiche les points géolocalisés le long du parcours. Le contenu en RA ne se débloque que lorsque vous atteignez physiquement un point.",
+      "q2": "La géolocalisation est-elle requise sur mon téléphone ?",
+      "a2": "Oui. Sans la géolocalisation activée, vous ne pouvez pas jouer. Le système doit connaître votre position pour vérifier que vous avez atteint chaque point. Nous recommandons d'activer la localisation avant de commencer.\n\nComment activer la géolocalisation :\n\n**Sur Android :**\n1. Ouvrez les paramètres de votre appareil.\n2. Allez dans Localisation.\n3. Activez la localisation.\n4. Assurez-vous que votre navigateur a les permissions de localisation :\n - Paramètres > Applications > [Nom du navigateur] > Permissions > Localisation > Autoriser toujours ou Pendant l'utilisation.\n\n**Sur iPhone :**\n1. Ouvrez les Réglages.\n2. Allez dans Confidentialité et sécurité > Services de localisation.\n3. Activez les services de localisation.\n4. Vérifiez les paramètres de votre navigateur (Safari ou Chrome).\n5. Assurez-vous que la localisation est autorisée pendant l'utilisation.",
+      "q3": "Et si la carte ne me détecte pas correctement ?",
+      "a3": "● Assurez-vous que votre localisation est activée (voir les étapes ci-dessus).\n● Rafraîchissez la page de votre navigateur.",
+      "q4": "Faut-il une connexion internet pour utiliser la carte ?",
+      "a4": "Oui. L'application web nécessite une connexion active pour afficher la carte et vérifier votre position. Cependant, l'utilisation des données est très faible.",
+      "q5": "La carte indique que je ne suis pas au bon endroit, mais j'y suis. Que puis-je faire ?",
+      "a5": "● Déplacez-vous légèrement dans la zone : parfois, le GPS a besoin de quelques secondes.\n● Assurez-vous de ne pas être sous une structure ou à l'intérieur.\n● Vérifiez que vous avez un bon signal GPS ou mobile.",
+      "q6": "Puis-je faire le parcours dans n'importe quel ordre ?",
+      "a6": "Non. Le parcours est linéaire. Vous devez suivre l'ordre établi des points, car chaque défi et trouvaille dépend du point précédent. La carte n'affichera que le prochain point débloqué, vous ne pouvez pas avancer sans compléter le point actuel."
+    }
+  },
+  "Auth": {
+    "ForgotPassword": "Mot de passe oublié ?",
+    "NoAccount": "Vous n'avez pas de compte ?",
+    "CreateAccount": "Créer un compte",
+    "HaveAccount": "Vous avez déjà un compte ?",
+    "LoginAccount": "Se connecter"
+  },
+  "Amics": {
+    "title": "Coffre",
+    "description": "Ne sois pas triste. Laisse le chagrin passer doucement, car le passé est révolu. Accueille le présent avec courage et sérénité. Laisse l'espoir guider tes pas et l'amour te rendre fort."
+  },
+  "Links": {
+    "GAME": "JEU",
+    "Historical_link": "ARCHIVE HISTORIQUE",
+    "Award_link": "PRIX / RÉCOMPENSES",
+    "Profile_link": "PROFIL",
+    "Ranking_Link": "CLASSEMENT",
+    "LOGOUT_link": "DÉCONNEXION"
+  },
+  "Head": {
+    "title1": "Menu",
+    "title2": "Accès",
+    "title3": "Déconnexion",
+    "heading1": "CanYelles",
+    "heading2": "et L'histoire de la météorite"
+  },
+  "Volcano1Quiz1": {
+    "title": "Pourquoi le chemin de fer est-il devenu un élément clé pour Bot lorsque le front s’est stabilisé sur l’Èbre ?",
+    "option1": "Parce qu’il facilitait le déplacement rapide des troupes et du matériel à l’arrière",
+    "option2": "Parce qu’il permettait d’évacuer la population civile vers la côte",
+    "option3": "Parce qu’il était directement relié au port des Alfacs",
+    "option4": "Parce qu’il servait d’abri antiaérien pour la population"
+  },
+  "Volcano1Quiz2": {
+    "title": "Qui a occupé le village de Bot le 2 avril 1938 ?",
+    "option1": "Des soldats italiens de la division Littorio",
+    "option2": "Des troupes allemandes de la Légion Condor",
+    "option3": "Les Brigades internationales",
+    "option4": "Des troupes républicaines"
+  },
+  "Volcano1Quiz3": {
+    "title": "La décision des ingénieurs de rendre inutilisable un tronçon de voie le 25 juillet 1938 répond principalement à :",
+    "option1": "La nécessité de stopper l’avancée de l’Armée de l’Èbre",
+    "option2": "Un ordre politique du gouvernement local",
+    "option3": "Une action improvisée sans valeur stratégique",
+    "option4": "Le manque de matériel pour maintenir la ligne en service"
+  },
+
+  "Volcano2Quiz1": {
+    "title": "Pourquoi Bot est-il rapidement devenu un centre sanitaire clé pendant la bataille de l’Èbre ?",
+    "option1": "Parce qu’il se trouvait juste derrière le front et pouvait soigner les blessés graves",
+    "option2": "Parce qu’il disposait d’un grand hôpital avant la guerre",
+    "option3": "Parce qu’il était éloigné du front et ne subissait pas de bombardements",
+    "option4": "Parce qu’il possédait une station maritime à proximité"
+  },
+  "Volcano2Quiz2": {
+    "title": "Quel rôle jouait le poste de secours dans l’organisation sanitaire du village ?",
+    "option1": "Prodiguer les premiers soins et répartir les blessés vers les hôpitaux",
+    "option2": "Héberger uniquement les blessés légers",
+    "option3": "Servir d’entrepôt de médicaments",
+    "option4": "Centraliser les décisions militaires"
+  },
+  "Volcano2Quiz3": {
+    "title": "Quel élément démontre le mieux l’intensité du travail sanitaire à partir de septembre 1938 ?",
+    "option1": "L’arrivée constante d’ambulances sur la place",
+    "option2": "La présence de soldats allemands dans le village",
+    "option3": "La fermeture des hôpitaux les plus petits",
+    "option4": "La disparition des services municipaux"
+  },
+
+  "Volcano3Quiz1": {
+    "title": "Pourquoi des biens comme des moulins, des domaines ou des caves ont-ils été confisqués à Bot durant les premiers mois de la guerre ?",
+    "option1": "Pour réorganiser la vie et garantir la subsistance à un moment critique",
+    "option2": "Pour décorer les espaces publics",
+    "option3": "Pour punir l’ensemble de la population du village",
+    "option4": "Pour les préparer comme espaces militaires"
+  },
+  "Volcano3Quiz2": {
+    "title": "Que nous indique la création de collectivités de travailleurs ?",
+    "option1": "Que des solutions partagées ont été recherchées pour survivre",
+    "option2": "Que le village est resté sans autorités",
+    "option3": "Que tout le monde était d’accord avec les décisions prises",
+    "option4": "Que l’économie a complètement disparu"
+  },
+  "Volcano3Quiz3": {
+    "title": "Pourquoi la mairie a-t-elle imprimé des billets municipaux pendant la guerre ?",
+    "option1": "Pour faciliter le commerce face au manque de monnaie divisionnaire",
+    "option2": "Pour remplacer la monnaie étrangère",
+    "option3": "Pour payer les soldats",
+    "option4": "Pour contrôler les prix des denrées alimentaires"
+  },
+
+  "Volcano4Quiz1": {
+    "title": "Pourquoi le cimetière de Bot a-t-il acquis une telle importance pendant la guerre ?",
+    "option1": "Parce qu’il se trouvait à l’arrière et que de nombreux soldats morts y furent enterrés",
+    "option2": "Parce qu’il était le plus ancien de la région",
+    "option3": "Parce qu’il était éloigné du front",
+    "option4": "Parce qu’il abritait un hôpital permanent"
+  },
+  "Volcano4Quiz2": {
+    "title": "Que nous indique la manière dont les soldats étaient enterrés au début ?",
+    "option1": "Qu’il y avait peu de temps et beaucoup de morts",
+    "option2": "Qu’il s’agissait d’un hommage solennel",
+    "option3": "Qu’ils étaient tous des habitants du village",
+    "option4": "Que le cimetière était abandonné"
+  },
+  "Volcano4Quiz3": {
+    "title": "Pourquoi a-t-il fallu aménager une exploitation agricole comme nouvelle nécropole militaire ?",
+    "option1": "Parce que le cimetière municipal ne pouvait plus accueillir de nouvelles inhumations",
+    "option2": "Pour séparer civils et soldats",
+    "option3": "Pour éviter les bombardements du cimetière",
+    "option4": "Pour y construire un monument"
+  },
+
+  "Volcano5Quiz1": {
+    "title": "Pourquoi le régime franquiste a-t-il accéléré l’extension du chemin de fer de la Val de Zafán en 1938 ?",
+    "option1": "Pour faciliter le transport militaire dans les zones occupées",
+    "option2": "Pour améliorer le tourisme intérieur",
+    "option3": "Pour remplacer d’autres lignes ferroviaires",
+    "option4": "Pour donner du travail à la population locale"
+  },
+  "Volcano5Quiz2": {
+    "title": "Qui étaient les Bataillons de Travailleurs qui ont travaillé sur la ligne ?",
+    "option1": "Des prisonniers républicains contraints de travailler",
+    "option2": "Des ouvriers spécialisés engagés par l’État",
+    "option3": "Des volontaires civils",
+    "option4": "Des ingénieurs militaires"
+  },
+  "Volcano5Quiz3": {
+    "title": "Que s’est-il passé avec le tracé du chemin de fer une fois la guerre terminée ?",
+    "option1": "Il a été achevé avec de la main-d’œuvre forcée",
+    "option2": "Il a été définitivement abandonné",
+    "option3": "Il a été transformé en route",
+    "option4": "Il a été reconstruit uniquement avec des travailleurs libres"
+  },
+  "Mapp": {
+    "button1": "CARTE",
+    "button2": "LISTE",
+    "text1": "Commune",
+    "text2": "Centre d'interprétation du Romantisme",
+    "text3": "Tour Blava - Espace Guinovart"
+  },
+  "QuizPage": {
+    "try_again": "Essayer à nouveau",
+    "finding_1": "Le train et l’arrivée de la guerre",
+    "finding_2": "Bot, capitale sanitaire en temps de guerre",
+    "finding_3": "Quand le village a changé du jour au lendemain",
+    "finding_4": "Un lieu plein de silence et de mémoire",
+    "finding_5": "Quand le chemin de fer a été construit avec du travail forcé",
+    "description": "Retour à l'exploration de nouveaux points d'intérêt! Découvrez et interagissez avec chaque point pour débloquer des récompenses, gagner des points et progresser. Plus vous explorez, plus vous progressez.",
+    "button": "Continuez le jeu"
+  },
+  "intro": {
+    "title1": "Cette expérience de réalité augmentée nécessite l'accès à l'appareil photo et aux capteurs de mouvement de votre appareil.",
+    "text1": "Bienvenue dans le jeu “Canyelles et l’histoire de la météorite.” Écoute Roc, un fragment de la météorite tombée à Canyelles il y a presque deux cents ans.",
+    "title2": "Cette expérience de réalité augmentée nécessite l'accès à l'appareil photo et aux capteurs de mouvement de votre appareil.",
+    "text2": "Écoutez Roc et trouvez les fragments de météorite. Touchez-les pour les ramasser.",
+    "title3": "Cette expérience de réalité augmentée nécessite l'accès à l'appareil photo et aux capteurs de mouvement de votre appareil.",
+    "text3": "Écoutez Roc et lancez les roches volcaniques dans les volcans.",
+    "button1": "Passer l'introduction",
+    "button2": "Continuer",
+    "button3": "Expérience AR"
+  },
+  "CoinMap": {
+    "congratulation": "Félicitations !",
+    "text": "Vous êtes arrivé à destination avec succès. Vous êtes maintenant à la bonne distance pour vivre l’expérience de réalité augmentée.",
+    "button": "Suivant"
+  },
+  "gameText": {
+    "place": "Placer l'Avatar",
+    "audioPermission": "Autorisation audio requise",
+    "cameraPermission": "Autorisation caméra requise",
+    "audioAllow": "Autoriser l'audio",
+    "Cancel": "Annuler",
+    "enableRotation": "Activer la rotation",
+    "try_again": "Réessayer"
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "sections": {
+      "responsible": {
+        "title": "Responsable du traitement",
+        "content": "En conformité avec le Règlement (UE) 2016/679 (RGPD) et la Loi Organique 3/2018 (LOPDGDD), il est porté à votre connaissance que les données personnelles fournies via l'application seront traitées sous la responsabilité de l'entité suivante :",
+        "items": [
+          "Nom commercial : Som Experiències",
+          "Nom fiscal : Albert Mozó Fàbregas",
+          "NIF : 45790766C",
+          "Adresse : Rambla Lluís Companys, 2, 2n 5a, 08800 Vilanova i la Geltrú",
+          "Nom et NIF du contact : Albert Mozó Fàbregas – NIF 45790766C",
+          "Téléphone : 685492584",
+          "Email : info@somexperiencies.cat"
+        ]
+      },
+      "dataCollected": {
+        "title": "Données collectées",
+        "content": "L'application peut collecter les données personnelles suivantes auprès des utilisateurs :",
+        "items": [
+          "Via l'inscription avec Google ou Microsoft : nom, prénom et adresse e-mail.",
+          "Via un formulaire personnalisé : nom, prénom, adresse e-mail, téléphone et lieu de provenance.",
+          "Via les permissions de l'appareil : géolocalisation (pour débloquer les points de jeu) et accès à la caméra (pour les fonctionnalités de réalité augmentée)."
+        ]
+      },
+      "purpose": {
+        "title": "Finalité du traitement",
+        "content": "Les données sont traitées aux fins suivantes :",
+        "items": [
+          "Permettre l'accès et l'utilisation de l'application et de ses contenus interactifs.",
+          "Garantir l'activation des points de jeu et la personnalisation de l'expérience.",
+          "Maintenir la sécurité et améliorer les services offerts.",
+          "Communiquer des nouveautés ou des informations liées à l'application, avec le consentement préalable de l'utilisateur."
+        ]
+      },
+      "legalBasis": {
+        "title": "Base légale",
+        "content": "La base juridique du traitement est le consentement de l'utilisateur, accordé lors de l'inscription et de l'acceptation de cette politique de confidentialité."
+      },
+      "dataRetention": {
+        "title": "Conservation des données",
+        "content": "Les données seront conservées uniquement pendant la durée nécessaire à la prestation du service et, en tout état de cause, pendant les délais légalement établis. Les données de géolocalisation et les images de la caméra ne sont pas sauvegardées au-delà de l'usage temporaire sur l'appareil."
+      },
+      "dataSharing": {
+        "title": "Communication des données à des tiers",
+        "content": "Les données ne seront pas cédées à des tiers, sauf en cas d'obligation légale ou de demande d'une autorité compétente."
+      },
+      "userRights": {
+        "title": "Droits des utilisateurs",
+        "content": "Les utilisateurs peuvent exercer leurs droits d'accès, de rectification, de suppression, d'opposition, de limitation et de portabilité en contactant le responsable à l'adresse info@somexperiencies.cat ou par courrier postal à l'adresse indiquée ci-dessus."
+      },
+      "effect": {
+        "title": "Effet",
+        "content": "L'utilisation de l'application implique l'acceptation expresse et pleine de la présente politique de confidentialité. Cette politique entre en vigueur à partir de sa date de publication et restera valable jusqu'à ce qu'elle soit modifiée ou mise à jour dans cette même application."
+      }
+    }
+  }
+}

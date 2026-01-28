@@ -1,0 +1,463 @@
+{
+  "Login": {
+    "button1": "LOGIN",
+    "button2": "REGISTER",
+    "enter_credentials": "Please enter email and password",
+    "email_not_verified": "Email not verified. Please verify your email first.",
+    "login_success": "Login successful!",
+    "login_failed": "Login failed. Incorrect username.",
+    "loading": "Logging in...",
+    "or": "OR",
+    "continue_google": "Continue with Google",
+    "continue_microsoft": "Continue with Microsoft"
+  },
+  "Register": {
+    "field1": "Username",
+    "field2": "Last Name",
+    "field3": "Email",
+    "field4": "Password",
+    "field5": "Mobile Phone Number",
+    "field6": "Place of Origin",
+    "check1": "I agree to receive newsletters and promotions from Ajuntament de Canyelles",
+    "check21": "I have read and accept the",
+    "check22": "Privacy Policy",
+    "button1": "REGISTER",
+    "processing": "Processing...",
+    "button2": "I'M ALREADY REGISTERED",
+    "enterPassword": "Please enter a new password",
+    "enterEmail": "Please enter your email",
+    "resetSuccess": "Password reset successful!",
+    "resetFailed": "Failed to reset password",
+    "somethingWrong": "Something went wrong",
+    "resetting": "Resetting...",
+    "resetButton": "Reset Password",
+    "placeholder": "Enter new password",
+    "sending": "Sending...",
+    "sendLink": "Send Reset Link",
+    "emailSent": "Password reset email sent!",
+    "sendFailed": "Failed to send reset email",
+    "invalidEmail": "Please enter a valid email address.",
+    "invalidPhone": "Phone number can only contain '+', numbers, and spaces.",
+    "termsRequired": "You must accept the Terms and Conditions.",
+    "privacyRequired": "You must accept the Privacy Policy.",
+    "registerSuccess": "Registered successfully. Please login to continue.",
+    "updateSuccess": "Information updated successfully.",
+    "updateError": "Failed to update info.",
+    "generalError": "Something went wrong.",
+    "enterAddress": "Please enter your address"
+  },
+  "Verify Email": {
+    "verify_email": "Verify Email",
+    "resend_code": "Resend Code",
+    "loading": "Verifying...",
+    "sending": "Sending...",
+    "enter_full_code": "Please enter the full code",
+    "email_verified": "Email verified successfully!",
+    "already_verified": "User already verified",
+    "verification_failed": "Verification failed. Incorrect code",
+    "something_wrong": " Something went wrong",
+    "resend_timer": "Resend available in {seconds}s",
+    "new_code_sent": "New verification code sent to your email"
+  },
+  "Dashboard": {
+    "card1": "MAP",
+    "card2": "PROFILE",
+    "card3": "CHEST",
+    "card4": "DID YOU KNOW",
+    "card5": "FAQ",
+    "card6": "WE RECOMMEND",
+    "lang1": "Catalan",
+    "lang2": "Spanish",
+    "lang3": "English",
+    "lang4": "French",
+    "complete": "Congratulations! You have completed the adventure 'The Friends of the Basalt Cliff'. If you want to repeat it, go to your profile, where you’ll find the button to restart.",
+    "keep_playing": "Continue",
+    "read_more": "Read more",
+    "pic1": "Bot Town Hall",
+    "pic2": "Bot Tourism",
+    "pic3": "Spaces of the Battle of the Ebro",
+    "pic4": "Democratic Memorial",
+    "pic5": "Terra Enllà",
+    "pic6": "Marked by ’38"
+  },
+  "Map": {
+    "first": "FIRST",
+    "second": "SECOND",
+    "third": "THIRD",
+    "fourth": "FOURTH",
+    "fifth": "FIFTH",
+    "sixth": "SIXTH",
+    "seventh": "SEVENTH",
+    "eighth": "EIGHTH",
+    "ninth": "NINTH",
+    "title1": "STOP",
+    "title2": "The secrets of Roman roads",
+    "first_title": "The train and the arrival of war",
+    "second_title": "Bot, a medical capital in wartime",
+    "third_title": "When the village changed overnight",
+    "fourth_title": "A place full of silence and memory",
+    "fifth_title": "When the railway was built with forced labor",
+    "button": "PLAY"
+  },
+  "Progress": {
+    "title1": "Hello, ",
+    "title2": " LEVEL",
+    "title3": "Fragments of the meteorite",
+    "button1": "PROGRESS",
+    "title4": "Festival Rewards",
+    "title5": "Points",
+    "title6": "Complete",
+    "button2": "Backpack",
+    "button3": "Restart",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "confirmMessage": "Are you sure you want to restart?",
+    "text1a": "The basket is empty and the dance is no longer playing",
+    "text1b": "Collect the food to bring the dance back!",
+    "text2a": "You’ve started very well!",
+    "text2b": "You have collected",
+    "text2c": "1 food item",
+    "text2d": "Continue the adventure and collect 4 more food items to bring the dance back!",
+    "text3a": "Perfect!",
+    "text3b": "You have collected",
+    "text3c": "2 food items",
+    "text3d": "Continue the adventure and collect 3 more food items to bring the dance back!",
+    "text4a": "Amazing!",
+    "text4b": "You have collected",
+    "text4c": "3 food items",
+    "text4d": "Continue the adventure and collect 2 more food items to bring the dance back!",
+    "text5a": "We’re almost there!",
+    "text5b": "You have collected",
+    "text5c": "4 food items",
+    "text5d": "Continue the adventure and collect 1 more food item to bring the dance back!",
+    "text6a": "Great!",
+    "text6b": "You have collected the",
+    "text6c": "5 food items",
+    "text6d": "At last, we’ve brought the dance back and the giant can finally go back to sleep!"
+  },
+  "Level": {
+    "title1": "Hello, ",
+    "title2": " LEVEL",
+    "title3": "Fragments of the meteorite",
+    "button": "LEVEL",
+    "row1": "PLANET LEVEL",
+    "row2": "SOLAR SYSTEM LEVEL",
+    "row3": "GALAXY LEVEL",
+    "rowtitle": "Earn 1000 points"
+  },
+  "StartQuiz": {
+    "title": "GREAT MAGMA",
+    "description": "Now is the time to test your expertise on the Roman Empire by answering the following question.",
+    "button1": "START"
+  },
+  "Quiz": {
+    "title": "Which of these statements is NOT true?",
+    "option1": "The Romans built long paved roads",
+    "option2": "The Romans built aqueducts",
+    "option3": "The Romans built 2 rockets to go to the moon",
+    "option4": "The Romans not built aqueducts"
+  },
+  "DidYouKnow": {
+    "title": "Did you know?",
+    "description": "Tomorrow belongs to those who build it today. Stand strong with purpose, and let no fear cloud your mind. Strength is born through perseverance and unity.",
+    "button": "LET'S GO"
+  },
+  "Classification": {
+    "title": "CLASSIFICATION",
+    "tablehead1": "First Name",
+    "tablehead2": "Last Name",
+    "tablehead3": "Points",
+    "row1data1": "Craig",
+    "row1data2": "Bloemsma",
+    "row1data3": "1000",
+    "row2data1": "Albert",
+    "row2data2": "Mozé Fàbregasx",
+    "row3data3": "654"
+  },
+  "FAQS": {
+    "title": "FAQ'S",
+    "button1": "AR FAQ",
+    "button2": "GAME FAQ",
+    "button3": "MAP FAQ",
+    "ar": {
+      "q1": "What is augmented reality (AR) and how do we use it here?",
+      "a1": "Augmented reality is a technology that allows you to see digital elements—such as characters, objects, or scenes—overlaid on the real environment through your phone’s camera. In this game, it’s used to see Roc, collect meteorite fragments, and view the discoveries.",
+      "q2": "Do I need to download any app?",
+      "a2": "No. This is a web application (webapp): you just need to access the link through your browser (Chrome, Safari...). Nothing needs to be downloaded.",
+      "q3": "Is my phone compatible with AR?",
+      "a3": "It works with most recent devices that have a camera and an updated browser. You need to allow camera access. If you have issues, try another browser or device.",
+      "q4": "I see nothing when I open the camera. What can I do?",
+      "a4": "Make sure that:\n\n● You have physically reached the correct point on the map (geolocation).\n● You have granted camera access.\n● There is enough light around.\nIf it still doesn't work, close and reopen the browser.",
+      "q5": "Is an internet connection required to use AR?",
+      "a5": "Yes. AR loads in the browser, so you need mobile data or Wi-Fi during the experience.",
+      "q6": "Is it safe to use AR while walking?",
+      "a6": "Yes, but be aware of your surroundings while using the camera. Don't walk looking at your phone and always keep an eye on your environment.",
+      "q7": "Can I take photos or videos with AR?",
+      "a7": "Yes! You can take screenshots and record videos with Roc and the different AR experiences and share them. It's a great way to remember and share your adventure."
+    },
+    "game": {
+      "q1": "What is the goal of the game?",
+      "a1": "The goal is to discover the six precious stones of Canyelles by completing augmented reality challenges. Throughout the route, you’ll need to collect meteorite fragments and obtain unique minerals.",
+      "q2": "What’s the difference between a meteorite fragment and a discovery?",
+      "a2": "Meteorite fragments are natural elements that must be collected through interactive AR challenges.\nDiscoveries are the precious stones of Canyelles.",
+      "q3": "How can I get meteorite fragments and precious stones?",
+      "a3": "You must physically reach the geolocated points shown on the map. There, Roc will tell you a story and propose an interactive challenge and a question. If you succeed, you’ll obtain meteorite fragments and the precious stone associated with that point.",
+      "q4": "What happens if I fail a challenge or a question?",
+      "a4": "Interactive challenges are completed by collecting a specific number of meteorite fragments with AR. The challenge doesn’t end until you’ve collected them all—usually between six and seven. If you fail a question, the system asks you to try again.",
+      "q5": "Do I need to register to play?",
+      "a5": "Yes, registration is mandatory to participate in the game, access augmented reality points, and unlock meteorite fragments and precious stones. This allows us to save your progress, offer you a personalized experience, and ensure the system works properly. Registration is quick and only needs to be done once.",
+      "q6": "Can I play in a group or with my family?",
+      "a6": "Yes! The game is designed for group play: with friends, family, or school. You only need one phone or tablet per team and the desire to explore together.",
+      "q7": "How long does the entire game take?",
+      "a7": "It depends on your pace. The full route usually takes between 45 and 60 minutes, but you can complete it all at once or split it into several sessions."
+    },
+    "map": {
+      "q1": "How does the game map work?",
+      "a1": "The interactive map shows geolocated points along the route. AR content only unlocks when you physically reach a point.",
+      "q2": "Is geolocation required on my phone?",
+      "a2": "Yes. Without geolocation enabled, you cannot play. The system needs to know your location to verify you've reached each point. We recommend turning on location before starting.\n\nHow to enable geolocation:\n\n**On Android:**\n1. Open your device settings.\n2. Go to Location.\n3. Enable Location.\n4. Ensure your browser has location permissions:\n   - Settings > Apps > [Browser Name] > Permissions > Location > Allow always or While using.\n\n**On iPhone:**\n1. Open Settings.\n2. Go to Privacy & Security > Location Services.\n3. Enable Location Services.\n4. Check your browser settings (Safari or Chrome).\n5. Ensure location is allowed during use.",
+      "q3": "What if the map doesn't detect me correctly?",
+      "a3": "● Make sure your location is enabled (see steps above).\n● Refresh your browser page.",
+      "q4": "Is an internet connection required to use the map?",
+      "a4": "Yes. The webapp needs an active connection to display the map and verify your location. However, data usage is very low.",
+      "q5": "The map says I'm not at the right spot, but I am. What can I do?",
+      "a5": "● Move slightly around the area: sometimes GPS needs a few seconds.\n● Ensure you're not under a structure or indoors.\n● Make sure you have a good GPS or mobile signal.",
+      "q6": "Can I do the route in any order?",
+      "a6": "No. The route is linear. You must follow the established order of points since each challenge and finding depends on the previous point. The map will only show the next unlocked point—you can't proceed without completing the current one."
+    }
+  },
+  "Auth": {
+    "ForgotPassword": "Forgot password?",
+    "NoAccount": "Don't have an account?",
+    "CreateAccount": "Create account",
+    "HaveAccount": "Already have an account?",
+    "LoginAccount": "Login account"
+  },
+  "Links": {
+    "GAME": "GAME",
+    "Historical_link": "HISTORICAL ARCHIVE",
+    "Award_link": "AWARDS / PRIZES",
+    "Profile_link": "PROFILE",
+    "Ranking_Link": "RANKING / LEADERBOARD",
+    "LOGOUT_link": "LOG OUT"
+  },
+  "Amics": {
+    "title": "Chest",
+    "description": "Be not sad. Let sorrow pass gently, for the past is gone. Welcome the present with courage and calm. Let hope guide your steps and love make you strong"
+  },
+  "Head": {
+    "title1": "Menu",
+    "title2": "Access",
+    "title3": "Logout",
+    "heading1": "CanYelles",
+    "heading2": "and The Story of the Meteorite"
+  },
+  "Volcano1Quiz1": {
+    "title": "Why did the railway become a key element for Bot when the front stabilized at the Ebro River?",
+    "option1": "Because it facilitated the rapid movement of troops and supplies to the rear",
+    "option2": "Because it allowed the evacuation of the civilian population to the coast",
+    "option3": "Because it connected directly with the Port of Alfacs",
+    "option4": "Because it served as an air-raid shelter for the population"
+  },
+  "Volcano1Quiz2": {
+    "title": "Who occupied the village of Bot on April 2, 1938?",
+    "option1": "Italian soldiers of the Littorio Division",
+    "option2": "German troops of the Condor Legion",
+    "option3": "International Brigades",
+    "option4": "Republican troops"
+  },
+  "Volcano1Quiz3": {
+    "title": "The engineers’ decision to disable a section of railway track on July 25, 1938 was mainly due to:",
+    "option1": "The need to halt the advance of the Army of the Ebro",
+    "option2": "A political order from the local government",
+    "option3": "An improvised action with no strategic value",
+    "option4": "A lack of materials to keep the line operational"
+  },
+
+  "Volcano2Quiz1": {
+    "title": "Why did Bot quickly become a key medical center during the Battle of the Ebro?",
+    "option1": "Because it was located just behind the front and could treat seriously wounded soldiers",
+    "option2": "Because it already had a large hospital before the war",
+    "option3": "Because it was far from the front and did not suffer bombardments",
+    "option4": "Because it had a nearby maritime station"
+  },
+  "Volcano2Quiz2": {
+    "title": "What role did the first-aid post play within the village’s medical organization?",
+    "option1": "To provide initial treatment and distribute the wounded to hospitals",
+    "option2": "To accommodate only lightly wounded soldiers",
+    "option3": "To serve as a medicine storage facility",
+    "option4": "To centralize military decisions"
+  },
+  "Volcano2Quiz3": {
+    "title": "Which element best demonstrates the intensity of medical work from September 1938 onward?",
+    "option1": "The constant arrival of ambulances at the square",
+    "option2": "The presence of German soldiers in the village",
+    "option3": "The closure of smaller hospitals",
+    "option4": "The disappearance of municipal services"
+  },
+
+  "Volcano3Quiz1": {
+    "title": "Why were assets such as mills, estates, or wine cellars confiscated in Bot during the first months of the war?",
+    "option1": "To reorganize life and ensure subsistence at a critical moment",
+    "option2": "To decorate public spaces",
+    "option3": "To punish the entire population of the village",
+    "option4": "To prepare them as military facilities"
+  },
+  "Volcano3Quiz2": {
+    "title": "What does the creation of workers’ collectives indicate?",
+    "option1": "That shared solutions were sought in order to survive",
+    "option2": "That the village was left without authorities",
+    "option3": "That everyone agreed with the decisions made",
+    "option4": "That the economy disappeared completely"
+  },
+  "Volcano3Quiz3": {
+    "title": "Why did the town council print municipal banknotes during the war?",
+    "option1": "To facilitate trade due to the lack of small change",
+    "option2": "To replace foreign currency",
+    "option3": "To pay soldiers",
+    "option4": "To control food prices"
+  },
+
+  "Volcano4Quiz1": {
+    "title": "Why did the cemetery of Bot gain such importance during the war?",
+    "option1": "Because it was in the rear and many fallen soldiers were buried there",
+    "option2": "Because it was the oldest in the region",
+    "option3": "Because it was far from the front",
+    "option4": "Because there was a permanent hospital there"
+  },
+  "Volcano4Quiz2": {
+    "title": "What does the way soldiers were initially buried indicate?",
+    "option1": "That there was little time and many deaths",
+    "option2": "That it was a solemn tribute",
+    "option3": "That they were all local residents",
+    "option4": "That the cemetery was abandoned"
+  },
+  "Volcano4Quiz3": {
+    "title": "Why did it become necessary to adapt an agricultural estate as a new military necropolis?",
+    "option1": "Because the municipal cemetery could no longer accommodate more burials",
+    "option2": "To separate civilians and soldiers",
+    "option3": "To avoid bombardments of the cemetery",
+    "option4": "To build a monument"
+  },
+
+  "Volcano5Quiz1": {
+    "title": "Why did the Francoist regime accelerate the extension of the Val de Zafán railway in 1938?",
+    "option1": "To facilitate military transport in the occupied areas",
+    "option2": "To improve domestic tourism",
+    "option3": "To replace other railway lines",
+    "option4": "To provide jobs for the local population"
+  },
+  "Volcano5Quiz2": {
+    "title": "Who were the Workers’ Battalions that worked on the railway line?",
+    "option1": "Republican prisoners forced to work",
+    "option2": "Specialized workers hired by the State",
+    "option3": "Civilian volunteers",
+    "option4": "Military engineers"
+  },
+  "Volcano5Quiz3": {
+    "title": "What happened to the railway route once the war ended?",
+    "option1": "It was completed using forced labor",
+    "option2": "It was permanently abandoned",
+    "option3": "It was converted into a road",
+    "option4": "It was rebuilt only with free workers"
+  },
+  "Mapp": {
+    "button1": "MAP",
+    "button2": "LIST",
+    "text1": "Municipality",
+    "text2": "Romanticism Interpretation Center",
+    "text3": "Blava Tower - Guinovart Space"
+  },
+  "QuizPage": {
+    "try_again": "Try Again",
+    "finding_1": "The train and the arrival of war",
+    "finding_2": "Bot, a medical capital in wartime",
+    "finding_3": "When the village changed overnight",
+    "finding_4": "A place full of silence and memory",
+    "finding_5": "When the railway was built with forced labor",
+    "description": "Back to exploring more POIs! Keep discovering and interacting with each point to unlock rewards, earn points, and level up. The more you explore, the more you progress.",
+    "button": "Continue the Game"
+  },
+  "intro": {
+    "title1": "This augmented reality experience requires access to your device’s camera and motion sensors.",
+    "text1": "Welcome to the game “Canyelles and the Story of the Meteorite.” Listen to Roc, a fragment of the meteorite that fell in Canyelles almost two hundred years ago.",
+    "title2": "This augmented reality experience requires access to your device’s camera and motion sensors.",
+    "text2": "Listen to Roc and find the meteorite pieces. Tap them to collect them.",
+    "title3": "This augmented reality experience requires access to your device’s camera and motion sensors.",
+    "text3": "Listen to Roc and throw the volcanic rocks into the volcanoes.",
+    "button1": "Skip Intro",
+    "button2": "Continue",
+    "button3": "AR Experience"
+  },
+  "CoinMap": {
+    "congratulation": "Congratulations!",
+    "text": "You have successfully reached your destination. You are now at the right distance to experience the augmented reality experience.",
+    "button": "Next"
+  },
+  "gameText": {
+    "place": "Place Avatar",
+    "audioPermission": "Audio permission required",
+    "cameraPermission": "Camera permission required",
+    "audioAllow": "Allow Audio",
+    "Cancel": "Cancel",
+    "enableRotation": "Enable Rotation",
+    "try_again": "Try Again"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "responsible": {
+        "title": "Data Controller",
+        "content": "In compliance with Regulation (EU) 2016/679 (GDPR) and Organic Law 3/2018 (LOPDGDD), you are informed that the personal data provided through the application will be processed under the responsibility of the following:",
+        "items": [
+          "Commercial Name: Som Experiències",
+          "Fiscal Name: Albert Mozó Fàbregas",
+          "Tax ID: 45790766C",
+          "Address: Rambla Lluís Companys, 2, 2n 5a, 08800 Vilanova i la Geltrú",
+          "Contact Name and ID: Albert Mozó Fàbregas – ID 45790766C",
+          "Phone: 685492584",
+          "Email: info@somexperiencies.cat"
+        ]
+      },
+      "dataCollected": {
+        "title": "Data Collected",
+        "content": "The application may collect the following personal data from users:",
+        "items": [
+          "Through registration with Google or Microsoft: name, surname, and email address.",
+          "Through a custom form: name, surname, email address, phone number, and place of origin.",
+          "Through device permissions: geolocation (to unlock game points) and camera access (for augmented reality features)."
+        ]
+      },
+      "purpose": {
+        "title": "Purpose of Processing",
+        "content": "The data is processed for the following purposes:",
+        "items": [
+          "To allow access and use of the application and its interactive content.",
+          "To ensure the activation of game points and personalize the experience.",
+          "To maintain security and improve the services offered.",
+          "To communicate news or information related to the application, with the user's prior consent."
+        ]
+      },
+      "legalBasis": {
+        "title": "Legal Basis",
+        "content": "The legal basis for processing is the user's consent, granted when registering and accepting this privacy policy."
+      },
+      "dataRetention": {
+        "title": "Data Retention",
+        "content": "The data will be kept only for as long as necessary for the provision of the service and, in any case, for the legally established periods. Geolocation data and camera images are not stored beyond temporary use on the device."
+      },
+      "dataSharing": {
+        "title": "Data Sharing with Third Parties",
+        "content": "Data will not be transferred to third parties except in cases of legal obligation or request by a competent authority."
+      },
+      "userRights": {
+        "title": "User Rights",
+        "content": "Users may exercise their rights of access, rectification, erasure, objection, restriction, and portability by contacting the data controller at info@somexperiencies.cat or by postal mail to the address indicated above."
+      },
+      "effect": {
+        "title": "Effect",
+        "content": "Use of the application implies express and full acceptance of this privacy policy. This policy is effective from the date of its publication and will remain in force until it is modified or updated in this same application."
+      }
+    }
+  }
+}

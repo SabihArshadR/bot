@@ -1,0 +1,463 @@
+{
+  "Login": {
+    "button1": "INICIAR SESIÓN",
+    "button2": "REGISTRARSE",
+    "enter_credentials": "Por favor, introduce correo electrónico y contraseña",
+    "email_not_verified": "Correo electrónico no verificado. Por favor, verifica tu correo primero.",
+    "login_success": "¡Inicio de sesión exitoso!",
+    "login_failed": "El inicio de sesión ha fallado. Nombre de usuario incorrecto",
+    "loading": "Iniciando sesión...",
+    "or": "O",
+    "continue_google": "Continuar con Google",
+    "continue_microsoft": "Continuar con Microsoft"
+  },
+  "Register": {
+    "field1": "Nombre de usuario",
+    "field2": "Apellidos",
+    "field3": "Correo electrónico",
+    "field4": "Contraseña",
+    "field5": "Número de teléfono móvil",
+    "field6": "Lugar de procedencia",
+    "check1": "Acepto recibir el boletín y promociones de Ajuntament de Canyelles",
+    "check21": "He leído y acepto la",
+    "check22": "Política de Privacidad",
+    "button1": "REGISTRARSE",
+    "processing": "Procesando",
+    "button2": "YA ESTOY REGISTRADO",
+    "enterPassword": "Por favor ingrese una nueva contraseña",
+    "enterEmail": "Por favor ingrese su correo electrónico",
+    "resetSuccess": "¡Contraseña restablecida con éxito!",
+    "resetFailed": "No se pudo restablecer la contraseña",
+    "somethingWrong": "Algo salió mal",
+    "resetting": "Restableciendo...",
+    "resetButton": "Restablecer contraseña",
+    "placeholder": "Ingrese nueva contraseña",
+    "sending": "Enviando...",
+    "sendLink": "Enviar enlace de restablecimiento",
+    "emailSent": "¡Correo de restablecimiento de contraseña enviado!",
+    "sendFailed": "No se pudo enviar el correo de restablecimiento",
+    "invalidEmail": "Por favor, introduce una dirección de correo válida.",
+    "invalidPhone": "El número de teléfono solo puede contener '+', números y espacios.",
+    "termsRequired": "Debes aceptar los Términos y Condiciones.",
+    "privacyRequired": "Debes aceptar la Política de privacidad.",
+    "registerSuccess": "Registrado correctamente. Por favor, inicia sesión para continuar.",
+    "updateSuccess": "Información actualizada correctamente.",
+    "updateError": "Error al actualizar la información.",
+    "generalError": "Algo salió mal.",
+    "enterAddress": "Por favor ingrese su dirección"
+  },
+  "Verify Email": {
+    "verify_email": "Verificar correo electrónico",
+    "resend_code": "Reenviar código",
+    "loading": "Verificando...",
+    "sending": "Enviando...",
+    "enter_full_code": "Por favor, introduce el código completo",
+    "email_verified": "¡Correo electrónico verificado con éxito!",
+    "already_verified": "Usuario ya verificado",
+    "verification_failed": "Verificación fallida. Código incorrecto",
+    "something_wrong": "🚨 Algo salió mal",
+    "resend_timer": "Reenvío disponible en {seconds}s",
+    "new_code_sent": "Nuevo código de verificación enviado a tu correo"
+  },
+  "Dashboard": {
+    "card1": "MAPA",
+    "card2": "PERFIL",
+    "card3": "COFRE",
+    "card4": "SABÍAS QUE",
+    "card5": "FAQ",
+    "card6": "RECOMENDAMOS",
+    "lang1": "Catalán",
+    "lang2": "Castellano",
+    "lang3": "Inglés",
+    "lang4": "Francés",
+    "complete": "¡Enhorabuena! Has completado la aventura 'Los Amigos del Acantilado Basáltico'. Si quieres repetirla, ve al perfil, donde encontrarás el botón para reiniciar.",
+    "keep_playing": "Continuar",
+    "read_more": "Más información",
+    "pic1": "Ayuntamiento de Bot",
+    "pic2": "Turismo Bot",
+    "pic3": "Espacios de la Batalla del Ebro",
+    "pic4": "Memorial Democrático",
+    "pic5": "Terra Enllà",
+    "pic6": "Marcados por el 38"
+  },
+  "Map": {
+    "first": "PRIMERA",
+    "second": "SEGUNDA",
+    "third": "TERCERA",
+    "fourth": "CUARTA",
+    "fifth": "QUINTA",
+    "sixth": "SEXTA",
+    "seventh": "SÉPTIMA",
+    "eighth": "OCTAVA",
+    "ninth": "NOVENA",
+    "title1": "PARADA",
+    "title2": "Los secretos de las vías romanas",
+    "first_title": "El tren y la llegada de la guerra",
+    "second_title": "Bot, capital sanitaria en tiempos de guerra",
+    "third_title": "Cuando el pueblo cambió de golpe",
+    "fourth_title": "Un lugar lleno de silencio y memoria",
+    "fifth_title": "Cuando el ferrocarril se construyó con trabajo forzado",
+    "button": "JUGAR"
+  },
+  "Progress": {
+    "title1": "Hola, ",
+    "title2": "NIVEL ",
+    "title3": "Fragmentos del meteorito",
+    "button1": "PROGRESO",
+    "title4": "Recompensas del Festival",
+    "title5": "Puntos",
+    "title6": "Completado",
+    "button2": "Mochila",
+    "button3": "Reanudar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "confirmMessage": "¿Estás seguro de que quieres reiniciar?",
+    "text1a": "La cesta está vacía y la danza ya no suena",
+    "text1b": "¡Recoge los alimentos para recuperar la danza!",
+    "text2a": "¡Has empezado muy bien!",
+    "text2b": "Has recogido",
+    "text2c": "1 alimento",
+    "text2d": "¡Continúa la aventura y consigue 4 alimentos más para recuperar la danza!",
+    "text3a": "¡Perfecto!",
+    "text3b": "Has recogido",
+    "text3c": "2 alimentos",
+    "text3d": "¡Continúa la aventura y consigue 3 alimentos más para recuperar la danza!",
+    "text4a": "¡Impresionante!",
+    "text4b": "Has recogido",
+    "text4c": "3 alimentos",
+    "text4d": "¡Continúa la aventura y consigue 2 alimentos más para recuperar la danza!",
+    "text5a": "¡Ya casi lo tenemos!",
+    "text5b": "Has recogido",
+    "text5c": "4 alimentos",
+    "text5d": "¡Continúa la aventura y consigue 1 alimento más para recuperar la danza!",
+    "text6a": "¡Genial!",
+    "text6b": "Has recogido los",
+    "text6c": "5 alimentos",
+    "text6d": "¡Por fin hemos recuperado la danza y el gigante ya puede volver a dormir!"
+  },
+  "Level": {
+    "title1": "Hola, ",
+    "title2": "NIVEL ",
+    "title3": "Fragmentos del meteorito",
+    "button": "NIVEL",
+    "row1": "NIVEL PLANETA",
+    "row2": "NIVEL SISTEMA SOLAR",
+    "row3": "NIVEL GALAXIA",
+    "rowtitle": "Gana 1000 puntos"
+  },
+  "StartQuiz": {
+    "title": "GRAN MAGMA",
+    "description": "Ahora ha llegado el momento de comprobar vuestra experiencia sobre el Imperio Romano contestando la siguiente pregunta.",
+    "button1": "EMPEZAR"
+  },
+  "Quiz": {
+    "title": "¿Cuál de estas frases NO es cierta?",
+    "option1": "Los romanos crearon largas vías pavimentadas",
+    "option2": "Los romanos construyeron acueductos",
+    "option3": "Los romanos crearon 2 cohetes para ir a la luna",
+    "option4": "Los romanos no construyeron acueductos"
+  },
+  "DidYouKnow": {
+    "title": "¿Sabías que?",
+    "description": "Cras eget metus vel risus molestie vehicula. Fusce faucibus nulla libero, ut varius velit cursus ac. Phasellus pellentesque tortor lacus, sit amet ullamcorper augue elementum vitae. Nullam varius luctus dolor in commodo. Donec ut augue vitae justo tristique consequat. Nam non efficitur magna, sit amet venenatis nisl.",
+    "button": "VAMOS"
+  },
+  "Classification": {
+    "title": "CLASIFICACIÓN",
+    "tablehead1": "1. Nombre",
+    "tablehead2": "2. Apellidos",
+    "tablehead3": "3. Puntos",
+    "row1data1": "Craig",
+    "row1data2": "Bloemsma",
+    "row1data3": "1000",
+    "row2data1": "Albert",
+    "row2data2": "Mozé Fàbregasx",
+    "row3data3": "654"
+  },
+  "FAQS": {
+    "title": "FAQ'S",
+    "button1": "AR FAQ",
+    "button2": "JUEGO FAQ",
+    "button3": "MAPA FAQ",
+    "ar": {
+      "q1": "¿Qué es la realidad aumentada (AR) y cómo la usamos aquí?",
+      "a1": "La realidad aumentada es una tecnología que permite ver elementos digitales —como personajes, objetos o escenas— superpuestos al entorno real a través de la cámara de tu móvil. En este juego, se usa para ver a Roc, recolectar fragmentos de meteorito y descubrir los hallazgos.",
+      "q2": "¿Necesito descargar alguna aplicación?",
+      "a2": "No. Esta es una aplicación web: solo necesitas acceder al enlace a través de tu navegador (Chrome, Safari...). No es necesario descargar nada.",
+      "q3": "¿Es mi teléfono compatible con RA?",
+      "a3": "Funciona con la mayoría de los dispositivos recientes que tengan cámara y un navegador actualizado. Debes permitir el acceso a la cámara. Si tienes problemas, prueba con otro navegador o dispositivo.",
+      "q4": "No veo nada cuando abro la cámara. ¿Qué puedo hacer?",
+      "a4": "Asegúrate de que:\n\n● Has llegado físicamente al punto correcto en el mapa (geolocalización).\n● Has otorgado acceso a la cámara.\n● Hay suficiente luz alrededor.\nSi aún no funciona, cierra y vuelve a abrir el navegador.",
+      "q5": "¿Se requiere conexión a internet para usar RA?",
+      "a5": "Sí. La RA se carga en el navegador, por lo que necesitas datos móviles o Wi-Fi durante la experiencia.",
+      "q6": "¿Es seguro usar RA mientras camino?",
+      "a6": "Sí, pero mantente atento a tu entorno mientras usas la cámara. No camines mirando tu teléfono y siempre presta atención a tu alrededor.",
+      "q7": "¿Puedo tomar fotos o videos con RA?",
+      "a7": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con Roc y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
+    },
+    "game": {
+      "q1": "¿Cuál es el objetivo del juego?",
+      "a1": "El objetivo es descubrir las seis piedras preciosas de Canyelles superando retos en realidad aumentada. A lo largo del recorrido deberás recolectar fragmentos de meteorito y conseguir los minerales únicos.",
+      "q2": "¿Qué diferencia hay entre un fragmento de meteorito y un hallazgo?",
+      "a2": "Los fragmentos de meteorito son elementos naturales que se deben recolectar mediante retos interactivos con AR. \nLos hallazgos son las piedras preciosas de Canyelles.",
+      "q3": "¿Cómo puedo conseguir fragmentos de meteorito y las piedras preciosas?",
+      "a3": "Debes llegar físicamente a los puntos geolocalizados que aparecen en el mapa. Allí, Roc te contará una historia y te propondrá un reto interactivo y una pregunta. Si lo superas, obtendrás fragmentos de meteorito y la piedra preciosa asociada a ese punto.",
+      "q4": "¿Qué pasa si no acierto un reto o una pregunta?",
+      "a4": "Los retos interactivos se superan recolectando un número determinado de fragmentos de meteorito con AR. El reto no termina hasta conseguir todos los fragmentos. Normalmente son entre seis y siete. Si no se acierta una pregunta, el sistema pide volver a intentarlo.",
+      "q5": "¿Es necesario registrarse para jugar?",
+      "a5": "Sí, el registro es obligatorio para participar en el juego, acceder a los puntos de realidad aumentada y desbloquear los fragmentos de meteorito y las piedras preciosas. Esto nos permite guardar tu progreso, ofrecerte una experiencia personalizada y garantizar el correcto funcionamiento del sistema. El registro es rápido y solo hay que hacerlo una vez.",
+      "q6": "¿Puedo jugar en grupo o con mi familia?",
+      "a6": "¡Sí! El juego está diseñado para jugarse en grupo: con amigos, familia o en la escuela. Solo necesitas un teléfono o tableta por equipo y el deseo de explorar juntos.",
+      "q7": "¿Cuánto dura el juego completo?",
+      "a7": "Depende de tu ritmo. La ruta completa suele durar entre 45 y 60 minutos, pero puedes hacerla seguida o dividirla en distintos momentos."
+    },
+    "map": {
+      "q1": "¿Cómo funciona el mapa del juego?",
+      "a1": "El mapa interactivo muestra puntos geolocalizados a lo largo de la ruta. El contenido de RA solo se desbloquea cuando llegas físicamente a un punto.",
+      "q2": "¿Es necesaria la geolocalización en mi teléfono?",
+      "a2": "Sí. Sin la geolocalización activada, no puedes jugar. El sistema necesita saber tu ubicación para verificar que has llegado a cada punto. Recomendamos activar la ubicación antes de comenzar.\n\nCómo activar la geolocalización:\n\n**En Android:**\n1. Abre la configuración de tu dispositivo.\n2. Ve a Ubicación.\n3. Activa la Ubicación.\n4. Asegúrate de que tu navegador tenga permisos de ubicación:\n - Configuración > Aplicaciones > [Nombre del navegador] > Permisos > Ubicación > Permitir siempre o Mientras se usa.\n\n**En iPhone:**\n1. Abre Configuración.\n2. Ve a Privacidad y Seguridad > Servicios de Ubicación.\n3. Activa los Servicios de Ubicación.\n4. Verifica la configuración de tu navegador (Safari o Chrome).\n5. Asegúrate de que la ubicación esté permitida durante el uso.",
+      "q3": "¿Qué pasa si el mapa no me detecta correctamente?",
+      "a3": "● Asegúrate de que tu ubicación esté activada (ver pasos anteriores).\n● Actualiza la página de tu navegador.",
+      "q4": "¿Se requiere conexión a internet para usar el mapa?",
+      "a4": "Sí. La aplicación web necesita una conexión activa para mostrar el mapa y verificar tu ubicación. Sin embargo, el uso de datos es muy bajo.",
+      "q5": "El mapa dice que no estoy en el lugar correcto, pero sí lo estoy. ¿Qué puedo hacer?",
+      "a5": "● Muévete ligeramente por la zona: a veces el GPS necesita unos segundos.\n● Asegúrate de no estar bajo una estructura o en interiores.\n● Verifica que tengas una buena señal de GPS o móvil.",
+      "q6": "¿Puedo hacer la ruta en cualquier orden?",
+      "a6": "No. La ruta es lineal. Debes seguir el orden establecido de los puntos, ya que cada desafío y hallazgo depende del punto anterior. El mapa solo mostrará el siguiente punto desbloqueado; no puedes avanzar sin completar el actual."
+    }
+  },
+  "Amics": {
+    "title": "Cofre",
+    "description": "Sed nec risus risus. Suspendisse lobortis risus eu velit gravida ornare at ornare ante. Nam malesuada consequat leo et facilisis. Nunc et quam euismod, auctor nulla porta, pretium lacus."
+  },
+  "Auth": {
+    "ForgotPassword": "¿Olvidaste tu contraseña?",
+    "NoAccount": "¿No tienes una cuenta?",
+    "CreateAccount": "Crear cuenta",
+    "HaveAccount": "¿Ya tienes una cuenta?",
+    "LoginAccount": "Iniciar sesión"
+  },
+  "Links": {
+    "GAME": "JUEGO",
+    "Historical_link": "ARCHIVO HISTÓRICO",
+    "Award_link": "PREMIOS",
+    "Profile_link": "PERFIL",
+    "Ranking_Link": "CLASIFICACIÓN",
+    "LOGOUT_link": "CERRAR SESIÓN"
+  },
+  "Head": {
+    "title1": "Menú",
+    "title2": "Acceder",
+    "title3": "Cerrar sesión",
+    "heading1": "CanYelles",
+    "heading2": "y La historia del meteorito"
+  },
+  "Volcano1Quiz1": {
+    "title": "¿Por qué el ferrocarril se convirtió en una pieza clave para Bot cuando el frente se estabilizó en el río Ebro?",
+    "option1": "Porque facilitaba el movimiento rápido de tropas y material en la retaguardia",
+    "option2": "Porque permitía evacuar a la población civil hacia la costa",
+    "option3": "Porque conectaba directamente con el puerto de los Alfaques",
+    "option4": "Porque servía como refugio antiaéreo para la población"
+  },
+  "Volcano1Quiz2": {
+    "title": "¿Quién ocupó el pueblo de Bot el 2 de abril de 1938?",
+    "option1": "Soldados italianos de la División Littorio",
+    "option2": "Tropas alemanas de la Legión Cóndor",
+    "option3": "Brigadas Internacionales",
+    "option4": "Tropas republicanas"
+  },
+  "Volcano1Quiz3": {
+    "title": "La decisión de los ingenieros de inutilizar un tramo de vía el 25 de julio de 1938 respondió principalmente a:",
+    "option1": "La necesidad de frenar el avance del Ejército del Ebro",
+    "option2": "Una orden política del gobierno local",
+    "option3": "Una acción improvisada sin valor estratégico",
+    "option4": "La falta de material para mantener la línea operativa"
+  },
+
+  "Volcano2Quiz1": {
+    "title": "¿Por qué Bot se convirtió rápidamente en un centro sanitario clave durante la batalla del Ebro?",
+    "option1": "Porque se encontraba justo detrás del frente y podía atender a heridos graves",
+    "option2": "Porque disponía de un gran hospital antes de la guerra",
+    "option3": "Porque estaba lejos del frente y no sufría bombardeos",
+    "option4": "Porque tenía una estación marítima cercana"
+  },
+  "Volcano2Quiz2": {
+    "title": "¿Qué función tenía el punto de socorro dentro de la organización sanitaria del pueblo?",
+    "option1": "Realizar las primeras curas y distribuir a los heridos a los hospitales",
+    "option2": "Alojar únicamente a los heridos leves",
+    "option3": "Servir como almacén de medicamentos",
+    "option4": "Centralizar las decisiones militares"
+  },
+  "Volcano2Quiz3": {
+    "title": "¿Qué elemento demuestra mejor la intensidad del trabajo sanitario a partir de septiembre de 1938?",
+    "option1": "La llegada constante de ambulancias a la plaza",
+    "option2": "La presencia de soldados alemanes en el pueblo",
+    "option3": "El cierre de los hospitales más pequeños",
+    "option4": "La desaparición de los servicios municipales"
+  },
+
+  "Volcano3Quiz1": {
+    "title": "¿Por qué se confiscaron bienes como molinos, fincas o bodegas en Bot durante los primeros meses de la guerra?",
+    "option1": "Para reorganizar la vida y garantizar la subsistencia en un momento crítico",
+    "option2": "Para decorar los espacios públicos",
+    "option3": "Para castigar a toda la población del pueblo",
+    "option4": "Para prepararlos como espacios militares"
+  },
+  "Volcano3Quiz2": {
+    "title": "¿Qué nos indica la creación de colectividades de trabajadores?",
+    "option1": "Que se buscaban soluciones compartidas para sobrevivir",
+    "option2": "Que el pueblo quedó sin autoridades",
+    "option3": "Que todo el mundo estaba de acuerdo con las decisiones tomadas",
+    "option4": "Que la economía desapareció completamente"
+  },
+  "Volcano3Quiz3": {
+    "title": "¿Por qué el Ayuntamiento imprimió billetes municipales durante la guerra?",
+    "option1": "Para facilitar el comercio ante la falta de moneda fraccionaria",
+    "option2": "Para sustituir la moneda extranjera",
+    "option3": "Para pagar a los soldados",
+    "option4": "Para controlar los precios de los alimentos"
+  },
+
+  "Volcano4Quiz1": {
+    "title": "¿Por qué el cementerio de Bot adquirió tanta importancia durante la guerra?",
+    "option1": "Porque estaba en la retaguardia y se enterraron muchos soldados muertos",
+    "option2": "Porque era el más antiguo de la comarca",
+    "option3": "Porque se encontraba lejos del frente",
+    "option4": "Porque había un hospital permanente"
+  },
+  "Volcano4Quiz2": {
+    "title": "¿Qué nos indica la manera en que se enterraban inicialmente los soldados?",
+    "option1": "Que había poco tiempo y muchos muertos",
+    "option2": "Que se trataba de un homenaje solemne",
+    "option3": "Que todos eran vecinos del pueblo",
+    "option4": "Que el cementerio estaba abandonado"
+  },
+  "Volcano4Quiz3": {
+    "title": "¿Por qué fue necesario habilitar una finca agrícola como nueva necrópolis militar?",
+    "option1": "Porque el cementerio municipal ya no podía acoger más enterramientos",
+    "option2": "Para separar a civiles y soldados",
+    "option3": "Para evitar bombardeos en el cementerio",
+    "option4": "Para construir un monumento"
+  },
+
+  "Volcano5Quiz1": {
+    "title": "¿Por qué el régimen franquista aceleró la prolongación del ferrocarril de la Val de Zafán en 1938?",
+    "option1": "Para facilitar el transporte militar en las zonas ocupadas",
+    "option2": "Para mejorar el turismo interior",
+    "option3": "Para sustituir otras líneas ferroviarias",
+    "option4": "Para dar trabajo a la población local"
+  },
+  "Volcano5Quiz2": {
+    "title": "¿Quiénes eran los Batallones de Trabajadores que trabajaron en la línea?",
+    "option1": "Prisioneros republicanos obligados a trabajar",
+    "option2": "Obreros especializados contratados por el Estado",
+    "option3": "Voluntarios civiles",
+    "option4": "Ingenieros militares"
+  },
+  "Volcano5Quiz3": {
+    "title": "¿Qué ocurrió con el trazado del ferrocarril una vez finalizada la guerra?",
+    "option1": "Se completó con mano de obra forzada",
+    "option2": "Se abandonó definitivamente",
+    "option3": "Se reconvirtió en carretera",
+    "option4": "Se reconstruyó únicamente con trabajadores libres"
+  },
+  "Mapp": {
+    "button1": "MAPA",
+    "button2": "LISTADO",
+    "text1": "Municipio",
+    "text2": "Centro de Interpretación del Romanticismo",
+    "text3": "Torre Blava - Espacio Guinovart"
+  },
+  "QuizPage": {
+    "try_again": "Intentar otra vez",
+    "finding_1": "El tren y la llegada de la guerra",
+    "finding_2": "Bot, capital sanitaria en tiempos de guerra",
+    "finding_3": "Cuando el pueblo cambió de golpe",
+    "finding_4": "Un lugar lleno de silencio y memoria",
+    "finding_5": "Cuando el ferrocarril se construyó con trabajo forzado",
+    "description": "¡Vuelve a explorar más PDI! Sigue descubriendo e interactuando con cada punto para desbloquear recompensas, ganar puntos y subir de nivel. Cuanto más explores, más progresarás.",
+    "button": "Continuar el juego"
+  },
+  "intro": {
+    "title1": "Esta experiencia de realidad aumentada requiere acceso a la cámara y a los sensores de movimiento de tu dispositivo.",
+    "text1": "Bienvenidos al juego “Canyelles y la historia del meteorito”. Escucha a Roc, un fragmento del meteorito que cayó en Canyelles hace casi doscientos años.",
+    "title2": "Esta experiencia de realidad aumentada requiere acceso a la cámara y a los sensores de movimiento de tu dispositivo.",
+    "text2": "Escucha a Roc y encuentra los fragmentos del meteorito. Tócalos para recogerlos.",
+    "title3": "Esta experiencia de realidad aumentada requiere acceso a la cámara y a los sensores de movimiento de tu dispositivo.",
+    "text3": "Escucha a Roc y lanza las rocas volcánicas dentro de los volcanes.",
+    "button1": "Saltar Introducción",
+    "button2": "Continuar",
+    "button3": "Experiencia de RA"
+  },
+  "CoinMap": {
+    "congratulation": "¡Enhorabuena!",
+    "text": "Has llegado con éxito a tu destino. Ahora estás a la distancia adecuada para experimentar la experiencia de realidad aumentada.",
+    "button": "Siguiente"
+  },
+  "gameText": {
+    "place": "Colocar Avatar",
+    "audioPermission": "Permiso de audio requerido",
+    "cameraPermission": "Permiso de cámara requerido",
+    "audioAllow": "Permitir audio",
+    "Cancel": "Cancelar",
+    "enableRotation": "Habilitar rotación",
+    "try_again": "Intentar de nuevo"
+  },
+  "privacyPolicy": {
+    "title": "Política de Privacidad",
+    "sections": {
+      "responsible": {
+        "title": "Responsable del tratamiento",
+        "content": "En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), se informa que los datos personales facilitados a través de la aplicación serán tratados bajo la responsabilidad de la siguiente entidad:",
+        "items": [
+          "Denominación comercial: Som Experiències",
+          "Denominación fiscal: Albert Mozó Fàbregas",
+          "CIF: 45790766C",
+          "Dirección: Rambla Lluís Companys, 2, 2n 5a, 08800 Vilanova i la Geltrú",
+          "Nombre y NIF de contacto: Albert Mozó Fàbregas – NIF 45790766C",
+          "Teléfono: 685492584",
+          "Correo electrónico: info@somexperiencies.cat"
+        ]
+      },
+      "dataCollected": {
+        "title": "Datos recogidos",
+        "content": "La aplicación puede recoger los siguientes datos personales de los usuarios:",
+        "items": [
+          "Mediante registro con Google o Microsoft: nombre, apellidos y correo electrónico.",
+          "Mediante formulario personalizado: nombre, apellidos, correo electrónico, teléfono y lugar de procedencia.",
+          "Mediante permisos del dispositivo: geolocalización (para desbloquear puntos de juego) y acceso a la cámara (para funcionalidades de realidad aumentada)."
+        ]
+      },
+      "purpose": {
+        "title": "Finalidad del tratamiento",
+        "content": "Los datos se tratan con las finalidades siguientes:",
+        "items": [
+          "Permitir el acceso y uso de la aplicación y de sus contenidos interactivos.",
+          "Garantizar la activación de los puntos de juego y la personalización de la experiencia.",
+          "Mantener la seguridad y mejorar los servicios ofrecidos.",
+          "Comunicar novedades o información relacionada con la aplicación, con consentimiento previo del usuario."
+        ]
+      },
+      "legalBasis": {
+        "title": "Base legal",
+        "content": "La base jurídica del tratamiento es el consentimiento del usuario, otorgado al registrarse y aceptar esta política de privacidad."
+      },
+      "dataRetention": {
+        "title": "Conservación de datos",
+        "content": "Los datos se conservarán únicamente mientras sea necesario para la prestación del servicio y, en todo caso, durante los plazos legalmente establecidos. No se guardan datos de geolocalización ni imágenes de la cámara más allá del uso temporal en el dispositivo."
+      },
+      "dataSharing": {
+        "title": "Comunicación de datos a terceros",
+        "content": "Los datos no serán cedidos a terceros excepto en casos de obligación legal o requerimiento por autoridad competente."
+      },
+      "userRights": {
+        "title": "Derechos de los usuarios",
+        "content": "Los usuarios pueden ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad dirigiéndose al responsable a través de info@somexperiencies.cat o por correo postal a la dirección indicada anteriormente."
+      },
+      "effect": {
+        "title": "Efecto",
+        "content": "El uso de la aplicación implica la aceptación expresa y plena de la presente política de privacidad. Esta política entra en vigor a partir de su publicación y estará vigente hasta que sea modificada o actualizada en esta misma aplicación."
+      }
+    }
+  }
+}
