@@ -387,7 +387,10 @@
     "text3": "Escucha a Roc y lanza las rocas volcánicas dentro de los volcanes.",
     "button1": "Saltar Introducción",
     "button2": "Continuar",
-    "button3": "Experiencia de RA"
+    "button3": "Experiencia de RA",
+    "text": "Soy Miula, el búho de la memoria, y desde hace mucho tiempo sobrevuelo y guardo las historias que se esconden en nuestra costa. Hace muchos años, durante la Guerra Civil española, en la costa de Sitges, Vilanova i la Geltrú, Cubelles, Cunit, Calafell y El Vendrell, se construyeron búnkeres, trincheras y fortines para proteger los pueblos de un posible ataque desde el mar. Hoy, estos lugares nos ayudan a conocer la historia y cómo era la vida cotidiana de aquella época, marcada por el miedo, la espera, la organización colectiva y los silencios que muchas personas tuvieron que mantener para poder sobrevivir. Si me acompañáis, os explicaré las historias de cada espacio y os ayudaré a descubrir por qué son tan importantes para nuestra memoria colectiva.Vuestra misión será ayudarme a desactivar antiguos artefactos explosivos mediante realidad aumentada. Cuando lo consigáis, os haré una pregunta para comprobar si habéis estado atentos y atentas a mis explicaciones.​ Si acertáis, recibiréis un objeto coleccionable en 3D relacionado con el lugar que acabáis de descubrir. ¿Estáis preparados y preparadas?​ Os espero en los diferentes puntos de la ruta. ¡Hasta pronto!",
+    "button": "CONTINUAR",
+    "ar": "Verlo en AR"
   },
   "CoinMap": {
     "congratulation": "¡Enhorabuena!",

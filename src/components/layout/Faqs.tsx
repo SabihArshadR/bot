@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import checkplus from "@/assets/plus.svg";
 import checkminus from "@/assets/minus.svg";
 import CustomButton from "../ui/Button";
@@ -23,6 +23,15 @@ const Faqs = () => {
       const answer = t(`${activeTab}.a${num}`);
       return { id: `q${num}`, question, answer };
     });
+    
+    const playButtonSound = useCallback(() => {
+      try {
+        const audio = new Audio('/button-sounds/10.mp3');
+        audio.play().catch(error => console.error('Error playing sound:', error));
+      } catch (error) {
+        console.error('Error initializing audio:', error);
+      }
+    }, []);
 
   const toggleQuestion = (id: string) => {
     setOpenQuestions((prev) => ({
@@ -30,6 +39,11 @@ const Faqs = () => {
       [id]: !prev[id],
     }));
   };
+
+  const handleTabChange = useCallback((tab: string) => {
+    playButtonSound();
+    setActiveTab(tab);
+  }, [playButtonSound]);
 
   useEffect(() => {
     const savedTab = localStorage.getItem("faqsActiveTab");
@@ -39,6 +53,7 @@ const Faqs = () => {
   useEffect(() => {
     localStorage.setItem("faqsActiveTab", activeTab);
   }, [activeTab]);
+
 
   return (
     <div className="flex flex-col justify-center items-center pb-[51px] bg-white">
@@ -52,7 +67,7 @@ const Faqs = () => {
           className={`rounded-none font-extrabold ${
             activeTab === "ar" ? "bg-green" : "bg-brown"
           }`}
-          onClick={() => setActiveTab("ar")}
+          onClick={() => handleTabChange("ar")}
         >
           {t("button1")}
         </CustomButton>
@@ -60,7 +75,7 @@ const Faqs = () => {
           className={`rounded-none font-extrabold ${
             activeTab === "game" ? "bg-green" : "bg-brown"
           }`}
-          onClick={() => setActiveTab("game")}
+          onClick={() => handleTabChange("game")}
         >
           {t("button2")}
         </CustomButton>
@@ -68,7 +83,7 @@ const Faqs = () => {
           className={`rounded-none font-extrabold ${
             activeTab === "map" ? "bg-green" : "bg-brown"
           }`}
-          onClick={() => setActiveTab("map")}
+          onClick={() => handleTabChange("map")}
         >
           {t("button3")}
         </CustomButton>

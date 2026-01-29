@@ -19,6 +19,7 @@ import api from "@/lib/axios";
 import { useUser } from "@/context/UserContext";
 import CompletePopup from "./CompletePopup";
 import Notification from "@/assets/notification.png";
+import { useCallback } from "react";
 
 const Dashboard = () => {
   const { user, refreshUser, loading: userLoading } = useUser();
@@ -44,6 +45,17 @@ const Dashboard = () => {
       return () => clearTimeout(timer);
     } else {
       setLoading(false);
+    }
+  }, []);
+
+  const playCardSound = useCallback(() => {
+    try {
+      const audio = new Audio("/button-sounds/4.mp3");
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
+    } catch (error) {
+      console.error("Error initializing sound:", error);
     }
   }, []);
 
@@ -102,6 +114,7 @@ const Dashboard = () => {
   };
 
   const handleMapClick = () => {
+    playCardSound();
     if (user) {
       localStorage.setItem("lastSeenMapPOIs", user.POIsCompleted.toString());
       setShowMapNotification(false);
@@ -115,6 +128,7 @@ const Dashboard = () => {
   };
 
   const handleAmicsClick = () => {
+    playCardSound();
     if (user) {
       localStorage.setItem("lastSeenAmicsPOIs", user.POIsCompleted.toString());
       setShowAmicsNotification(false);
@@ -173,6 +187,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
+              playCardSound();
               router.push("/progres");
             }}
           >
@@ -207,6 +222,7 @@ const Dashboard = () => {
         <div className="flex justify-between mt-[25px] px-6 gap-4 font-karla">
           <Card
             onClick={() => {
+              playCardSound();
               setShowMorePopup(true);
             }}
           >
@@ -221,6 +237,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
+              playCardSound();
               router.push("/faqs");
             }}
           >

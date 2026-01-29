@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
 import Map from "@/assets/map.svg";
 import CustomButton from "../ui/Button";
 import { useTranslations } from "next-intl";
@@ -20,12 +20,13 @@ const stopTitle = [
   "fifth_title",
 ];
 
+
 const Maps = () => {
   const { user } = useUser();
   const t = useTranslations("Map");
   const router = useRouter();
   const { status } = useSession();
-
+  
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
@@ -39,8 +40,19 @@ const Maps = () => {
   if (status === "unauthenticated") {
     return null;
   }
-
+  
   if (!user) return <Loading />;
+  
+  const playButtonSound = useCallback(() => {
+      try {
+        const audio = new Audio("/button-sounds/3.mp3");
+        audio
+          .play()
+          .catch((error) => console.error("Error playing sound:", error));
+      } catch (error) {
+        console.error("Error initializing sound:", error);
+      }
+    }, []);
 
   const destination = stop[user?.POIsCompleted];
   const destinationTitle = stopTitle[user?.POIsCompleted];
@@ -59,6 +71,7 @@ const Maps = () => {
       <div className="flex flex-col justify-center items-center mt-[14vh]">
         <CustomButton
           onClick={() => {
+            playButtonSound();
             router.push("/mapp");
           }}
         >

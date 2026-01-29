@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Logo from "@/assets/logo_EACB.png";
-import React from "react";
+import React, { useCallback } from "react";
 import CustomButton from "../ui/Button";
 import CustomInput from "../ui/Input";
 import { useRouter } from "next/navigation";
@@ -78,35 +78,47 @@ const ManualLogin = () => {
   //   }
   // };
 
-  const handleLogin = async () => {
-  if (!username) {
-    toast.error(t("username_required"));
-    return;
-  }
-
-  try {
-    setLoading(true);
-    
-    // Sign in using NextAuth's signIn with credentials
-    const result = await signIn("credentials", {
-      redirect: false,
-      username,
-      callbackUrl: "/"
-    });
-
-    if (result?.error) {
-      toast.error(t("login_failed"));
-    } else {
-      await refreshUser();
-      toast.success(t("login_success"));
-      router.push("/");
+  const playButtonSound = useCallback(() => {
+    try {
+      const audio = new Audio("/button-sounds/3.mp3");
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
+    } catch (error) {
+      console.error("Error initializing sound:", error);
     }
-  } catch (err: any) {
-    toast.error(err.response?.data?.error || t("something_wrong"));
-  } finally {
-    setLoading(false);
-  }
-};
+  }, []);
+
+  const handleLogin = async () => {
+    playButtonSound();
+    if (!username) {
+      toast.error(t("username_required"));
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      // Sign in using NextAuth's signIn with credentials
+      const result = await signIn("credentials", {
+        redirect: false,
+        username,
+        callbackUrl: "/",
+      });
+
+      if (result?.error) {
+        toast.error(t("login_failed"));
+      } else {
+        await refreshUser();
+        toast.success(t("login_success"));
+        router.push("/dashboard");
+      }
+    } catch (err: any) {
+      toast.error(err.response?.data?.error || t("something_wrong"));
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center py-5 px-4 h-[80vh] bg-white">
@@ -120,7 +132,6 @@ const ManualLogin = () => {
               // placeholder={t1("field3")}
             />
           </div>
-
 
           {/* <div>
             <h1 className="mb-2 text-green">{t1("field4")}*</h1>
@@ -151,9 +162,12 @@ const ManualLogin = () => {
           </CustomButton>
 
           <div className="mt-3">
-            <span>{t2("NoAccount")}  <a href="/register" className=" !pt-6 mt-6 font-bold">
-              {t2("CreateAccount")}
-            </a></span>
+            <span>
+              {t2("NoAccount")}{" "}
+              <a href="/register" className=" !pt-6 mt-6 font-bold">
+                {t2("CreateAccount")}
+              </a>
+            </span>
           </div>
           <div className="flex items-center ">
             <div className="flex-1 border-t border-black"></div>
@@ -166,19 +180,23 @@ const ManualLogin = () => {
           </div>
           <CustomButton
             onClick={() => {
-              signIn("google", { callbackUrl: "/" });
+              playButtonSound();
+              signIn("google", { callbackUrl: "/dashboard" });
             }}
             className="flex w-full items-center justify-center gap-2 mt-[16px]"
           >
             <FcGoogle size={20} /> {t("continue_google")}
           </CustomButton>
           <CustomButton
-            onClick={() => signIn("azure-ad", { callbackUrl: "/" })}
+            onClick={() => {
+              playButtonSound();
+
+              signIn("azure-ad", { callbackUrl: "/dashboard" });
+            }}
             className="flex w-full items-center justify-center gap-2 mt-[12px]"
           >
             <FaMicrosoft size={20} /> {t("continue_microsoft")}
           </CustomButton>
-
         </div>
       </div>
     </div>

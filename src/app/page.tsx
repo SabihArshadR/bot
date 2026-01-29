@@ -1,11 +1,13 @@
+import BotIntroduction from "@/components/layout/BotIntroduction";
 import Dashboard from "@/components/layout/Dashboard";
 import DashboardWrapper from "@/layouts/DashboardWrapper";
 export default function Home() {
   return (
    <>
-    <DashboardWrapper>
-      <Dashboard />
-    </DashboardWrapper>
+    {/* <DashboardWrapper> */}
+      {/* <Dashboard /> */}
+      <BotIntroduction />
+    {/* </DashboardWrapper> */}
    </>
   );
 }

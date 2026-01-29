@@ -74,7 +74,7 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: point; color: #ffffff; intensity: 10.5; distance: 5; decay: 2"
+        light="type: point; color: #ffffff; intensity: 0; distance: 5; decay: 2"
         position="0 1 0"
       />
       <AEntity
@@ -426,7 +426,7 @@ const Page = ({
         vr-mode-ui="enabled: false"
         embedded
         arjs="sourceType: webcam; videoTexture: true; facingMode: environment; debugUIEnabled: false"
-        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; colorManagement: true; toneMapping: Linear;"
+        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; " // colorManagement: true; toneMapping: Linear;
         style={{
           position: "fixed",
           top: 0,
@@ -437,8 +437,8 @@ const Page = ({
       >
         <AEntity light="type: ambient; color: #ffffff; intensity: 1" />
         <AEntity
-          light="type: directional; color: #ffffff; intensity: 1"
-          position="0 0 5"
+          light="type: directional; color: #ffffff; intensity: 1.5"
+          position="1 1 1"
         />
 
         <ACamera position="0 0 0" look-controls="touchEnabled: false">

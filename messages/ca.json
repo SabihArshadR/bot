@@ -63,7 +63,7 @@
     "card1": "MAPA",
     "card2": "PERFIL",
     "card3": "BAÜL",
-    "card4": "SABER-NEMÉS",
+    "card4": "SABER-NE MÉS",
     "card5": "FAQ",
     "card6": "RECOMANEM",
     "lang1": "Català",
@@ -387,7 +387,10 @@
     "text3": "Escolta en Roc i llença les roques volcàniques dins dels volcans.",
     "button1": "Omet la introducció",
     "button2": "Continua",
-    "button3": "Experiència AR"
+    "button3": "Experiència AR",
+    "text": "Soc la Miula, el mussol de la memòria, i des de fa molt de temps sobrevolo i guardo les històries que s’amaguen a la nostra costa. Fa molts anys, durant la Guerra Civil espanyola, a la costa de Sitges, Vilanova i la Geltrú, Cubelles, Cunit, Calafell i El Vendrell, es van construir búnquers, trinxeres i fortins per protegir els pobles d’un possible atac des del mar. Avui, aquests llocs ens ajuden a conèixer la història i com era la vida quotidiana d’aquella època, marcada per la por, l’espera, l’organització col·lectiva i pels silencis que moltes persones van haver de mantenir per poder sobreviure. Si m’acompanyeu, us explicaré les històries de cada espai i us ajudaré a descobrir per què són tan importants per a la nostra memòria col·lectiva. La vostra missió serà ajudar-me a desactivar antics artefactes explosius amb realitat augmentada. Quan ho aconseguiu, us faré una pregunta per comprovar si heu estat atents i atentes a les meves explicacions. Si l’encerteu, rebreu un objecte col·leccionable en 3D relacionat amb el lloc que acabeu de descobrir! Esteu preparats i preparades? Us espero als diferents punts de la ruta. Fins aviat!",
+    "button": "CONTINUAR",
+    "ar": "Veure-ho en AR"
   },
   "CoinMap": {
     "congratulation": "Enhorabona!",
