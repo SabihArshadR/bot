@@ -181,7 +181,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
   useEffect(() => {
     if (userLocation && destination) {
       const dist = haversineDistance(userLocation, destination);
-      setShowEnterAR(dist <= 15000);
+      setShowEnterAR(dist <= 0.005);
     }
   }, [userLocation, destination]);
 
