@@ -204,6 +204,7 @@ const Page = ({
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
+      audioRef.current.src = '';
     }
     isPlayingRef.current = false;
     setIsPlayingState(false);
@@ -296,6 +297,31 @@ const Page = ({
     gestureState.current.start = false;
     gestureState.current.mode = null;
   };
+
+  // Cleanup function to stop audio and clean up resources
+  useEffect(() => {
+    return () => {
+      // Stop and clean up audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        audioRef.current.src = '';
+        audioRef.current = null;
+      }
+      
+      // Clean up device orientation listener
+      if (orientationHandlerRef.current) {
+        window.removeEventListener(
+          'deviceorientation',
+          orientationHandlerRef.current
+        );
+      }
+      
+      // Reset animation state
+      isPlayingRef.current = false;
+      setIsPlayingState(false);
+    };
+  }, []);
 
   useEffect(() => {
     if (!permissionGranted) return;
