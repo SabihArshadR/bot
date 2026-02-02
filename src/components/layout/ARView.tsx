@@ -463,7 +463,7 @@ const Page = ({
           height: "100%",
         }}
       >
-        <AEntity light="type: ambient; color: #ffffff; intensity: 1" />
+        <AEntity light="type: ambient; color: #ffffff; intensity: 1.5" />
         <AEntity
           light="type: directional; color: #ffffff; intensity: 1.5"
           position="1 1 1"
