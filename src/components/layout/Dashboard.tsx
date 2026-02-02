@@ -247,9 +247,10 @@ const Dashboard = () => {
             </h1>
           </Card>
           <Card
-            // onClick={() => {
-            //   window.open("https://www.canyelles.cat", "_blank");
-            // }}
+            onClick={() => {
+              // window.open("https://www.canyelles.cat", "_blank");
+               window.open("/Recomanem/Recomanem.pdf", "_blank");
+            }}
           >
             <Image
               src={Card6}
