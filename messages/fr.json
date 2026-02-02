@@ -80,6 +80,15 @@
     "pic5": "Terra Enllà",
     "pic6": "Marqués par 38"
   },
+  "Link": {
+    "link1": "https://bot.altanet.org/",
+    "link2": "https://turismebot.cat/",
+    "link3": "https://batallaebre.org/ ",
+    "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
+    "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
+    "link6": "https://marcatspel38.com/ ",
+    "title": "Més informació"
+  },
   "Map": {
     "first": "PREMIER",
     "second": "DEUXIÈME",
@@ -390,7 +399,9 @@
     "button3": "Expérience AR",
     "text": "Je suis la Miula, la chouette de la mémoire, et depuis très longtemps je survole notre côte en conservant les histoires qui s’y cachent. Il y a de nombreuses années, pendant la guerre civile espagnole, sur la côte de Sitges, Vilanova i la Geltrú, Cubelles, Cunit, Calafell et El Vendrell, des bunkers, des tranchées et des fortifications ont été construits pour protéger les villages d’une possible attaque venant de la mer. Aujourd’hui, ces lieux nous aident à comprendre l’histoire et la vie quotidienne de cette époque, marquée par la peur, l’attente, l’organisation collective et les silences que beaucoup de personnes ont dû garder pour pouvoir survivre. Si vous m’accompagnez, je vous raconterai les histoires de chaque site et je vous aiderai à découvrir pourquoi ils sont si importants pour notre mémoire collective. Votre mission sera de m’aider à désactiver d’anciens engins explosifs grâce à la réalité augmentée. Une fois la mission accomplie, je vous poserai une question pour vérifier si vous avez bien été attentifs à mes explications.​ Si vous donnez la bonne réponse, vous recevrez un objet à collectionner en 3D, lié au lieu que vous venez de découvrir. Êtes-vous prêts ?​ Je vous attends aux différents points du parcours. À très bientôt !",
     "button": "CONTINUER",
-    "ar": "Le voir en RA"
+    "ar": "Le voir en RA",
+    "sub1": "Cacher les sous-titres",
+    "sub2": "Afficher les sous-titres"
   },
   "CoinMap": {
     "congratulation": "Félicitations !",

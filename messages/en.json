@@ -80,6 +80,15 @@
     "pic5": "Terra Enllà",
     "pic6": "Marked by ’38"
   },
+  "Link": {
+    "link1": "https://bot.altanet.org/",
+    "link2": "https://turismebot.cat/",
+    "link3": "https://batallaebre.org/ ",
+    "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
+    "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
+    "link6": "https://marcatspel38.com/ ",
+    "title": "Més informació"
+  },
   "Map": {
     "first": "FIRST",
     "second": "SECOND",
@@ -390,7 +399,9 @@
     "button3": "AR Experience",
     "text": "I’m Miula, the owl of memory, and for a long time I have been flying over our coastline, keeping the stories hidden within it. Many years ago, during the Spanish Civil War, along the coast of Sitges, Vilanova i la Geltrú, Cubelles, Cunit, Calafell and El Vendrell, bunkers, trenches and fortifications were built to protect the towns from a possible attack from the sea. Today, these places help us understand history and what everyday life was like at that time, shaped by fear, waiting, collective organisation and the silences that many people had to keep in order to survive. If you join me, I will tell you the stories of each place and help you discover why they are so important to our collective memory. Your mission will be to help me deactivate old explosive devices using augmented reality. Once you succeed, I will ask you a question to check whether you have been paying attention to my explanations.​ If you answer correctly, you will receive a 3D collectible object related to the place you have just discovered. Are you ready?​ I’ll be waiting for you at the different points along the route. See you soon!",
     "button": "CONTINUE",
-    "ar": "View it in AR"
+    "ar": "View it in AR",
+    "sub1": "Hide subtitles",
+    "sub2": "Show subtitles"
   },
   "CoinMap": {
     "congratulation": "Congratulations!",

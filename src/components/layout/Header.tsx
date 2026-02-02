@@ -56,7 +56,7 @@ const Header = () => {
       <div className="mt-4 w-[70px]">
         {/* <Menu /> */}
         <Image src={arrow} alt="arrow" onClick={handleBackClick} className="ml-2 cursor-pointer" />
-        <h1 className="text-white text-base font-medium">Tornor</h1>
+        <h1 className="text-white text-base font-medium">Tornar</h1>
       </div>
 
       <div>

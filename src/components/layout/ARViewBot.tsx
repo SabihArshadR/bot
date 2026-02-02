@@ -11,6 +11,61 @@ const AEntity = (props: any) => React.createElement("a-entity", props);
 const ACircle = (props: any) => React.createElement("a-circle", props);
 const ARing = (props: any) => React.createElement("a-ring", props);
 
+const subtitle = [
+  {
+    time: 0,
+    text: "Hola a tothom. Soc el gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim,",
+  },
+  {
+    time: 6,
+    text: "on sempre m’arriba l’eco del poble quan és festa. Cada any, la Dansada m’acompanya inclús quan dormo.",
+  },
+  {
+    time: 12,
+    text: "Però avui… no ha sonat res. Cap gralla, cap timbal, cap ball. El silenci m’ha despertat de cop: un silenci estrany, pesant, com si el poble s’hagués apagat.",
+  },
+  {
+    time: 22,
+    text: "I amb aquest silenci he notat la fam i la foscor que planen pels carrers.",
+  },
+  {
+    time: 27,
+    text: "Per això he baixat al poble a saber què està passant, perquè si la Dansada no torna a sonar, jo no puc tornar a descansar.",
+  },
+  {
+    time: 34,
+    text: "I aquí és on entreu vosaltres.",
+  },
+  {
+    time: 36,
+    text: "A cada indret de la ruta descobrireu un fragment d’aquesta història. Per avançar i ajudar-me a recuperar la Dansada,",
+  },
+  {
+    time: 41,
+    text: "haureu de recollir aliments amb realitat augmentada: pa, oli, ametlles, raïm i salsitxes.",
+  },
+  {
+    time: 49,
+    text: "Són més que menjar: simbolitzen l’esforç, la solidaritat i la supervivència de la gent d’aquells anys.",
+  },
+  {
+    time: 55,
+    text: "A més, a cada parada haureu de respondre una pregunta. Si l’encerteu, guanyareu els instruments de la Dansada i elements propis d’aquesta tradició.",
+  },
+  {
+    time: 65,
+    text: "Quan hàgiu recuperat tots els elements, jo podré tornar a dormir… i la música, l’esperança i l’alegria tornaran a omplir els carrers del poble.",
+  },
+  {
+    time: 72,
+    text: "Us espero al primer punt de la ruta. Trobareu el mapa a la pàgina principal del joc.",
+  },
+  {
+    time: 77,
+    text: "Fins a la pròxima!",
+  },
+];
+
 const Marker = React.forwardRef((_, ref: any) => (
   <AEntity ref={ref} position="0 -0.9 -2">
     <ARing
@@ -101,7 +156,11 @@ const Page = ({
 }: any) => {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
+  const [showSubtitles, setShowSubtitles] = useState(true);
+  const [activeSubtitle, setActiveSubtitle] = useState("");
+  const [showSubtitleButton, setShowSubtitleButton] = useState(false);
   const t = useTranslations("gameText");
+  const t2 = useTranslations("intro");
 
   const [avatarPos, setAvatarPos] = useState<{
     x: number;
@@ -182,14 +241,48 @@ const Page = ({
     /iPad|iPhone|iPod/.test(navigator.userAgent) &&
     !(window as any).MSStream;
 
+  const updateSubtitle = (currentTime: number) => {
+    if (!showSubtitles) {
+      setActiveSubtitle("");
+      return;
+    }
+
+    // Find the last subtitle that should be shown at the current time
+    const currentSubtitle = [...subtitle]
+      .reverse()
+      .find((s) => currentTime >= s.time);
+    setActiveSubtitle(currentSubtitle?.text || "");
+  };
+
+  const toggleSubtitles = () => {
+    setShowSubtitles(!showSubtitles);
+    if (!showSubtitles && audioRef.current) {
+      updateSubtitle(audioRef.current.currentTime);
+    } else {
+      setActiveSubtitle("");
+    }
+  };
+
   const startAnimationAndAudio = async () => {
     try {
       if (!audioRef.current) {
         audioRef.current = new Audio(audioUrl);
         audioRef.current.preload = "auto";
+        audioRef.current.ontimeupdate = () => {
+          if (audioRef.current) {
+            updateSubtitle(audioRef.current.currentTime);
+          }
+        };
+        audioRef.current.onplay = () => {
+          setShowSubtitleButton(true);
+          if (showSubtitles) {
+            updateSubtitle(audioRef.current?.currentTime || 0);
+          }
+        };
         audioRef.current.onended = () => {
           stopAnimationAndAudio();
           setAudioCompleted(true);
+          setActiveSubtitle("");
           setTimeout(() => handleBackFromAR(), 100);
         };
       }
@@ -210,6 +303,8 @@ const Page = ({
     }
     isPlayingRef.current = false;
     setIsPlayingState(false);
+    setActiveSubtitle("");
+    setShowSubtitleButton(false);
   };
 
   const handleBackFromAR = () => {
@@ -536,6 +631,23 @@ const Page = ({
             >
               {t("Cancel")}
             </CustomButton>
+          </div>
+        </div>
+      )}
+      {showSubtitleButton && (
+        <div className="fixed top-6 right-4 z-[2147483647]">
+          <button
+            onClick={toggleSubtitles}
+            className="px-3 py-2 text-[11px] bg-black/70 text-white rounded-lg transition-all duration-400 ease-in-out hover:brightness-150 active:brightness-150 active:-translate-y-[5px]"
+          >
+            {t2(showSubtitles ? "sub1" : "sub2")}
+          </button>
+        </div>
+      )}
+      {showSubtitles && activeSubtitle && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%]">
+          <div className="bg-black/70 text-white text-center px-4 py-5 rounded-lg text-[13px] leading-relaxed shadow-lg">
+            {activeSubtitle}
           </div>
         </div>
       )}
