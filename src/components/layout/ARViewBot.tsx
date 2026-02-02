@@ -81,8 +81,10 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
         gltf-model="url(/models/ANIMACION_OK.glb)"
         animation-mixer={
           isPlaying
-            ? `clip: rig.001Action|CircleAction|eye.leftAction|eye.rightAction|eyelid_left_downAction|eyelid_left_upAction|eyelid_right_downAction|eyelid_right_upAction|tongueAction; useRegExp: true; loop: repeat; timeScale: 1`
-            : `clip: rig.001Action|CircleAction|eye.leftAction|eye.rightAction|eyelid_left_downAction|eyelid_left_upAction|eyelid_right_downAction|eyelid_right_upAction|tongueAction; useRegExp: true; loop: repeat; timeScale: 0`
+            ? // ? `clip: rig.001Action|CircleAction|eye.leftAction|eye.rightAction|eyelid_left_downAction|eyelid_left_upAction|eyelid_right_downAction|eyelid_right_upAction|tongueAction; useRegExp: true; loop: repeat; timeScale: 1`
+              // : `clip: rig.001Action|CircleAction|eye.leftAction|eye.rightAction|eyelid_left_downAction|eyelid_left_upAction|eyelid_right_downAction|eyelid_right_upAction|tongueAction; useRegExp: true; loop: repeat; timeScale: 0`
+              "clip: *; loop: repeat; timeScale: 1"
+            : "clip: *; loop: repeat; timeScale: 0"
         }
       />
     </AEntity>
@@ -204,7 +206,7 @@ const Page = ({
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-      audioRef.current.src = '';
+      audioRef.current.src = "";
     }
     isPlayingRef.current = false;
     setIsPlayingState(false);
@@ -305,18 +307,18 @@ const Page = ({
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
-        audioRef.current.src = '';
+        audioRef.current.src = "";
         audioRef.current = null;
       }
-      
+
       // Clean up device orientation listener
       if (orientationHandlerRef.current) {
         window.removeEventListener(
-          'deviceorientation',
-          orientationHandlerRef.current
+          "deviceorientation",
+          orientationHandlerRef.current,
         );
       }
-      
+
       // Reset animation state
       isPlayingRef.current = false;
       setIsPlayingState(false);
@@ -452,7 +454,7 @@ const Page = ({
         vr-mode-ui="enabled: false"
         embedded
         arjs="sourceType: webcam; videoTexture: true; facingMode: environment; debugUIEnabled: false"
-        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; " // colorManagement: true; toneMapping: Linear;
+        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; colorManagement: true; toneMapping: Linear" // colorManagement: true; toneMapping: Linear;
         style={{
           position: "fixed",
           top: 0,
@@ -461,7 +463,7 @@ const Page = ({
           height: "100%",
         }}
       >
-        <AEntity light="type: ambient; color: #ffffff; intensity: 1" />
+        <AEntity light="type: ambient; color: #ffffff; intensity: 1.5" />
         <AEntity
           light="type: directional; color: #ffffff; intensity: 1.5"
           position="1 1 1"

@@ -107,7 +107,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center py-5 px-4 min-h-screen bg-white">
+    <div className="flex flex-col items-center py-5 px-4 bg-white">
       {showPrivacyPolicy && (<PrivacyPolicyPopup handleClose={() => { setShowPrivacyPolicy(false); }} /> )}
       <div className="desktop:max-w-[400px] tablet:max-w-[400px] mobile:w-full">
         {/* <div className="flex justify-center">
@@ -209,7 +209,7 @@ const Register = () => {
             </span>
           </div>
 
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <div className="flex-1 border-t border-black"></div>
 
             <span className="poppins-medium font-medium text-black text-[17px] leading-none !mx-4">
@@ -217,9 +217,9 @@ const Register = () => {
             </span>
 
             <div className="flex-1 border-t border-black"></div>
-          </div>
+          </div> */}
         </div>
-        <CustomButton
+        {/* <CustomButton
           onClick={() => {
             signIn("google", { callbackUrl: "/login" });
           }}
@@ -232,7 +232,7 @@ const Register = () => {
           className="flex w-full items-center justify-center gap-2 mt-[16px]"
         >
           <FaMicrosoft size={20} /> Continue with Microsoft
-        </CustomButton>
+        </CustomButton> */}
         
       </div>
     </div>

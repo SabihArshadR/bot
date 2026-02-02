@@ -257,7 +257,7 @@ const Dashboard = () => {
               alt="Recommendations Icon"
               className="w-[48px] h-[48px]"
             />
-            <h1 className="text-center w-full break-words px-1 text-[15PX] leading-4 font-extrabold text-blackfont">
+            <h1 className="text-center w-full break-words text-[14px] leading-4 font-extrabold text-blackfont">
               {t("card6")}
             </h1>
           </Card>

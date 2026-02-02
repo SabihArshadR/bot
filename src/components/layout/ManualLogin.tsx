@@ -152,24 +152,30 @@ const ManualLogin = () => {
           </div> */}
         </div>
         <div className="mt-3">
-          <a href="/forgot-password" className="  mt-6">
+          {/* <a href="/forgot-password" className="  mt-6">
             {t2("ForgotPassword")}
-          </a>
+          </a> */}
+          <span>
+            {t2("NoAccount")}{" "}
+            <a href="/register" className=" !pt-6 mt-6 font-bold">
+              {t2("CreateAccount")}
+            </a>
+          </span>
         </div>
         <div className="flex flex-col gap-4 mt-[45px]">
           <CustomButton onClick={handleLogin} disabled={loading}>
             {loading ? t("loading") : t("button1")}
           </CustomButton>
 
-          <div className="mt-3">
+          {/* <div className="mt-3">
             <span>
               {t2("NoAccount")}{" "}
               <a href="/register" className=" !pt-6 mt-6 font-bold">
                 {t2("CreateAccount")}
               </a>
             </span>
-          </div>
-          <div className="flex items-center ">
+          </div> */}
+          {/* <div className="flex items-center ">
             <div className="flex-1 border-t border-black"></div>
 
             <span className="poppins-medium font-medium text-black text-[17px] leading-none !mx-4">
@@ -177,8 +183,8 @@ const ManualLogin = () => {
             </span>
 
             <div className="flex-1 border-t border-black"></div>
-          </div>
-          <CustomButton
+          </div> */}
+          {/* <CustomButton
             onClick={() => {
               playButtonSound();
               signIn("google", { callbackUrl: "/dashboard" });
@@ -186,8 +192,8 @@ const ManualLogin = () => {
             className="flex w-full items-center justify-center gap-2 mt-[16px]"
           >
             <FcGoogle size={20} /> {t("continue_google")}
-          </CustomButton>
-          <CustomButton
+          </CustomButton> */}
+          {/* <CustomButton
             onClick={() => {
               playButtonSound();
 
@@ -196,7 +202,7 @@ const ManualLogin = () => {
             className="flex w-full items-center justify-center gap-2 mt-[12px]"
           >
             <FaMicrosoft size={20} /> {t("continue_microsoft")}
-          </CustomButton>
+          </CustomButton> */}
         </div>
       </div>
     </div>

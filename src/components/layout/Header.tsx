@@ -16,7 +16,7 @@ const Header = () => {
 
   const handleAuthClick = () => {
     if (status === "authenticated") {
-      signOut({ callbackUrl: "/" });
+      signOut({ callbackUrl: "/dashboard" });
     } else {
       router.push("/login");
     }

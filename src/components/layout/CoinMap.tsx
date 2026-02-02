@@ -113,7 +113,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
     volcanoEl.querySelector('img')!.style.cssText = `
       height: 100%;
       max-width: 120px;
-      filter: brightness(2.5) drop-shadow(0 0 10px white);
+      filter: brightness(1.5) drop-shadow(0 0 10px white);
       object-fit: contain;
     `;
 
@@ -187,7 +187,14 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
   return (
     <div className="relative min-h-[70vh] w-full">
-      <div ref={mapContainer} className="w-full h-[70vh]" />
+      <div ref={mapContainer} className="w-full h-[770px] relative" />
+
+      {destination && userLocation && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white text-backblack px-4 py-2 rounded shadow z-50 text-sm font-semibold flex items-center gap-2">
+          <span className="text-blue-600">{haversineDistance(userLocation, destination).toFixed(2)} km</span>
+        </div>
+      )}
+
       <CustomButton
         onClick={() => {
           if (map.current && userLocation) {
