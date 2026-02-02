@@ -671,15 +671,61 @@ const Page = ({
       return;
     }
     
-    // Determine which subtitle to show based on the current time and POI
-    const subtitleArray = 
-      from === 1 ? subtitle1 :
-      from === 2 ? subtitle2 :
-      from === 3 ? subtitle3 :
-      from === 4 ? subtitle4 :
-      from === 5 ? subtitle5 : [];
-      
-    const currentSubtitle = [...subtitleArray]
+    // Determine which subtitle set should be used for the current POI
+    let index: number | undefined;
+
+    // 1. If `from` is already a number, use it directly
+    if (typeof from === "number") {
+      index = from;
+    } else {
+      // 2. If `from` is a numeric string (e.g. "2"), convert it
+      const maybeNum = Number(from);
+      if (!isNaN(maybeNum)) {
+        index = maybeNum;
+      } else {
+        /*
+         * 3. Fallback: infer the POI index from the audio file name.
+         *    Example pattern: "/audios/en/3.mp3"  -> index = 2 (zero-based)
+         */
+        if (typeof audioUrl === "string") {
+          const match = audioUrl.match(/\/(\d+)\.mp3$/);
+          if (match) {
+            index = parseInt(match[1], 10) - 1; // audio files are 1-based
+          }
+        }
+      }
+    }
+
+    // Map the resolved index to a subtitle array
+    let currentSubtitleArray:
+      | typeof subtitle1
+      | typeof subtitle2
+      | typeof subtitle3
+      | typeof subtitle4
+      | typeof subtitle5;
+
+    switch (index) {
+      case 0:
+        currentSubtitleArray = subtitle1;
+        break;
+      case 1:
+        currentSubtitleArray = subtitle2;
+        break;
+      case 2:
+        currentSubtitleArray = subtitle3;
+        break;
+      case 3:
+        currentSubtitleArray = subtitle4;
+        break;
+      case 4:
+        currentSubtitleArray = subtitle5;
+        break;
+      default:
+        currentSubtitleArray = subtitle1; // safe default
+    }
+
+    // Find the appropriate subtitle for the current time
+    const currentSubtitle = [...currentSubtitleArray]
       .reverse()
       .find(s => currentTime >= s.time);
     setActiveSubtitle(currentSubtitle?.text || "");
