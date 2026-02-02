@@ -671,11 +671,15 @@ const Page = ({
       return;
     }
     
-    // Determine which subtitle to show based on the current time
-    const currentSubtitle = [...(from === 1 ? subtitle1 : 
-                             from === 2 ? subtitle2 : 
-                             from === 3 ? subtitle3 : 
-                             from === 4 ? subtitle4 : subtitle5)]
+    // Determine which subtitle to show based on the current time and POI
+    const subtitleArray = 
+      from === 1 ? subtitle1 :
+      from === 2 ? subtitle2 :
+      from === 3 ? subtitle3 :
+      from === 4 ? subtitle4 :
+      from === 5 ? subtitle5 : [];
+      
+    const currentSubtitle = [...subtitleArray]
       .reverse()
       .find(s => currentTime >= s.time);
     setActiveSubtitle(currentSubtitle?.text || "");
