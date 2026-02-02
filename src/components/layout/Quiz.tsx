@@ -38,7 +38,7 @@ const Quiz = () => {
     if (!user) return;
     const POICompleted = parseInt(user?.POIsCompleted ?? 0);
     if (POICompleted >= volcanoId) {
-      router.push("/");
+      router.push("/dashboard");
     }
   }, [volcanoId, router, user]);
 
@@ -316,7 +316,7 @@ const Quiz = () => {
         <CustomButton
           onClick={() => {
             refreshUser();
-            router.push("/");
+            router.push("/dashboard");
           }}
         >
           {t1("button")}
@@ -330,8 +330,8 @@ const Quiz = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center pb-[95px] bg-lightbrown">
-      <div className="bg-white w-full flex h-[242px] items-center justify-center">
+    <div className="flex flex-col justify-center items-center pb-[95px] bg-lightbrown ">
+      <div className="bg-white w-full flex h-[350px] items-center justify-center">
         <h1 className="text-4xl font-extrabold text-blackfont text-center px-[38px] font-karla">
           {selectedQuestion?.title}
         </h1>

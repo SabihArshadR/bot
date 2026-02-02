@@ -160,7 +160,7 @@ const Progress = () => {
         await api.patch("/user/restart");
         await refreshUser();
         await setShowPopup(false);
-        router.push("/");
+        router.push("/dashboard");
       } catch (err: any) {
         console.error(
           "Error resetting progress:",
