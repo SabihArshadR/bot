@@ -13,12 +13,11 @@ export async function GET(req: Request) {
       return NextResponse.json({ message: "Unauthorized - No session" }, { status: 401 });
     }
 
-    const userEmail = session.user.email;
     const username = (session.user as any)?.username;
     
-    if (!userEmail && !username) {
+    if (!username) {
       return NextResponse.json(
-        { message: "Unauthorized - No email or username in session" }, 
+        { message: "Unauthorized - No username in session" }, 
         { status: 401 }
       );
     }
@@ -32,12 +31,7 @@ export async function GET(req: Request) {
     }
 
     const user = await usersCol.findOne(
-      {
-        $or: [
-          ...(userEmail ? [{ email: userEmail }] : []),
-          ...(username ? [{ username }] : []),
-        ],
-      },
+      { username },
       {
         projection: {
           password: 0,
@@ -67,11 +61,14 @@ export async function POST(req: Request) {
   try {
     const session = await getServerSession({ req, ...authOptions });
 
-    if (!session?.user?.email) {
-      return NextResponse.json({ message: "Unauthorized: Email is required" }, { status: 401 });
+    if (!session?.user) {
+      return NextResponse.json({ message: "Unauthorized: No session" }, { status: 401 });
     }
     
-    const userEmail = session.user.email; // Now TypeScript knows this exists
+    const username = (session.user as any)?.username;
+    if (!username) {
+      return NextResponse.json({ message: "Unauthorized: Username is required" }, { status: 401 });
+    }
 
     const usersCol = await getCollection("users");
     if (!usersCol) {
@@ -91,7 +88,7 @@ export async function POST(req: Request) {
     }
 
     const updateResult = await usersCol.updateOne(
-      { email: userEmail },
+      { username },
       {
         $set: {
           ...body,

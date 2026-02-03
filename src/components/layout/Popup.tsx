@@ -34,7 +34,7 @@ const SplashPopUp2 = ({ handleClose }: { handleClose: () => void }) => {
 
         <div className="">
           <h2 className="text-[20px] text-backblack font-bold mb-6 text-center">
-            {t("card6")}
+            {t("card4")}
           </h2>
           <div className="space-y-4">
             {images.map(({ id, image, link }) => (

@@ -14,6 +14,7 @@ import finding4 from "@/assets/finding4.png";
 import finding5 from "@/assets/finding5.png";
 import finding6 from "@/assets/finding6.png";
 import finding from "@/assets/ITEM01.svg";
+import { FaLock } from "react-icons/fa";
 
 interface Finding {
   img: StaticImageData;
@@ -30,7 +31,7 @@ const Amics = () => {
   const [unlockedCount, setUnlockedCount] = useState(0);
   const [activeModel, setActiveModel] = useState<string | null>(null);
   const [activeModelZoom, setActiveModelZoom] = useState<string | null>(
-    "normal"
+    "normal",
   );
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,39 +48,33 @@ const Amics = () => {
     {
       img: finding,
       model: `${HOST}/models/1.glb`,
-      altKey: "finding4",
+      altKey: "finding1",
       zoom: "moreless",
     },
     {
       img: finding,
       model: `${HOST}/models/2.glb`,
-      altKey: "finding6",
-      zoom: "moreless",
-    },
-    {
-      img: finding,
-      model: `${HOST}/models/3.glb`,
       altKey: "finding2",
       zoom: "moreless",
     },
     {
       img: finding,
+      model: `${HOST}/models/3.glb`,
+      altKey: "finding3",
+      zoom: "moreless",
+    },
+    {
+      img: finding,
       model: `${HOST}/models/4.glb`,
-      altKey: "finding5",
+      altKey: "finding4",
       zoom: "moreless",
     },
     {
       img: finding,
       model: `${HOST}/models/5.glb`,
-      altKey: "finding1",
+      altKey: "finding5",
       zoom: "moreless",
     },
-    // {
-    //   img: finding,
-    //   model: `${HOST}/models/topazi.glb`,
-    //   altKey: "finding3",
-    //   zoom: "moreless",
-    // },
   ];
 
   useEffect(() => {
@@ -103,7 +98,6 @@ const Amics = () => {
     }
   };
 
-
   if (status === "loading" || isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-white">
@@ -117,7 +111,7 @@ const Amics = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-white pb-10 md:pb-32">
+    <div className="flex flex-col items-center bg-white pb-10 md:pb-32">
       <div className="bg-lightbrown w-full flex h-24 md:h-28 items-center justify-center font-karla">
         <h1 className="text-2xl md:text-3xl font-extrabold text-blackfont text-center">
           {t("title")}
@@ -138,10 +132,11 @@ const Amics = () => {
               >
                 <div
                   key={index}
-                  className={`relative aspect-square transition-all duration-300 ${!isUnlocked
-                    ? "opacity-50"
-                    : "hover:scale-105 cursor-pointer"
-                    }`}
+                  className={`relative aspect-square transition-all duration-300 ${
+                    !isUnlocked
+                      ? "opacity-50"
+                      : "hover:scale-105 cursor-pointer"
+                  }`}
                 >
                   <button
                     onClick={() => handleClick(index)}
@@ -151,11 +146,11 @@ const Amics = () => {
                     <Image
                       src={item.img}
                       alt="img"
-                      className="object-cover w-[122px] h-[122px] mx-auto"
+                      className="object-cover w-[152px] h-[152px] mx-auto"
                     />
                     {!isUnlocked && (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <svg
+                        {/* <svg
                           className="w-8 h-8 text-white"
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -166,7 +161,27 @@ const Amics = () => {
                             d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
                             clipRule="evenodd"
                           />
-                        </svg>
+                        </svg> */}
+                        <FaLock className="w-8 h-8 " />
+                      </div>
+                    )}
+                    {isUnlocked && (
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="bg-lightgreen rounded-full p-2">
+                          <svg
+                            className="w-6 h-6 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     )}
                   </button>

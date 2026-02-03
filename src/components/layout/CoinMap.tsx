@@ -103,8 +103,8 @@ export default function CoinMap({ destination }: CoinMapProps) {
     
     // Add CSS styles for better positioning
     volcanoEl.style.cssText = `
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       cursor: pointer;
       position: relative;
       transform: translate(-50%, -100%);
@@ -112,7 +112,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
     
     volcanoEl.querySelector('img')!.style.cssText = `
       height: 100%;
-      max-width: 120px;
+      max-width: 200px;
       filter: brightness(1.5) drop-shadow(0 0 10px white);
       object-fit: contain;
     `;
@@ -180,8 +180,11 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
   useEffect(() => {
     if (userLocation && destination) {
-      const dist = haversineDistance(userLocation, destination);
-      setShowEnterAR(dist <= 0.005);
+      // const dist = haversineDistance(userLocation, destination);
+      // setShowEnterAR(dist <= 0.005);
+      
+      // Disabled distance check for testing - always show AR button
+      setShowEnterAR(true);
     }
   }, [userLocation, destination]);
 

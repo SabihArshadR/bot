@@ -177,8 +177,9 @@ const Progress = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-white">
       <h1 className="text-[22px] font-semibold text-blackfont mt-10">
-        {t("title1")} {user?.username}
-      </h1>
+        {t("title1")} User 
+        {/* {user?.username || ""} */}
+      </h1> 
 
       <div className="mt-20">{getProgressElement()}</div>
 
