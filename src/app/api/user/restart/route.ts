@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOption";
 import { getCollection } from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
 
 export async function PATCH(req: Request) {
   try {
@@ -20,7 +21,7 @@ export async function PATCH(req: Request) {
     }
 
     const updateResult = await usersCol.updateOne(
-      { email: session.user.email },
+      { _id: new ObjectId((session.user as any).id) },
       {
         $set: {
           points: 0,
