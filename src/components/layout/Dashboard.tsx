@@ -33,6 +33,7 @@ const Dashboard = () => {
   const [showIntro, setShowIntro] = useState(false);
   const [showMapNotification, setShowMapNotification] = useState(false);
   const [showAmicsNotification, setShowAmicsNotification] = useState(false);
+  const [showProgressNotification, setShowProgressNotification] = useState(false);
   // const [showBotCompletion, setShowBotCompletion] = useState(false);
 
   useEffect(() => {
@@ -67,6 +68,7 @@ const Dashboard = () => {
 
       const lastSeenMapPOIsStr = localStorage.getItem("lastSeenMapPOIs");
       const lastSeenAmicsPOIsStr = localStorage.getItem("lastSeenAmicsPOIs");
+      const lastSeenProgressPOIsStr = localStorage.getItem("lastSeenProgressPOIs");
 
       const lastSeenMapPOIs = lastSeenMapPOIsStr
         ? parseInt(lastSeenMapPOIsStr)
@@ -74,7 +76,9 @@ const Dashboard = () => {
       const lastSeenAmicsPOIs = lastSeenAmicsPOIsStr
         ? parseInt(lastSeenAmicsPOIsStr)
         : null;
-      console.log(lastSeenAmicsPOIs, lastSeenMapPOIsStr);
+      const lastSeenProgressPOIs = lastSeenProgressPOIsStr
+        ? parseInt(lastSeenProgressPOIsStr)
+        : null;
 
       if (lastSeenMapPOIs === null || currentPOIs > lastSeenMapPOIs) {
         setShowMapNotification(true);
@@ -86,6 +90,12 @@ const Dashboard = () => {
         setShowAmicsNotification(true);
       } else {
         setShowAmicsNotification(false);
+      }
+
+      if (lastSeenProgressPOIs === null || currentPOIs > lastSeenProgressPOIs) {
+        setShowProgressNotification(true);
+      } else {
+        setShowProgressNotification(false);
       }
     }
   }, [user, status, userLoading]);
@@ -141,6 +151,15 @@ const Dashboard = () => {
     router.push("/amics");
   };
 
+  const handleProgressClick = () => {
+    playCardSound();
+    if (user) {
+      localStorage.setItem("lastSeenProgressPOIs", user.POIsCompleted.toString());
+      setShowProgressNotification(false);
+    }
+    router.push("/progres");
+  };
+
   if (loading) return <Welcome />;
 
   // if (showBotCompletion) {
@@ -194,12 +213,7 @@ const Dashboard = () => {
               />
             )}
           </Card>
-          <Card
-            onClick={() => {
-              playCardSound();
-              router.push("/progres");
-            }}
-          >
+          <Card onClick={handleProgressClick}>
             <Image
               src={Card2}
               alt="Profile Icon"
@@ -208,6 +222,13 @@ const Dashboard = () => {
             <h1 className="text-center w-full break-words px-1 text-[15PX] leading-4 font-extrabold text-blackfont">
               {t("card2")}
             </h1>
+            {status === "authenticated" && showProgressNotification && (
+              <Image
+                src={Notification}
+                alt="Notification"
+                className="absolute top-0 right-0 animate-pulse w-[40px] h-[40px]"
+              />
+            )}
           </Card>
           <Card onClick={handleAmicsClick}>
             <Image
