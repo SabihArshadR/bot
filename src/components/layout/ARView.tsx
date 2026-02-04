@@ -41,11 +41,11 @@ const subtitle1 = [
     text: "Quan el front es va estabilitzar al riu Ebre, el poble va adquirir un paper clau a la rereguarda, i el tren va esdevenir una peça fonamental.",
   },
   {
-    time: 61,
+    time: 60,
     text: "La línia ferroviària de la Val de Zafán, llargament esperada des del segle XIX, es va allargar fins a Pinell de Brai per facilitar el moviment ràpid de tropes i material.",
   },
   {
-    time: 71,
+    time: 70,
     text: "Aquella obra ferroviària, pensada inicialment per unir Aragó amb el port dels Alfacs i ajudar a vendre productes del camp i el carbó de Terol, va acabar tenint un ús militar.",
   },
   {
@@ -81,35 +81,35 @@ const subtitle1 = [
     text: "Fins i tot el pas soterrat de l’estació es va fer servir com a lloc de comandament.",
   },
   {
-    time: 142,
+    time: 134,
     text: "El 2 de setembre de 1938, el poble va patir un dels bombardejos més durs: sis avions “Katiuska” i dotze caces van atacar l’estació i el nucli antic.",
   },
   {
-    time: 152,
+    time: 143,
     text: "Hi van morir veïns i treballadors del ferrocarril, i als afores del poble les baixes militars van ser nombroses.",
   },
   {
-    time: 159,
+    time: 149,
     text: "Davant d’aquesta situació, l’Ajuntament va haver de reunir-se en sessió permanent per poder donar resposta a totes les necessitats.",
   },
   {
-    time: 167,
+    time: 155,
     text: "Avui, aquell tren ja no circula. Després de dècades de servei, la línia es va tancar definitivament als anys setanta.",
   },
   {
-    time: 181,
+    time: 161,
     text: "Però el camí no s’ha perdut: des de l’any 2000, l’antic traçat és una via verda que permet caminar i anar en bicicleta entre túnels i viaductes, convertint un espai de guerra en un espai de memòria i pau.",
   },
   {
-    time: 194,
+    time: 174,
     text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada els pans de pagès que trobareu a l’entorn.",
   },
   {
-    time: 203,
+    time: 180,
     text: "Quan els trobeu, us faré una pregunta. Si la responeu bé, recuperarem un element de la Dansada.",
   },
   {
-    time: 213,
+    time: 186,
     text: "Vos espero a la propera parada!",
   },
 ];
@@ -144,31 +144,31 @@ const subtitle2 = [
     text: "Hi treballaven infermeres i també dones del poble, que ajudaven amb feines com netejar i desinfectar material, fer els llits o preparar àpats.",
   },
   {
-    time: 72,
+    time: 61,
     text: "A mesura que la batalla avançava, van arribar milers de ferits i la feina es va intensificar molt, sobretot a partir del 3 de setembre de 1938, quan va començar una nova ofensiva.",
   },
   {
-    time: 81,
+    time: 73,
     text: "A la plaça del poble, sovint s’hi veien ambulàncies entrant i sortint per portar els pacients d’un lloc a un altre.",
   },
   {
-    time: 91,
+    time: 79,
     text: "Aquesta història fins i tot surt en una novel·la: El monarca de las sombras, de Javier Cercas, on apareix l’hospital de la casa Paladella.",
   },
   {
-    time: 126,
+    time: 86,
     text: "I, enmig de tot plegat, molts veïns que es van quedar al poble també van ajudar com van poder, per exemple cosint roba; diuen que alguns militars alemanys pagaven amb bitllets antics del seu país.",
   },
   {
-    time: 138,
+    time: 98,
     text: "Ara heu d’ajudar-me! Busqueu amb la realitat augmentada els setrills d’oli que trobareu a l’entorn.",
   },
   {
-    time: 144,
+    time: 104,
     text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
   },
   {
-    time: 149,
+    time: 109,
     text: "Ens veiem a la propera parada!",
   },
 ];
@@ -211,11 +211,11 @@ const subtitle3 = [
     text: "una quarantena van ser empresonats i tretze d’ells assassinats sense judici. Van morir en diferents indrets, lluny del poble, durant els mesos d’agost i setembre de 1936.",
   },
   {
-    time: 61,
+    time: 66,
     text: "Anys més tard, durant la dictadura, aquests morts van ser recordats només des d’una mirada, i durant dècades una gran placa amb una creu presidia la façana de l’església.",
   },
   {
-    time: 71,
+    time: 76,
     text: "Aquesta placa es va retirar l’any 2010, quan es va rehabilitar el temple.",
   },
   {
@@ -231,7 +231,7 @@ const subtitle3 = [
     text: "N’hi havia de diferents valors, des d’una pesseta fins a deu cèntims.",
   },
   {
-    time: 101,
+    time: 100,
     text: "La guerra també va portar gent de fora. Bot va acollir famílies refugiades d’altres zones, mentre molts veïns en edat militar van ser cridats a lluitar.",
   },
   {
@@ -239,7 +239,7 @@ const subtitle3 = [
     text: "Alguns ho van fer de manera voluntària, d’altres obligats. En total, vint-i-sis veïns o residents de Bot van morir al front, en un bàndol o en l’altre.",
   },
   {
-    time: 115,
+    time: 116,
     text: "Quan el poble va ser ocupat pels franquistes l’abril de 1938, va començar una nova etapa de por. Amb les noves autoritats, molts veïns d’esquerres van ser detinguts, jutjats o empresonats.",
   },
   {
@@ -255,19 +255,19 @@ const subtitle3 = [
     text: "Allà, dones i infants van viure en camps de concentració en condicions molt dures. I els qui tornaven sovint no eren ben rebuts: alguns patien humiliacions públiques i eren assenyalats durant anys.",
   },
   {
-    time: 162,
+    time: 154,
     text: "És una història difícil, però forma part del camí del poble. I entendre-la també és una manera de cuidar la memòria.",
   },
   {
-    time: 172,
+    time: 159,
     text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada les ametlles que trobareu a l’entorn.",
   },
   {
-    time: 185,
+    time: 165,
     text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
   },
   {
-    time: 189,
+    time: 169,
     text: "Ens veiem a la propera parada!",
   },
 ];
@@ -310,7 +310,7 @@ const subtitle4 = [
     text: "Quan la guerra va acabar, els cossos dels soldats italians van ser traslladats a Saragossa, on es va construir un mausoleu per reunir-los tots.",
   },
   {
-    time: 61,
+    time: 66,
     text: "Tot i això, al cementiri de Bot encara es conserven moltes de les seves làpides, algunes mig enterrades en un dels passadissos.",
   },
   {
@@ -326,7 +326,7 @@ const subtitle4 = [
     text: "Allà s’hi van enterrar prop de mil cinc-cents soldats, la majoria morts durant les contraofensives de la tardor.",
   },
   {
-    time: 101,
+    time: 102,
     text: "Hi havia soldats espanyols de diferents bàndols i també un grup de mercenaris marroquins.",
   },
   {
@@ -334,7 +334,7 @@ const subtitle4 = [
     text: "Els cossos es col·locaven en llargues rases, amb una petita ampolla entre les cames on s’hi posava el nom. A sobre, una creueta de fusta.",
   },
   {
-    time: 112,
+    time: 115,
     text: "Aquest espai va quedar intacte durant molts anys, tancat amb filferro. Però la primavera de 1959 tot va canviar.",
   },
   {
@@ -346,43 +346,43 @@ const subtitle4 = [
     text: "Al poble, molts veïns van ser obligats a participar en les excavacions.",
   },
   {
-    time: 134,
+    time: 132,
     text: "Mentre retiraven ossos, sovint hi apareixien objectes personals com rellotges, cadenes o rosaris.",
   },
   {
-    time: 142,
+    time: 138,
     text: "En total, més de mil soldats van ser traslladats. Avui, aquell lloc és només una finca amb ametllers abandonats.",
   },
   {
-    time: 152,
+    time: 145,
     text: "Entre els enterrats també hi havia alguns requetès catalans, soldats carlistes que lluitaven amb Franco.",
   },
   {
-    time: 162,
+    time: 150,
     text: "Les restes d’alguns d’ells no van ser traslladades, sinó portades més tard al monestir de Montserrat.",
   },
   {
-    time: 172,
+    time: 155,
     text: "Un dels soldats, veí de Bot, va ser enterrat al panteó familiar, on encara descansa.",
   },
   {
-    time: 182,
+    time: 160,
     text: "Sobre els soldats marroquins, no tot és clar. Alguns historiadors pensen que també van ser traslladats, però d’altres creuen que no, perquè al Valle de los Caídos només s’hi portaven soldats espanyols i catòlics.",
   },
   {
-    time: 202,
+    time: 170,
     text: "El que sí se sap és que van ser enterrats en una zona separada.",
   },
   {
-    time: 233,
+    time: 173,
     text: "Avui, dins el cementiri, hi ha un monòlit que recorda totes les víctimes de la Guerra Civil. No parla de bàndols, sinó de persones. I aquest és el silenci que cal escoltar.",
   },
   {
-    time: 263,
+    time: 182,
     text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada els raïms que hi ha a l’entorn.",
   },
   {
-    time: 283,
+    time: 188,
     text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
   },
 ];
@@ -433,7 +433,7 @@ const subtitle5 = [
     text: "Durant la batalla de l’Ebre, el tren va tenir un paper clau. Quan l’estació de Pinell de Brai va quedar en mans republicanes, el front es va fixar entre aquell punt i Bot.",
   },
   {
-    time: 80,
+    time: 81,
     text: "Hi va haver combats fins i tot dins dels túnels.",
   },
   {
