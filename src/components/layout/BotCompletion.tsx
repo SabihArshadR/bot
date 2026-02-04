@@ -15,7 +15,7 @@ import { Typewriter } from "../ui/Typewriter";
 import InlineModelViewer from "./inlineModelViewer";
 import Logoo from "@/assets/headerlogo.svg";
 
-const BotIntroduction = () => {
+const BotCompletion = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showAudioPrompt, setShowAudioPrompt] = useState(true);
   const [audioEnabled, setAudioEnabled] = useState<boolean | null>(null);
@@ -86,7 +86,7 @@ const BotIntroduction = () => {
   return (
     <div className="desktop:flex tablet:flex mobile:block flex-col justify-center items-center min-h-[85vh] relative bg-white">
       <div className="desktop:max-w-[400px] tablet:max-w-[400px] mobile:w-full">
-        {showAudioPrompt && (
+        {/* {showAudioPrompt && (
           <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-200">
             <div className="bg-white rounded-xl shadow-2xl p-4 min-w-[280px] max-w-[320px] border border-gray-100">
               <p className="text-sm text-gray-700 mb-3 text-center font-medium">
@@ -110,9 +110,9 @@ const BotIntroduction = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
-        <div className="flex justify-center items-center w-full px-[14px] h-[183px] bg-green object-cover">
+        {/* <div className="flex justify-center items-center w-full px-[14px] h-[183px] bg-green object-cover">
           <div>
             <div>
               <Image
@@ -124,7 +124,7 @@ const BotIntroduction = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div>
           <div className="flex justify-center pt-5">
@@ -198,4 +198,4 @@ const BotIntroduction = () => {
   );
 };
 
-export default BotIntroduction;
+export default BotCompletion;

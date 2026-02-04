@@ -480,12 +480,12 @@ const Page = () => {
         }
       `}</style>
 
-      <audio
+      {/* <audio
         ref={backgroundAudioRef}
         src="/sounds/background-music.mp3"
         preload="auto"
         style={{ display: "none" }}
-      />
+      /> */}
       <audio
         ref={explosionAudioRef}
         src="/sounds/explosion.mp3"

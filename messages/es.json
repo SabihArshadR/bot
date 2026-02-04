@@ -114,7 +114,7 @@
     "title3": "Fragmentos del meteorito",
     "button1": "PROGRESO",
     "title4": "Recompensas del Festival",
-    "title5": "Puntos",
+    "title5": "Alimentos",
     "title6": "Completado",
     "button2": "Mochila",
     "button3": "Reanudar",
@@ -401,7 +401,10 @@
     "button": "CONTINUAR",
     "ar": "Verlo en AR",
     "sub1": "Ocultar subtítulos",
-    "sub2": "Mostrar subtítulos"
+    "sub2": "Mostrar subtítulos",
+    "audio": "¿Activar el audio?",
+    "option1": "Sí",
+    "option2": "No"
   },
   "CoinMap": {
     "congratulation": "¡Enhorabuena!",

@@ -20,6 +20,7 @@ import { useUser } from "@/context/UserContext";
 import CompletePopup from "./CompletePopup";
 import Notification from "@/assets/notification.png";
 import { useCallback } from "react";
+import BotCompletion from "./BotCompletion";
 
 const Dashboard = () => {
   const { user, refreshUser, loading: userLoading } = useUser();
@@ -32,6 +33,7 @@ const Dashboard = () => {
   const [showIntro, setShowIntro] = useState(false);
   const [showMapNotification, setShowMapNotification] = useState(false);
   const [showAmicsNotification, setShowAmicsNotification] = useState(false);
+  // const [showBotCompletion, setShowBotCompletion] = useState(false);
 
   useEffect(() => {
     refreshUser();
@@ -95,8 +97,11 @@ const Dashboard = () => {
       }
     };
     const checkPOI = async () => {
-      if (user && user.POIsCompleted === 5) {
+      if (user && user.POIsCompleted >= 5) {
         setShowCompletePopup(false);
+        // setShowBotCompletion(true);
+      } else {
+        // setShowBotCompletion(false);
       }
     };
     checkIntro();
@@ -137,6 +142,10 @@ const Dashboard = () => {
   };
 
   if (loading) return <Welcome />;
+
+  // if (showBotCompletion) {
+  //   return <BotCompletion />;
+  // }
 
   return (
     <>

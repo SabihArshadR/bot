@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins, Gluten , Karla , Roboto } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Poppins,
+  Gluten,
+  Karla,
+  Roboto,
+} from "next/font/google";
 import "./globals.css";
 import * as React from "react";
 
@@ -12,6 +19,7 @@ import { UserProvider } from "@/context/UserContext";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AudioProvider } from "@/context/AudioContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,7 +61,8 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "BOT Despertat pel silenci",
-  description: "Canyelles i la història del meteorit és un joc amb realitat augmentada que segueix un itinerari geolocalitzat per Canyelles amb un total de 6 parades conduïdes per un avatar, en Roc, un fragment del meteorit que va caure a Canyelles fa gairebé dos-cents anys. En Roc serà qui us acompanyi en tot el recorregut, explicant històries i anècdotes de Canyelles i la seva gent. A cada parada, hi ha una petita audiodescripció d'en Roc, un repte interactiu amb AR i un qüestionari. L’objectiu és completar l'itinerari i aconseguir les pedres precioses de Canyelles.",
+  description:
+    "Canyelles i la història del meteorit és un joc amb realitat augmentada que segueix un itinerari geolocalitzat per Canyelles amb un total de 6 parades conduïdes per un avatar, en Roc, un fragment del meteorit que va caure a Canyelles fa gairebé dos-cents anys. En Roc serà qui us acompanyi en tot el recorregut, explicant històries i anècdotes de Canyelles i la seva gent. A cada parada, hi ha una petita audiodescripció d'en Roc, un repte interactiu amb AR i un qüestionari. L’objectiu és completar l'itinerari i aconseguir les pedres precioses de Canyelles.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -77,7 +86,9 @@ export default async function RootLayout({
         <Providers>
           <UserProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
-              <ClientProvider>{children}</ClientProvider>
+              <AudioProvider>
+                <ClientProvider>{children}</ClientProvider>
+              </AudioProvider>
             </NextIntlClientProvider>
           </UserProvider>
         </Providers>

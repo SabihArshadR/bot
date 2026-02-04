@@ -16,6 +16,7 @@ import React, {
   memo,
   useMemo,
   useRef,
+  useCallback,
 } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three-stdlib";
@@ -124,7 +125,7 @@ function SafeModel({ modelPath }: { modelPath: string }) {
       }
     };
   }, [modelPath]);
-  
+
 
   if (error) {
     return (
@@ -191,7 +192,7 @@ function OptimizedCanvas({
   const cameraConfig = useMemo(
     () => ({
       position: cam as [number, number, number],
-      fov: 45,
+      fov: 35,
       near: 0.005,
       far: 1000,
     }),
@@ -282,13 +283,27 @@ function ModelViewerComponent({
   zoomMode: "moreless" | "less" | "normal" | "large";
 }) {
   if (!isOpen) return null;
+
+  const closeSound = useCallback(() => {
+    try {
+      const audio = new Audio("/button-sounds/16.mp3");
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
+    } catch (error) {
+      console.error("Error initializing sound:", error);
+    }
+  }, []);
+
   return (
     <div
       className={`fixed inset-0 bg-black/90 flex items-center justify-center z-50 ${className}`}
     >
       <div className="relative bg-white rounded-2xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden">
         <button
-          onClick={onClose}
+          onClick={() => {
+            (onClose(), closeSound());
+          }}
           className="absolute top-4 right-4 bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 hover:bg-gray-100"
         >
           ✕

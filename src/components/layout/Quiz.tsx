@@ -10,6 +10,7 @@ import finding_4 from "@/assets/finding4.png";
 import finding_5 from "@/assets/finding5.png";
 import api from "@/lib/axios";
 import { useUser } from "@/context/UserContext";
+import QuizModelViewer from "./QuizModelView";
 
 const Quiz = () => {
   const { user, refreshUser } = useUser();
@@ -33,6 +34,15 @@ const Quiz = () => {
     t1("finding_4"),
     t1("finding_5"),
   ];
+
+  const getBaseUrl = () => {
+    if (typeof window !== "undefined") {
+      return window.location.origin;
+    }
+    return process.env.NEXTAUTH_URL || "http://localhost:3000";
+  };
+
+  const HOST = getBaseUrl();
 
   useEffect(() => {
     if (!user) return;
@@ -217,15 +227,40 @@ const Quiz = () => {
   const [showPlayAgain, setShowPlayAgain] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState<any | null>(null);
+  const [completionSound, setCompletionSound] = useState<HTMLAudioElement | null>(null);
+
+  // Clean up audio on unmount
+  useEffect(() => {
+    return () => {
+      if (completionSound) {
+        completionSound.pause();
+        completionSound.currentTime = 0;
+      }
+    };
+  }, [completionSound]);
 
   function shuffleArray(array: any[]) {
     return [...array].sort(() => Math.random() - 0.5);
   }
 
+  const playSound = (isCorrect: boolean) => {
+    // Stop background audio if it's still playing
+    // if (backgroundAudio) {
+    //   backgroundAudio.pause();
+    //   backgroundAudio.currentTime = 0;
+    //   setBackgroundAudio(null);
+    // }
+
+    const audio = new Audio(`/button-sounds/${isCorrect ? "12" : "13"}.mp3`);
+    audio.play().catch((error) => console.error("Error playing sound:", error));
+  };
+
   const handleSelect = (optionText: string) => {
     setSelected(optionText);
+    const isCorrect = optionText === selectedQuestion.correct;
+    playSound(isCorrect);
 
-    if (optionText === selectedQuestion.correct) {
+    if (isCorrect) {
       setTimeout(() => {
         setQuizCompleted(true);
       }, 800);
@@ -289,6 +324,22 @@ const Quiz = () => {
     }
   }, [quizCompleted, volcanoId]);
 
+  // Play completion sound when quiz is completed for 5th POI
+  useEffect(() => {
+    if (quizCompleted && volcanoId === 5) {
+      const sound = new Audio('/audios/botcompletion90.mp3');
+      sound.play().catch(error => console.error('Error playing completion sound:', error));
+      setCompletionSound(sound);
+    }
+    // Cleanup function to stop sound when component unmounts or quizCompleted changes
+    return () => {
+      if (completionSound) {
+        completionSound.pause();
+        completionSound.currentTime = 0;
+      }
+    };
+  }, [quizCompleted, volcanoId]);
+
   if (quizCompleted) {
     return (
       <div className="flex flex-col justify-center px-5 h-[85vh] items-center bg-lightbrown">
@@ -300,11 +351,14 @@ const Quiz = () => {
               backgroundSize: "cover",
             }}
           >
-            <img
+            {/* <img
               src={findingImages[volcanoId - 1].src}
               alt={`Finding for Volcano ${volcanoId}`}
               className="w-[65%]"
-            />
+            /> */}
+            <div className="w-full h-full flex justify-center items-center">
+              <QuizModelViewer modelPath={`${HOST}/models/${volcanoId}.glb`} />
+            </div>
           </div>
         )}
         <h1 className="text-xl font-bold text-blackfont mb-12 text-center">
@@ -315,6 +369,11 @@ const Quiz = () => {
         </h1> */}
         <CustomButton
           onClick={() => {
+            // Stop the completion sound when going to dashboard
+            if (completionSound) {
+              completionSound.pause();
+              completionSound.currentTime = 0;
+            }
             refreshUser();
             router.push("/dashboard");
           }}

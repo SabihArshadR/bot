@@ -9,6 +9,7 @@ import pic3 from "../../../public/history/3.3.png";
 import pic4 from "../../../public/history/4.4.png";
 import pic5 from "../../../public/history/5.5.png";
 import pic6 from "../../../public/history/6.6.png";
+import { useCallback } from "react";
 
 const images = [
   { id: 1, image: pic1, link: 1 },
@@ -23,11 +24,28 @@ const SplashPopUp2 = ({ handleClose }: { handleClose: () => void }) => {
   const t = useTranslations("Dashboard");
   const t2 = useTranslations("Link");
 
+  const playButtonSound = useCallback(() => {
+    try {
+      const audio = new Audio("/button-sounds/5.mp3");
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
+    } catch (error) {
+      console.error("Error initializing sound:", error);
+    }
+  }, []);
+
   return (
     <div className="fixed inset-0 p-2 flex items-center justify-center bg-black/50 z-50">
       <div className="relative w-full max-w-md bg-[#F5EFE3] rounded-2xl shadow-2xl p-3 overflow-y-scroll max-h-[85vh]">
         <div className="flex  gap-3 p-4 ">
-          <button onClick={handleClose} className="p-1">
+          <button
+            onClick={() => {
+              playButtonSound();
+              handleClose();
+            }}
+            className="p-1"
+          >
             <FiArrowLeft size={24} />
           </button>
         </div>

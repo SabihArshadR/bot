@@ -129,7 +129,8 @@ const Progress = () => {
             {t(`${textKey}b`)}
           </p>
           <p className="text-[32px] font-extrabold text-green">
-            {t(`${textKey}c`)}
+            {/* {t(`${textKey}c`)} */}
+            {user?.points.toString()} {t("title5")}
           </p>
           <p className="text-[24px] font-semibold text-blackfont mt-[37px] px-5">
             {t(`${textKey}d`)}
@@ -178,7 +179,7 @@ const Progress = () => {
     <div className="flex flex-col items-center justify-center bg-white">
       <h1 className="text-[22px] font-semibold text-blackfont mt-10">
         {t("title1")} {user?.username || ""}
-      </h1> 
+      </h1>
 
       <div className="mt-20">{getProgressElement()}</div>
 

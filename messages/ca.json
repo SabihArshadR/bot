@@ -112,7 +112,7 @@
     "title3": "Fragments del meteorit",
     "button1": "PROGRÉS",
     "title4": "Recompenses del Festival",
-    "title5": "Punts",
+    "title5": "Aliments",
     "title6": "Completa",
     "button2": "Motxilla",
     "button3": "Reinicia",
@@ -401,7 +401,10 @@
     "button": "CONTINUAR",
     "ar": "Veure-ho en AR",
     "sub1": "Amagar subtítols",
-    "sub2": "Mostrar subtítols"
+    "sub2": "Mostrar subtítols",
+    "audio": "Activar l’àudio?",
+    "option1": "Sí",
+    "option2": "No"
   },
   "CoinMap": {
     "congratulation": "Enhorabona!",

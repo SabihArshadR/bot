@@ -1,6 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
@@ -43,6 +43,17 @@ const Amics = () => {
   };
 
   const HOST = getBaseUrl();
+
+  const openSound = useCallback(() => {
+      try {
+        const audio = new Audio("/button-sounds/15.mp3");
+        audio
+          .play()
+          .catch((error) => console.error("Error playing sound:", error));
+      } catch (error) {
+        console.error("Error initializing sound:", error);
+      }
+    }, []);
 
   const findings: Finding[] = [
     {
@@ -139,7 +150,7 @@ const Amics = () => {
                   }`}
                 >
                   <button
-                    onClick={() => handleClick(index)}
+                    onClick={() => {handleClick(index), openSound()}}
                     disabled={!isUnlocked}
                     className="w-full h-full"
                   >

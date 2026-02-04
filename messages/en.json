@@ -114,7 +114,7 @@
     "title3": "Fragments of the meteorite",
     "button1": "PROGRESS",
     "title4": "Festival Rewards",
-    "title5": "Points",
+    "title5": "Food",
     "title6": "Complete",
     "button2": "Backpack",
     "button3": "Restart",
@@ -401,7 +401,10 @@
     "button": "CONTINUE",
     "ar": "View it in AR",
     "sub1": "Hide subtitles",
-    "sub2": "Show subtitles"
+    "sub2": "Show subtitles",
+    "audio": "Enable audio?",
+    "option1": "Yes",
+    "option2": "No"
   },
   "CoinMap": {
     "congratulation": "Congratulations!",

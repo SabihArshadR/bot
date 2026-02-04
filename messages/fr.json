@@ -114,7 +114,7 @@
     "title3": "Fragments de la météorite",
     "button1": "PROGRÈS",
     "title4": "Récompenses du festival",
-    "title5": "Points",
+    "title5": "Aliments",
     "title6": "Terminé",
     "button2": "sac à dos",
     "button3": "Redémarrage",
@@ -401,7 +401,10 @@
     "button": "CONTINUER",
     "ar": "Le voir en RA",
     "sub1": "Cacher les sous-titres",
-    "sub2": "Afficher les sous-titres"
+    "sub2": "Afficher les sous-titres",
+    "audio": "Activer l’audio ?",
+    "option1": "Oui",
+    "option2": "Non"
   },
   "CoinMap": {
     "congratulation": "Félicitations !",
