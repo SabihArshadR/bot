@@ -4,8 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Element1 from "@/assets/element1.svg";
 import Element2 from "@/assets/element2.svg";
 import Element3 from "@/assets/element3.svg";
-import Element4 from "@/assets/element4.svg";
-import Element5 from "@/assets/element5.svg";
+import Element4 from "@/assets/element4new.svg";
+import Element5 from "@/assets/element5new.svg";
 import Element6 from "@/assets/element6.svg";
 
 import CheckIcon from "@/assets/check.svg";

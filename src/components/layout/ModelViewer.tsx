@@ -192,7 +192,7 @@ function OptimizedCanvas({
   const cameraConfig = useMemo(
     () => ({
       position: cam as [number, number, number],
-      fov: 35,
+      fov: 25,
       near: 0.005,
       far: 1000,
     }),
