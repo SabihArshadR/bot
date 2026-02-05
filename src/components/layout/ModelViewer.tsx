@@ -137,7 +137,7 @@ function SafeModel({ modelPath }: { modelPath: string }) {
   }
 
   if (!scene) return null;
-  return <primitive object={scene} position={[0, 0.7, 0]} />;
+  return <primitive object={scene} position={[0, 1, 0]} />;
 }
 
 /* ------------------ Optimized Canvas ------------------ */
@@ -192,7 +192,7 @@ function OptimizedCanvas({
   const cameraConfig = useMemo(
     () => ({
       position: cam as [number, number, number],
-      fov: 25,
+      fov: 28,
       near: 0.005,
       far: 1000,
     }),

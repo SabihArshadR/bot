@@ -10,6 +10,7 @@ import {
   useCallback,
 } from "react";
 import { usePathname } from 'next/navigation';
+import { useUser } from './UserContext';
 
 interface AudioContextType {
   isPlaying: boolean;
@@ -23,14 +24,18 @@ const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
 export function AudioProvider({ children }: { children: ReactNode }) {
   const audioRefs = useRef<HTMLAudioElement[]>([]);
+  const completionSoundRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
+  const [hasPlayedCompletionSound, setHasPlayedCompletionSound] = useState(false);
+  const { user } = useUser();
   const audioSources = [
     "/button-sounds/background1.mp3",
     "/button-sounds/background2.mp3",
     "/button-sounds/background3.mp3"
   ];
+  const TOTAL_POIS = 5; // Total number of POIs in the game
 
   const pathname = usePathname();
 
@@ -46,6 +51,59 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     }
   }, [pathname, isPlaying]);
 
+  // Check for POI completion and play completion sound
+  useEffect(() => {
+    if (
+      user?.POIsCompleted === TOTAL_POIS &&
+      completionSoundRef.current &&
+      !hasPlayedCompletionSound
+    ) {
+      // Preserve the previous playback state (needed to restore later)
+      const wasPlaying = isPlaying;
+
+      // Always pause any background tracks that might be playing
+      audioRefs.current.forEach((audio) => audio.pause());
+
+      /*
+       * Force the UI into the "un-muted" state so the user can decide to mute
+       * the completion sound if desired. We *only* do this when the music was
+       * previously muted so that we do not overwrite the user's current choice.
+       */
+      if (!wasPlaying) {
+        setIsPlaying(true);
+      }
+
+      // Play completion sound
+      completionSoundRef.current.play().catch(console.error);
+      setHasPlayedCompletionSound(true);
+
+      // Handle what happens once the completion sound ends
+      completionSoundRef.current.onended = () => {
+        /*
+         * If background music was playing before the completion sound, resume it
+         * (unless a popup is active).
+         * Otherwise, return the UI back to the muted state because there is no
+         * sound to play.
+         */
+        if (wasPlaying && !isPopupActive) {
+          audioRefs.current[currentTrack]?.play().catch(console.error);
+          // `isPlaying` is already true, nothing to change.
+        } else if (!wasPlaying) {
+          setIsPlaying(false);
+        }
+      };
+    } else if (user?.POIsCompleted < TOTAL_POIS) {
+      // Game restarted – allow completion sound to be played again later
+      setHasPlayedCompletionSound(false);
+    }
+    /*
+     * We intentionally leave `isPlaying` out of the dependency array to avoid
+     * re-running this effect when the user manually toggles audio during the
+     * completion sound.
+     */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.POIsCompleted, isPopupActive, currentTrack, hasPlayedCompletionSound]);
+
   // Function to play the next track
   const playNextTrack = useCallback(() => {
     setCurrentTrack(prev => (prev + 1) % audioSources.length);
@@ -54,7 +112,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   // Initialize audio elements
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Create audio elements for all sources
+      // Create audio elements for all background tracks
       audioRefs.current = audioSources.map((src, index) => {
         const audio = new Audio(src);
         audio.volume = 0.1;
@@ -70,6 +128,11 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         
         return audio;
       });
+
+      // Initialize completion sound
+      completionSoundRef.current = new Audio("/audios/botcompletion90.mp3");
+      completionSoundRef.current.volume = 0.5; // Adjust volume as needed
+      completionSoundRef.current.load();
 
       // Try to play on user interaction
       const handleFirstInteraction = () => {
@@ -144,8 +207,12 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
   const toggleAudio = useCallback(() => {
     if (isPlaying) {
-      // Pause all tracks
+      // Pause all tracks and completion sound
       audioRefs.current.forEach(audio => audio.pause());
+      if (completionSoundRef.current) {
+        completionSoundRef.current.pause();
+        completionSoundRef.current.currentTime = 0; // Reset to start
+      }
     } else {
       // Resume playing the current track
       audioRefs.current[currentTrack]?.play().catch(console.error);

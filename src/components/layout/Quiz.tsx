@@ -325,20 +325,21 @@ const Quiz = () => {
   }, [quizCompleted, volcanoId]);
 
   // Play completion sound when quiz is completed for 5th POI
-  useEffect(() => {
-    if (quizCompleted && volcanoId === 5) {
-      const sound = new Audio('/audios/botcompletion90.mp3');
-      sound.play().catch(error => console.error('Error playing completion sound:', error));
-      setCompletionSound(sound);
-    }
-    // Cleanup function to stop sound when component unmounts or quizCompleted changes
-    return () => {
-      if (completionSound) {
-        completionSound.pause();
-        completionSound.currentTime = 0;
-      }
-    };
-  }, [quizCompleted, volcanoId]);
+  
+  // useEffect(() => {
+  //   if (quizCompleted && volcanoId === 5) {
+  //     const sound = new Audio('/audios/botcompletion90.mp3');
+  //     sound.play().catch(error => console.error('Error playing completion sound:', error));
+  //     setCompletionSound(sound);
+  //   }
+  //   // Cleanup function to stop sound when component unmounts or quizCompleted changes
+  //   return () => {
+  //     if (completionSound) {
+  //       completionSound.pause();
+  //       completionSound.currentTime = 0;
+  //     }
+  //   };
+  // }, [quizCompleted, volcanoId]);
 
   if (quizCompleted) {
     return (
@@ -372,11 +373,11 @@ const Quiz = () => {
         <CustomButton
           onClick={() => {
             // Stop the completion sound when going to dashboard
-            if (completionSound) {
-              completionSound.pause();
-              completionSound.currentTime = 0;
-            }
-            refreshUser();
+            // if (completionSound) {
+            //   completionSound.pause();
+            //   completionSound.currentTime = 0;
+            // }
+            // refreshUser();
             router.push("/dashboard");
           }}
           >

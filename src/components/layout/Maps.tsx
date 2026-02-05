@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useUser } from "@/context/UserContext";
 import Loading from "./Loading";
+import { FaCheckCircle } from "react-icons/fa";
 
 const stop = ["first", "second", "third", "fourth", "fifth"];
 
@@ -60,7 +61,18 @@ const Maps = () => {
   return (
     <div className="pb-5 px-3.5 bg-white min-h-[80vh]">
       <div className="flex justify-center">
-        <Image src={Map} alt="Map" className="mt-[88px] w-[192px] h-[192px]" />
+        <div className="relative">
+          <Image 
+            src={Map} 
+            alt="Map" 
+            className={`w-[192px] h-[192px] mt-[88px] ${user?.POIsCompleted >= stop.length ? 'opacity-70' : ''}`} 
+          />
+          {user?.POIsCompleted >= stop.length && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <FaCheckCircle className="text-green-500 text-6xl mt-20 bg-black rounded-full" />
+            </div>
+          )}
+        </div>
       </div>
       <h1 className="text-2xl font-extrabold text-center text-green mt-[53px] font-karla">
         {t(destination)} {t("title1")}
