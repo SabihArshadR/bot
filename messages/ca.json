@@ -379,11 +379,11 @@
   },
   "QuizPage": {
     "try_again": "Torna-ho a provar",
-    "finding_1": "El tren i l’arribada de la guerra",
-    "finding_2": "Bot, capital sanitària en temps de guerra",
-    "finding_3": "Quan el poble va canviar de cop",
-    "finding_4": "Un lloc ple de silenci i memòria",
-    "finding_5": "Quan el tren es va construir amb treball forçat",
+    "finding_1": "Heu aconseguit el mocador",
+    "finding_2": "Heu aconseguit les espardenyes",
+    "finding_3": "Heu aconseguit la faldilla",
+    "finding_4": "Heu aconseguit la gralla",
+    "finding_5": "Heu aconseguit el tamborí",
     "description": "Tornem a explorar més PDI! Continua descobrint i interactuant amb cada punt per desbloquejar recompenses, guanyar punts i pujar de nivell. Com més explores, més progressaràs.",
     "button": "Continua el joc"
   },

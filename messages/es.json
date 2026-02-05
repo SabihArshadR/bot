@@ -379,11 +379,11 @@
   },
   "QuizPage": {
     "try_again": "Intentar otra vez",
-    "finding_1": "El tren y la llegada de la guerra",
-    "finding_2": "Bot, capital sanitaria en tiempos de guerra",
-    "finding_3": "Cuando el pueblo cambió de golpe",
-    "finding_4": "Un lugar lleno de silencio y memoria",
-    "finding_5": "Cuando el ferrocarril se construyó con trabajo forzado",
+    "finding_1": "Has conseguido el pañuelo",
+    "finding_2": "Has conseguido las alpargatas",
+    "finding_3": "Has conseguido la falda",
+    "finding_4": "Has conseguido la gralla",
+    "finding_5": "Has conseguido el tamborín",
     "description": "¡Vuelve a explorar más PDI! Sigue descubriendo e interactuando con cada punto para desbloquear recompensas, ganar puntos y subir de nivel. Cuanto más explores, más progresarás.",
     "button": "Continuar el juego"
   },

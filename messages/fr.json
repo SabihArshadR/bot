@@ -379,11 +379,11 @@
   },
   "QuizPage": {
     "try_again": "Essayer à nouveau",
-    "finding_1": "Le train et l’arrivée de la guerre",
-    "finding_2": "Bot, capitale sanitaire en temps de guerre",
-    "finding_3": "Quand le village a changé du jour au lendemain",
-    "finding_4": "Un lieu plein de silence et de mémoire",
-    "finding_5": "Quand le chemin de fer a été construit avec du travail forcé",
+    "finding_1": "Vous avez obtenu le foulard",
+    "finding_2": "Vous avez obtenu les espadrilles",
+    "finding_3": "Vous avez obtenu la jupe",
+    "finding_4": "Vous avez obtenu la gralla",
+    "finding_5": "Vous avez obtenu le tambourin",
     "description": "Retour à l'exploration de nouveaux points d'intérêt! Découvrez et interagissez avec chaque point pour débloquer des récompenses, gagner des points et progresser. Plus vous explorez, plus vous progressez.",
     "button": "Continuez le jeu"
   },

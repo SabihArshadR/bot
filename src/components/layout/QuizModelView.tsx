@@ -520,7 +520,7 @@ export default function QuizModelViewer({
               key={retryKey}
               camera={{
                 position: [0, 0, 5],
-                fov: 20,
+                fov: 15,
                 near: 0.1,
                 far: 1000,
               }}

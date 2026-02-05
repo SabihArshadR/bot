@@ -379,11 +379,11 @@
   },
   "QuizPage": {
     "try_again": "Try Again",
-    "finding_1": "The train and the arrival of war",
-    "finding_2": "Bot, a medical capital in wartime",
-    "finding_3": "When the village changed overnight",
-    "finding_4": "A place full of silence and memory",
-    "finding_5": "When the railway was built with forced labor",
+    "finding_1": "You have obtained the scarf",
+    "finding_2": "You have obtained the espadrilles",
+    "finding_3": "You have obtained the skirt",
+    "finding_4": "You have obtained the gralla",
+    "finding_5": "You have obtained the small drum",
     "description": "Back to exploring more POIs! Keep discovering and interacting with each point to unlock rewards, earn points, and level up. The more you explore, the more you progress.",
     "button": "Continue the Game"
   },
