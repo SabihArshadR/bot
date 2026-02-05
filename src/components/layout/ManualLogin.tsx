@@ -5,7 +5,7 @@ import React, { useCallback } from "react";
 import CustomButton from "../ui/Button";
 import CustomInput from "../ui/Input";
 import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
@@ -29,6 +29,7 @@ const ManualLogin = () => {
   // const [password, setPassword] = React.useState("");
   // const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+   const locale = useLocale();
 
   // const handleLogin = async () => {
   //   if (!username) {
@@ -107,7 +108,8 @@ const ManualLogin = () => {
       });
 
       if (result?.error) {
-        toast.error(t("login_failed"));
+        // If the user does not exist yet, attempt to create and log them in.
+        await handleNewLogin();
       } else {
         await refreshUser();
         toast.success(t("login_success"));
@@ -115,6 +117,62 @@ const ManualLogin = () => {
       }
     } catch (err: any) {
       toast.error(err.response?.data?.error || t("something_wrong"));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /**
+   * Attempts to register the current username and, on success, logs the user in.
+   * This is used as a fallback when a sign-in attempt fails because the user does
+   * not exist yet.
+   */
+  const handleNewLogin = async () => {
+    if (!username) {
+      toast.error(t("username_required"));
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      // 1️⃣ Create the user with the provided username
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-locale": locale,
+        },
+        body: JSON.stringify({ username }),
+      });
+
+      const data = await res.json().catch(() => ({} as any));
+      if (!res.ok) {
+        const message = (data && (data.error || data.message)) || `Request failed (${res.status})`;
+        toast.error(message);
+        return;
+      }
+
+      // Registration succeeded ✅
+      // toast.success(t1("registerSuccess"));
+
+      // 2️⃣ Immediately sign in the newly-created user
+      const result = await signIn("credentials", {
+        redirect: false,
+        username,
+        callbackUrl: "/",
+      });
+
+      if (result?.error) {
+        toast.error(t("login_failed"));
+        return;
+      }
+
+      await refreshUser();
+      toast.success(t("login_success"));
+      router.push("/dashboard");
+    } catch (err: any) {
+      toast.error(err?.response?.data?.error || t("something_wrong"));
     } finally {
       setLoading(false);
     }
@@ -155,12 +213,12 @@ const ManualLogin = () => {
           {/* <a href="/forgot-password" className="  mt-6">
             {t2("ForgotPassword")}
           </a> */}
-          <span>
+          {/* <span>
             {t2("NoAccount")}{" "}
             <a href="/register" className=" !pt-6 mt-6 font-bold">
               {t2("CreateAccount")}
             </a>
-          </span>
+          </span> */}
         </div>
         <div className="flex flex-col gap-4 mt-[45px]">
           <CustomButton onClick={handleLogin} disabled={loading}>

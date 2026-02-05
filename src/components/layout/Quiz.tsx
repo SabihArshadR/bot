@@ -342,12 +342,12 @@ const Quiz = () => {
 
   if (quizCompleted) {
     return (
-      <div className="flex flex-col justify-center px-5 h-[85vh] items-center bg-lightbrown">
+      <div className="flex flex-col h-[85vh] items-center bg-lightbrown">
         {findingImages[volcanoId - 1] && (
           <div
-            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center"
+            className="h-[500px] w-full mb-4 flex justify-center items-center"
             style={{
-              backgroundImage: "url(/bg.svg)",
+              backgroundImage: "url(/findingsbg.jpg)",
               backgroundSize: "cover",
             }}
           >
@@ -367,6 +367,8 @@ const Quiz = () => {
         {/* <h1 className="text-lg text-primary mb-6 text-center">
           {t1("description")}
         </h1> */}
+        <div className="w-full px-5 pb-5">
+
         <CustomButton
           onClick={() => {
             // Stop the completion sound when going to dashboard
@@ -377,9 +379,10 @@ const Quiz = () => {
             refreshUser();
             router.push("/dashboard");
           }}
-        >
+          >
           {t1("button")}
         </CustomButton>
+          </div>
       </div>
     );
   }

@@ -8,12 +8,12 @@ export async function POST(req: Request) {
   try {
     const { username, phone, origin } = await req.json();
     
-    if (!username || !phone) {
-      return NextResponse.json(
-        { success: false, error: "Username and phone are required" },
-        { status: 400 }
-      );
-    }
+    // if (!username || !phone) {
+    //   return NextResponse.json(
+    //     { success: false, error: "Username and phone are required" },
+    //     { status: 400 }
+    //   );
+    // }
 
     if (!USERNAME_REGEX.test(username)) {
       return NextResponse.json(
@@ -56,8 +56,8 @@ export async function POST(req: Request) {
 
     const newUser = {
       username: username.trim(),
-      phone: phone.replace(/\s+/g, ''),
-      origin: (origin || 'web').toLowerCase(),
+      // phone: phone.replace(/\s+/g, ''),
+      // origin: (origin || 'web').toLowerCase(),
       hasSeenPopup: false,
       points: 0,
       currentLevel: 1,

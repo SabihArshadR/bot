@@ -495,7 +495,7 @@ export default function InlineModelViewer({
           >
             <Canvas
               key={retryKey}
-              camera={{ position: [0, 0, 3], fov: 75 }} 
+              camera={{ position: [0, 0, 3], fov: 70 }} 
               gl={{ powerPreference: "high-performance", alpha: true }}
               dpr={0.9}
               style={{

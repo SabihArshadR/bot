@@ -55,7 +55,7 @@ class ModelErrorBoundary extends Component<
   render() {
     if (this.state.hasError) {
       return (
-        <div className="absolute inset-0 flex items-center justify-center bg-white flex-col gap-4">
+        <div className="absolute inset-0 flex items-center justify-center flex-col gap-4">
           <p className="text-red-500 font-semibold text-lg">
             ❌ Failed to load 3D model
           </p>
@@ -228,7 +228,7 @@ function OptimizedCanvas({
       gl={{ powerPreference: "high-performance" }}
       dpr={[1, 2]}
     >
-      <color attach="background" args={[backgroundColor]} />
+      {/* <color attach="background" args={[backgroundColor]} /> */}
       <ambientLight intensity={0.6} />
       <directionalLight position={[5, 5, 5]} intensity={0.5} castShadow />
       <ModelErrorBoundary>
@@ -296,32 +296,87 @@ function ModelViewerComponent({
   }, []);
 
   return (
+    // <div
+    //   className={`fixed inset-0 bg-black/90 flex items-center justify-center z-50 ${className}`}
+    // >
+    //   <div className="relative bg-white rounded-2xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden">
+    //     <button
+    //       onClick={() => {
+    //         (onClose(), closeSound());
+    //       }}
+    //       className="absolute top-4 right-4 bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 hover:bg-gray-100"
+    //     >
+    //       ✕
+    //     </button>
+    //     <Suspense fallback={<Loading />}>
+    //       <OptimizedCanvas
+    //         modelPath={modelPath}
+    //         backgroundColor={backgroundColor}
+    //         environment={environment}
+    //         enableZoom={enableZoom}
+    //         enableRotate={enableRotate}
+    //         showFloor={showFloor}
+    //         zoomMode={zoomMode}
+    //         isOpen={isOpen}
+    //       />
+    //     </Suspense>
+    //   </div>
+    // </div>
+    
+
     <div
-      className={`fixed inset-0 bg-black/90 flex items-center justify-center z-50 ${className}`}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity duration-300 ${
+        isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+      } ${className}`}
+      style={{
+        backgroundImage: `url(/findingsbg.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center', 
+        backgroundRepeat: 'no-repeat',
+      }}
+      onClick={(e) => e.stopPropagation()}
     >
-      <div className="relative bg-white rounded-2xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden">
+      <div className="relative rounded-2xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden">
         <button
-          onClick={() => {
-            (onClose(), closeSound());
-          }}
+          onClick={onClose}
           className="absolute top-4 right-4 bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 hover:bg-gray-100"
         >
           ✕
         </button>
         <Suspense fallback={<Loading />}>
-          <OptimizedCanvas
-            modelPath={modelPath}
-            backgroundColor={backgroundColor}
-            environment={environment}
-            enableZoom={enableZoom}
-            enableRotate={enableRotate}
-            showFloor={showFloor}
-            zoomMode={zoomMode}
-            isOpen={isOpen}
-          />
+          <div className="relative w-full h-full">
+            {true && (   
+                <div 
+                className="absolute inset-0 z-0"
+                style={{
+                  backgroundImage: `url(/findingsbg.jpg)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  // filter: 'blur(8px) brightness(0.7)',
+                  transform: 'scale(1.1)',
+                }}
+              />
+            )}
+            <div className="relative z-10 w-full h-full">
+              <OptimizedCanvas
+                modelPath={modelPath}
+                // rotation={rotation as [number, number, number]}
+                // position={position as [number, number, number]}
+                backgroundColor="transparent"
+                environment={environment}
+                enableZoom={enableZoom}
+                enableRotate={enableRotate}
+                showFloor={showFloor}
+                zoomMode={zoomMode as any}
+                isOpen={isOpen}
+              />
+            </div>
+          </div>
         </Suspense>
       </div>
     </div>
+
+
   );
 }
 
