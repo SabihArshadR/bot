@@ -67,11 +67,11 @@ const Maps = () => {
             alt="Map" 
             className={`w-[192px] h-[192px] mt-[88px] ${user?.POIsCompleted >= stop.length ? 'opacity-70' : ''}`} 
           />
-          {user?.POIsCompleted >= stop.length && (
+          {/* {user?.POIsCompleted >= stop.length && ( */}
             <div className="absolute inset-0 flex items-center justify-center">
               <FaCheckCircle className="text-green-500 text-6xl mt-20 bg-black rounded-full" />
             </div>
-          )}
+          {/* )} */}
         </div>
       </div>
       <h1 className="text-2xl font-extrabold text-center text-green mt-[53px] font-karla">
