@@ -13,7 +13,7 @@ import Card from "../ui/Card";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import SplashPopUp from "./Popup";
-import Welcome from "./Welcome";
+// import Welcome from "./Welcome";
 import Intro from "./Intro";
 import api from "@/lib/axios";
 import { useUser } from "@/context/UserContext";
@@ -160,7 +160,7 @@ const Dashboard = () => {
     router.push("/progres");
   };
 
-  if (loading) return <Welcome />;
+  // if (loading) return <Welcome />;
 
   // if (showBotCompletion) {
   //   return <BotCompletion />;

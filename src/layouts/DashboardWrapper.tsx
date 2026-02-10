@@ -57,7 +57,7 @@ const DashboardWrapper = ({ children }: DashboardWrapperProps) => {
         {isPlaying ? "🔊" : "🔇"}
       </button>
 
-      {showCookies && (
+      {/* {showCookies && (
         <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white px-4 py-3 flex items-center justify-between shadow-md z-50">
           <p className="text-sm">
             We use cookies to improve your experience. By using our site, you
@@ -75,7 +75,7 @@ const DashboardWrapper = ({ children }: DashboardWrapperProps) => {
             </CustomButton>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
