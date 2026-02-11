@@ -206,19 +206,29 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, [currentTrack, isPlaying]);
 
   const toggleAudio = useCallback(() => {
+    const isGameCompleted = user?.POIsCompleted === TOTAL_POIS;
+
     if (isPlaying) {
-      // Pause all tracks and completion sound
+      // 1. If currently playing, PAUSE EVERYTHING
       audioRefs.current.forEach(audio => audio.pause());
       if (completionSoundRef.current) {
         completionSoundRef.current.pause();
-        completionSoundRef.current.currentTime = 0; // Reset to start
+        // We don't necessarily want to reset to 0 here 
+        // unless you want the sound to start over every time you unmute
       }
+      setIsPlaying(false);
     } else {
-      // Resume playing the current track
-      audioRefs.current[currentTrack]?.play().catch(console.error);
+      // 2. If currently muted, DECIDE WHAT TO PLAY
+      if (isGameCompleted && completionSoundRef.current) {
+        // Play completion sound if game is done
+        completionSoundRef.current.play().catch(console.error);
+      } else {
+        // Play regular background music if game is still going
+        audioRefs.current[currentTrack]?.play().catch(console.error);
+      }
+      setIsPlaying(true);
     }
-    setIsPlaying(!isPlaying);
-  }, [isPlaying, currentTrack]);
+  }, [isPlaying, currentTrack, user?.POIsCompleted]); // Added user dependency
 
   const setVolume = (volume: number) => {
     audioRefs.current.forEach(audio => {

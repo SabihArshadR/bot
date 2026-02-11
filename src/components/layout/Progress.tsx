@@ -214,8 +214,9 @@ const Progress = () => {
           localStorage.setItem("prevCompleted", "0");
         }
         await refreshUser();
-        await setShowPopup(false);
-        router.push("/dashboard");
+        setShowPopup(false);
+        await router.push("/dashboard");
+        window.location.reload();
       } catch (err: any) {
         console.error(
           "Error resetting progress:",
