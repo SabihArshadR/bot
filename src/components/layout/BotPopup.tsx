@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import logo1 from "@/assets/webl1.svg";
-import logo2 from "@/assets/webl2.svg";
-import logo3 from "@/assets/webl3.svg";
-import logo4 from "@/assets/webl4.png";
-import logo5 from "@/assets/webl5.png";
+import logo1 from "@/assets/1.png";
+import logo2 from "@/assets/2.png";
+import logo3 from "@/assets/3.png";
+import logo4 from "@/assets/4.png";
+import logo5 from "@/assets/5.png";
+import logo6 from "@/assets/6.png";
 import Image from "next/image";
 
 interface BotPopupProps {
@@ -16,36 +17,41 @@ const BotPopup = ({ onClose }: BotPopupProps) => {
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
       <div className="w-full max-w-[400px] mx-auto">
         <div className="bg-white flex flex-col justify-center items-center pb-10">
-          <h1 className="text-2xl font-semibold text-[#160500] mt-10">
+          {/* <h1 className="text-2xl font-semibold text-[#160500] mt-10">
             Amb el suport de:
-          </h1>
+          </h1> */}
           <Image
             src={logo1}
             alt="logo1"
-            className="w-[157px] h-[68px] mt-[47px]"
+            className="w-[300px] mt-[30px] h-[300px] object-cover"
           />
           <Image
             src={logo2}
             alt="log2"
-            className="w-[209px] h-[52px] mt-[47px]"
+            className="w-[200px] h-[52px] object-cover"
           />
           <Image
             src={logo3}
             alt="log3"
-            className="w-[130px] h-[105px] mt-[48px]"
+            className="w-[200px] h-[100px] mt-[30px] object-cover"
           />
           <Image
             src={logo4}
             alt="log4"
-            className="w-[73px] h-[98px] mt-[28px]"
+            className="w-[200px] h-[100px] mt-[28px] object-cover"
           />
-          <h1 className="text-2xl font-semibold text-[#160500] mt-[74px]">
+          {/* <h1 className="text-2xl font-semibold text-[#160500] mt-[50px]">
             Creat per:
-          </h1>
+          </h1> */}
           <Image
             src={logo5}
             alt="log5"
-            className="mt-[29px] w-[138px] h-[73px]"
+            className="mt-[29px] w-[200px] h-[100px] object-cover"
+          />
+          <Image
+            src={logo6}
+            alt="log5"
+            className="mt-[29px] w-[200px] h-[100px] object-cover"
           />
         </div>
       </div>
