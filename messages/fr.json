@@ -409,7 +409,10 @@
     "sub2": "Afficher les sous-titres",
     "audio": "Activer l’audio ?",
     "option1": "Oui",
-    "option2": "Non"
+    "option2": "Non",
+    "info1": "Interagissez avec la Miula",
+    "info2": "Touchez et faites glisser avec un doigt pour la faire pivoter",
+    "info3": "Pincez avec deux doigts pour zoomer"
   },
   "CoinMap": {
     "congratulation": "Félicitations !",

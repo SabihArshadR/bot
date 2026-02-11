@@ -23,7 +23,7 @@ const BotPopup = ({ onClose }: BotPopupProps) => {
           <Image
             src={logo1}
             alt="logo1"
-            className="w-[300px] mt-[30px] h-[300px] object-cover"
+            className="w-[200px] h-[200px] object-cover"
           />
           <Image
             src={logo2}
@@ -33,12 +33,12 @@ const BotPopup = ({ onClose }: BotPopupProps) => {
           <Image
             src={logo3}
             alt="log3"
-            className="w-[200px] h-[100px] mt-[30px] object-cover"
+            className="w-[200px] h-[100px] object-cover"
           />
           <Image
             src={logo4}
             alt="log4"
-            className="w-[200px] h-[100px] mt-[28px] object-cover"
+            className="w-[200px] h-[100px] object-cover"
           />
           {/* <h1 className="text-2xl font-semibold text-[#160500] mt-[50px]">
             Creat per:
@@ -46,12 +46,12 @@ const BotPopup = ({ onClose }: BotPopupProps) => {
           <Image
             src={logo5}
             alt="log5"
-            className="mt-[29px] w-[200px] h-[100px] object-cover"
+            className="w-[200px] h-[100px] object-cover"
           />
           <Image
             src={logo6}
             alt="log5"
-            className="mt-[29px] w-[200px] h-[100px] object-cover"
+            className="w-[200px] h-[100px] object-cover"
           />
         </div>
       </div>

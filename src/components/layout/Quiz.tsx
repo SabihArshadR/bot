@@ -362,7 +362,7 @@ const Quiz = () => {
             </div>
           </div>
         )}
-        <h1 className="text-xl font-bold text-blackfont mb-12 text-center">
+        <h1 className="text-xl font-bold text-blackfont mb-8 mt-6 text-center">
           {findingNames[volcanoId - 1]}
         </h1>
         {/* <h1 className="text-lg text-primary mb-6 text-center">

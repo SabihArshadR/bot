@@ -161,6 +161,8 @@ const Page = ({
   const [showSubtitleButton, setShowSubtitleButton] = useState(false);
   const t = useTranslations("gameText");
   const t2 = useTranslations("intro");
+  const [showMovementInstructions, setShowMovementInstructions] =
+    useState(false);
 
   const [avatarPos, setAvatarPos] = useState<{
     x: number;
@@ -324,6 +326,7 @@ const Page = ({
       markerRef.current.object3D.getWorldPosition(worldPos);
       setAvatarPos({ x: worldPos.x, y: worldPos.y + 0.3, z: worldPos.z });
       startAnimationAndAudio();
+      setShowMovementInstructions(true);
     }
   };
 
@@ -341,6 +344,12 @@ const Page = ({
   const onTouchStart = (e: React.TouchEvent) => {
     if (!avatarPos) return;
     e.stopPropagation();
+
+    if (showMovementInstructions) {
+      setShowMovementInstructions(false);
+    }
+
+
     const touches = e.touches;
     gestureState.current.start = true;
     if (touches.length === 1) {
@@ -579,7 +588,6 @@ const Page = ({
           />
         )}
       </AScene>
-
       {avatarPos && (
         <div
           onTouchStart={onTouchStart}
@@ -595,7 +603,6 @@ const Page = ({
           }}
         />
       )}
-
       {!avatarPos && (
         <div
           className={`fixed bottom-10 w-full flex justify-center ${from == "intro" ? "left-0" : ""}`}
@@ -609,7 +616,6 @@ const Page = ({
           </CustomButton>
         </div>
       )}
-
       {showAudioPopup && (
         <div
           className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70"
@@ -648,6 +654,16 @@ const Page = ({
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%]">
           <div className="bg-black/70 text-white text-center px-4 py-5 rounded-lg text-[13px] leading-relaxed shadow-lg">
             {activeSubtitle}
+          </div>
+        </div>
+      )}
+      {showMovementInstructions && (
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2147483647] w-[90%] max-w-md">
+          <div className="bg-black/80 text-white text-center px-6 py-4 rounded-xl shadow-2xl border border-white/20">
+            <p className="text-base font-medium mb-2">💡 {t2("info1")}</p>
+            <p className="text-sm opacity-90">
+              {t2("info2")} <br></br> {t2("info3")}
+            </p>
           </div>
         </div>
       )}

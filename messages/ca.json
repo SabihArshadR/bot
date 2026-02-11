@@ -407,7 +407,10 @@
     "sub2": "Mostrar subtítols",
     "audio": "Activar l’àudio?",
     "option1": "Sí",
-    "option2": "No"
+    "option2": "No",
+    "info1": "Interactua amb la Miula",
+    "info2": "Toca i arrossega amb un dit per girar-la",
+    "info3": "Pessiga amb dos dits per fer zoom"
   },
   "CoinMap": {
     "congratulation": "Enhorabona!",

@@ -409,7 +409,10 @@
     "sub2": "Show subtitles",
     "audio": "Enable audio?",
     "option1": "Yes",
-    "option2": "No"
+    "option2": "No",
+    "info1": "Interact with the Miula",
+    "info2": "Tap and drag with one finger to rotate it",
+    "info3": "Pinch with two fingers to zoom"
   },
   "CoinMap": {
     "congratulation": "Congratulations!",
