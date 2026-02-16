@@ -38,12 +38,12 @@ const drawRoute = async (map: Map, start: Coordinates, end: Coordinates) => {
       ],
     };
 
-    const source = map.getSource("route") as mapboxgl.GeoJSONSource;
+    const source = map.getSource("route") as mapboxgl.GeoJSONSource | undefined;
 
     if (source) {
       source.setData(geojson);
     } else {
-      map.addSource("route", { type: "geojson", data: geojson,lineMetrics: true, });
+      map.addSource("route", { type: "geojson", data: geojson });
       map.addLayer({
         id: "route",
         type: "line",
@@ -53,19 +53,10 @@ const drawRoute = async (map: Map, start: Coordinates, end: Coordinates) => {
           "line-cap": "round",
         },
         paint: {
-          "line-width": 8,
-          "line-gradient": [
-            "interpolate",
-            ["linear"],
-            ["line-progress"],
-            0,
-            "#00f",
-            0.5,
-            "#00ffff",
-            1,
-            "#1052ff",
-          ],
-          "line-blur": 4,
+          "line-color": "#1052ff",
+          "line-width": 6,
+          "line-blur": 2,
+          "line-opacity": 0.9,
         },
       });
     }
@@ -84,77 +75,42 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const destinationMarker = useRef<Marker | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
 
-  // 🚀 CREATE MAP
   useEffect(() => {
     if (!mapContainer.current) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/standard",
+      // Use Satellite-Streets for an immersive "real world" feel
+      style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [0, 0],
-      zoom: 2,
-      pitch: 60,
+      zoom: 18, // Start closer for immersion
+      pitch: 60, // Tilt the camera
       bearing: 0,
       antialias: true,
       attributionControl: false,
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl(), "top-left");
-
-    map.current.on("load", () => {
-      if (!map.current) return;
-
-      // 🌍 Terrain
-      map.current.addSource("mapbox-dem", {
+    map.current.on("style.load", () => {
+      // Add 3D Terrain
+      map.current?.addSource("mapbox-dem", {
         type: "raster-dem",
-        url: "mapbox://mapbox.terrain-rgb",
+        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
         tileSize: 512,
         maxzoom: 14,
       });
+      map.current?.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
 
-      map.current.setTerrain({
-        source: "mapbox-dem",
-        exaggeration: 1.6,
+      // Add Realistic Sky/Atmosphere
+      map.current?.setFog({
+        range: [0.5, 10],
+        color: "white",
+        "horizon-blend": 0.1,
       });
-
-      // 🌤 Sky
-      map.current.addLayer({
-        id: "sky",
-        type: "sky",
-        paint: {
-          "sky-type": "atmosphere",
-          "sky-atmosphere-sun-intensity": 20,
-        },
-      });
-
-      // 🏙 3D Buildings
-      const layers = map.current.getStyle().layers;
-      const labelLayerId = layers?.find(
-        (layer) =>
-          layer.type === "symbol" && layer.layout?.["text-field"]
-      )?.id;
-
-      map.current.addLayer(
-        {
-          id: "3d-buildings",
-          source: "composite",
-          "source-layer": "building",
-          filter: ["==", "extrude", "true"],
-          type: "fill-extrusion",
-          minzoom: 15,
-          paint: {
-            "fill-extrusion-color": "#aaa",
-            "fill-extrusion-height": ["get", "height"],
-            "fill-extrusion-base": ["get", "min_height"],
-            "fill-extrusion-opacity": 0.85,
-          },
-        },
-        labelLayerId
-      );
     });
+
+    map.current.addControl(new mapboxgl.NavigationControl(), "top-left");
   }, []);
 
-  // 🎯 DESTINATION MARKER
   useEffect(() => {
     if (!map.current || !destination) return;
 
@@ -162,23 +118,41 @@ export default function CoinMap({ destination }: CoinMapProps) {
       destinationMarker.current.remove();
     }
 
-    const el = document.createElement("div");
-    el.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
-    el.style.cssText = `
-      width: 180px;
-      height: 180px;
+    // Create a more stable marker element
+    const volcanoEl = document.createElement("div");
+    volcanoEl.className = "destination-marker";
+    volcanoEl.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
+
+    // Add CSS styles for better positioning
+    volcanoEl.style.cssText = `
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+      position: relative;
       transform: translate(-50%, -100%);
     `;
 
+    volcanoEl.querySelector("img")!.style.cssText = `
+      height: 100%;
+      max-width: 200px;
+      filter: brightness(1.5) drop-shadow(0 0 10px white);
+      object-fit: contain;
+    `;
+
     destinationMarker.current = new mapboxgl.Marker({
-      element: el,
+      element: volcanoEl,
       anchor: "bottom",
     })
       .setLngLat([destination.lng, destination.lat])
       .addTo(map.current);
+
+    return () => {
+      if (destinationMarker.current) {
+        destinationMarker.current.remove();
+      }
+    };
   }, [destination]);
 
-  // 📍 USER TRACKING
   useEffect(() => {
     if (!map.current) return;
 
@@ -196,54 +170,34 @@ export default function CoinMap({ destination }: CoinMapProps) {
           userEl.style.cssText = `
             width: 20px;
             height: 20px;
+            border: 3px solid white;
             border-radius: 50%;
-            background: radial-gradient(circle, #0d52ff 40%, rgba(13,82,255,0.3) 60%);
-            box-shadow: 0 0 20px #0d52ff;
+            background-color: #0d52ff;
+            transform: translate(-50%, -50%);
           `;
-
-          if (map.current) {
-            userMarker.current = new mapboxgl.Marker({
-              element: userEl,
-              anchor: "center",
-            })
-              .setLngLat([newLoc.lng, newLoc.lat])
-              .addTo(map.current);
-          }
+          userMarker.current = new mapboxgl.Marker({
+            element: userEl,
+            anchor: "center",
+          })
+            .setLngLat([newLoc.lng, newLoc.lat])
+            .addTo(map.current!);
+          map.current!.flyTo({
+            center: [newLoc.lng, newLoc.lat],
+            zoom: 18,
+            pitch: 65,
+            duration: 5000,
+            essential: true,
+          });
         } else {
-          const current = userMarker.current.getLngLat();
-          const frames = 30;
-          let i = 0;
-
-          function animate() {
-            i++;
-            const lng =
-              current.lng + (newLoc.lng - current.lng) * (i / frames);
-            const lat =
-              current.lat + (newLoc.lat - current.lat) * (i / frames);
-
-            userMarker.current!.setLngLat([lng, lat]);
-
-            if (i < frames) requestAnimationFrame(animate);
-          }
-
-          animate();
+          userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
         }
 
-        // 🎥 Cinematic camera follow
-        map.current!.easeTo({
-          center: [newLoc.lng, newLoc.lat],
-          zoom: 18,
-          pitch: 70,
-          bearing: pos.coords.heading ?? map.current!.getBearing(),
-          duration: 1000,
-        });
-
-        if (destination) {
-          drawRoute(map.current!, newLoc, destination);
+        if (map.current && destination) {
+          drawRoute(map.current, newLoc, destination);
         }
       },
-      (err) => console.error(err),
-      { enableHighAccuracy: true }
+      (err) => console.error("Location error:", err),
+      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 },
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
@@ -253,7 +207,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
     if (userLocation && destination) {
       const dist = haversineDistance(userLocation, destination);
       setShowEnterAR(dist <= 0.005);
-      
+
       // Disabled distance check for testing - always show AR button
       // setShowEnterAR(true);
     }
@@ -265,7 +219,9 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
       {destination && userLocation && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white text-backblack px-4 py-2 rounded shadow z-50 text-sm font-semibold flex items-center gap-2">
-          <span className="text-blue-600">{haversineDistance(userLocation, destination).toFixed(2)} km</span>
+          <span className="text-blue-600">
+            {haversineDistance(userLocation, destination).toFixed(2)} km
+          </span>
         </div>
       )}
 
@@ -287,15 +243,19 @@ export default function CoinMap({ destination }: CoinMapProps) {
           <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
             <div className="space-y-4 flex flex-col">
               <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-primary mb-2">{t("congratulation")}</h2>
-                <p className="text-gray-700 mb-4">
-                  {t("text")}
-                </p>
+                <h2 className="text-2xl font-bold text-primary mb-2">
+                  {t("congratulation")}
+                </h2>
+                <p className="text-gray-700 mb-4">{t("text")}</p>
               </div>
 
               <div className="flex justify-center gap-3 pt-2">
                 <CustomButton
-                  onClick={() => router.push(`/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`)}
+                  onClick={() =>
+                    router.push(
+                      `/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`,
+                    )
+                  }
                   className="rounded-xl"
                 >
                   {t("button")}
