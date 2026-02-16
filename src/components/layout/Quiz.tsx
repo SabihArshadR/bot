@@ -348,8 +348,10 @@ const Quiz = () => {
           <div
             className="h-[500px] w-full mb-4 flex justify-center items-center"
             style={{
-              backgroundImage: "url(/findingsbg.jpg)",
-              backgroundSize: "cover",
+              backgroundImage: "url(/trunk.jpg)",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           >
             {/* <img
