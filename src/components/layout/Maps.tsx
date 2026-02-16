@@ -74,11 +74,11 @@ const Maps = () => {
           {/* )} */}
         </div>
       </div>
-      <h1 className="text-2xl font-extrabold text-center text-green mt-[53px] font-karla">
-        {t(destination)} {t("title1")}
+      <h1 className={`text-2xl font-extrabold text-center ${user?.POIsCompleted >= stop.length ? 'text-blackfont' : 'text-green'} mt-[53px] font-karla`}>
+        {user?.POIsCompleted >= stop.length ? t("final") : `${t(destination)} ${t("title1")}`}
       </h1>
-      <h1 className="text-[36px] font-medium text-center text-blackfont mt-[10px] leading-8 font-roboto">
-        {t(destinationTitle)}
+      <h1 className={`text-[36px] font-medium text-center ${user?.POIsCompleted >= stop.length ? 'text-green' : 'text-blackfont'} mt-[10px] leading-8 font-roboto`}>
+        {user?.POIsCompleted >= stop.length ? t("final2") : t(destinationTitle)}
       </h1>
       <div className="flex flex-col justify-center items-center mt-[14vh]">
         <CustomButton

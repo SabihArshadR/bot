@@ -107,7 +107,9 @@
     "fifth_title": "Quan el tren es va construir amb treball forçat",
     "button": "JUGAR",
     "button1": "MAPA",
-    "button2": "LLISTAT"
+    "button2": "LLISTAT",
+    "final": "MAPA",
+    "final2": "COMPLETAT"
   },
   "Progress": {
     "title1": "Hola, ",
@@ -262,7 +264,8 @@
     "title2": "Accedir",
     "title3": "Sortir",
     "heading1": "Canyelles",
-    "heading2": "i La història del meteorit"
+    "heading2": "i La història del meteorit",
+    "back": "Tornar"
   },
   "Volcano1Quiz1": {
     "title": "Per què el tren va esdevenir una peça clau per a Bot quan el front es va estabilitzar al riu Ebre?",
@@ -408,8 +411,8 @@
     "audio": "Activar l’àudio?",
     "option1": "Sí",
     "option2": "No",
-    "info1": "Interactua amb la Miula",
-    "info2": "Toca i arrossega amb un dit per girar-la",
+    "info1": "Interactua amb el gegant",
+    "info2": "Toca i arrossega amb un dit per girar-lo",
     "info3": "Pessiga amb dos dits per fer zoom"
   },
   "CoinMap": {

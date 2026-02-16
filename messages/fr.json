@@ -109,7 +109,9 @@
     "third_title": "Quand le village a changé du jour au lendemain",
     "fourth_title": "Un lieu plein de silence et de mémoire",
     "fifth_title": "Quand le chemin de fer a été construit avec du travail forcé",
-    "button": "JOUER"
+    "button": "JOUER",
+    "final": "CARTE",
+    "final2": "TERMINÉ"
   },
   "Progress": {
     "title1": "Bonjour, ",
@@ -264,7 +266,8 @@
     "title2": "Accès",
     "title3": "Déconnexion",
     "heading1": "CanYelles",
-    "heading2": "et L'histoire de la météorite"
+    "heading2": "et L'histoire de la météorite",
+    "back": "Retourner"
   },
   "Volcano1Quiz1": {
     "title": "Pourquoi le chemin de fer est-il devenu un élément clé pour Bot lorsque le front s’est stabilisé sur l’Èbre ?",
@@ -410,9 +413,9 @@
     "audio": "Activer l’audio ?",
     "option1": "Oui",
     "option2": "Non",
-    "info1": "Interagissez avec la Miula",
-    "info2": "Touchez et faites glisser avec un doigt pour la faire pivoter",
-    "info3": "Pincez avec deux doigts pour zoomer"
+    "info1": "Interagis avec le géant",
+    "info2": "Appuie et fais glisser avec un doigt pour le faire tourner",
+    "info3": "Pince avec deux doigts pour zoomer"
   },
   "CoinMap": {
     "congratulation": "Félicitations !",

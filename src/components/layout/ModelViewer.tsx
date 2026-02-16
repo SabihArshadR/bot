@@ -338,7 +338,9 @@ function ModelViewerComponent({
     >
       <div className="relative rounded-2xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden">
         <button
-          onClick={onClose}
+          onClick={() => {
+           (onClose(), closeSound());
+           }}
           className="absolute top-4 right-4 bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-30 hover:bg-gray-100"
         >
           ✕

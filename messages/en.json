@@ -109,7 +109,9 @@
     "third_title": "When the village changed overnight",
     "fourth_title": "A place full of silence and memory",
     "fifth_title": "When the railway was built with forced labor",
-    "button": "PLAY"
+    "button": "PLAY",
+    "final": "MAP",
+    "final2": "COMPLETED"
   },
   "Progress": {
     "title1": "Hello, ",
@@ -264,7 +266,8 @@
     "title2": "Access",
     "title3": "Logout",
     "heading1": "CanYelles",
-    "heading2": "and The Story of the Meteorite"
+    "heading2": "and The Story of the Meteorite",
+    "back": "Return"
   },
   "Volcano1Quiz1": {
     "title": "Why did the railway become a key element for Bot when the front stabilized at the Ebro River?",
@@ -410,7 +413,7 @@
     "audio": "Enable audio?",
     "option1": "Yes",
     "option2": "No",
-    "info1": "Interact with the Miula",
+    "info1": "Interact with the giant",
     "info2": "Tap and drag with one finger to rotate it",
     "info3": "Pinch with two fingers to zoom"
   },

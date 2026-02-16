@@ -109,7 +109,9 @@
     "third_title": "Cuando el pueblo cambió de golpe",
     "fourth_title": "Un lugar lleno de silencio y memoria",
     "fifth_title": "Cuando el ferrocarril se construyó con trabajo forzado",
-    "button": "JUGAR"
+    "button": "JUGAR",
+    "final": "MAPA",
+    "final2": "COMPLETADO"
   },
   "Progress": {
     "title1": "Hola, ",
@@ -264,7 +266,8 @@
     "title2": "Acceder",
     "title3": "Cerrar sesión",
     "heading1": "CanYelles",
-    "heading2": "y La historia del meteorito"
+    "heading2": "y La historia del meteorito",
+    "back": "Volver"
   },
   "Volcano1Quiz1": {
     "title": "¿Por qué el ferrocarril se convirtió en una pieza clave para Bot cuando el frente se estabilizó en el río Ebro?",
@@ -410,8 +413,8 @@
     "audio": "¿Activar el audio?",
     "option1": "Sí",
     "option2": "No",
-    "info1": "Interactúa con la Miula",
-    "info2": "Toca y arrastra con un dedo para girarla",
+    "info1": "Interactúa con el gigante",
+    "info2": "Toca y arrastra con un dedo para girarlo",
     "info3": "Pellizca con dos dedos para hacer zoom"
   },
   "CoinMap": {
