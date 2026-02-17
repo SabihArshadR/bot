@@ -73,6 +73,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const map = useRef<Map | null>(null);
   const userMarker = useRef<Marker | null>(null);
   const destinationMarker = useRef<Marker | null>(null);
+  const beamElement = useRef<HTMLElement | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
 
   useEffect(() => {
@@ -169,6 +170,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
           const beam = document.createElement("div");
           beam.className = "user-beam";
           userEl.appendChild(beam);
+          beamElement.current = beam;
 
           // 2. Add the Google Maps styling via CSS-in-JS or a global CSS file
           // We'll inject a style tag for the pulse animation if it's not in your CSS file
@@ -185,7 +187,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
           }
             .user-beam {
             position: absolute;
-            top: 50%;
+            top: 120%;
             left: 50%;
             width: 0;
             height: 0;
@@ -257,61 +259,59 @@ export default function CoinMap({ destination }: CoinMapProps) {
   }, [userLocation, destination]);
 
   useEffect(() => {
-  // We use a ref to throttle updates so the map doesn't jitter
-  let lastUpdate = 0;
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      if (!beamElement.current) return;
 
-  const handleOrientation = (event: DeviceOrientationEvent) => {
-    const now = Date.now();
-    if (now - lastUpdate < 50) return; // Only update every 50ms for performance
-    lastUpdate = now;
-
-    const beamEl = document.querySelector(".user-beam") as HTMLElement;
-    
-    // 1. Calculate Heading
-    let heading = 0;
-    if ((event as any).webkitCompassHeading) {
-      heading = (event as any).webkitCompassHeading; // iOS
-    } else if (event.alpha !== null) {
-      heading = 360 - event.alpha; // Android normalization
-    }
-
-    if (heading) {
-      // 2. Rotate the Pointer Beam
-      if (beamEl) {
-        beamEl.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
+      let heading: number | null = null;
+      
+      // iOS uses webkitCompassHeading (0-360 degrees, 0 = North)
+      if ((event as any).webkitCompassHeading !== undefined) {
+        heading = (event as any).webkitCompassHeading;
+      } 
+      // Android uses alpha (0-360 degrees, but needs calibration)
+      else if (event.alpha !== null) {
+        // For Android, alpha is 0° when pointing North, but increases clockwise
+        // We need to adjust for the difference between device and map orientation
+        heading = 360 - event.alpha;
       }
 
-      // 3. Rotate the Map (The Google Maps "Driving" mode feel)
-      // We use easeTo for a smooth transition instead of a jumpy jump
-      if (map.current) {
-        map.current.easeTo({
-          bearing: heading,
-          duration: 100,
-          easing: (t) => t, // Linear easing for real-time feel
-        });
+      if (heading !== null && beamElement.current) {
+        // Normalize heading to 0-360 range
+        const normalizedHeading = ((heading % 360) + 360) % 360;
+        
+        // Apply rotation to beam - beam points in the direction device is facing
+        beamElement.current.style.transform = `translate(-50%, -100%) rotate(${normalizedHeading}deg)`;
       }
-    }
-  };
+    };
 
-  // Permission Request (Crucial for iOS)
-  const initCompass = async () => {
-    if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
-      try {
-        const response = await (DeviceOrientationEvent as any).requestPermission();
-        if (response === "granted") {
-          window.addEventListener("deviceorientation", handleOrientation);
-        }
-      } catch (e) {
-        console.error("Compass permission denied");
+    // Request permission for iOS 13+
+    const setupOrientation = () => {
+      if (
+        typeof (DeviceOrientationEvent as any).requestPermission === "function"
+      ) {
+        (DeviceOrientationEvent as any)
+          .requestPermission()
+          .then((permissionState: string) => {
+            if (permissionState === "granted") {
+              window.addEventListener("deviceorientation", handleOrientation);
+            }
+          })
+          .catch((error: any) => {
+            console.error("Device orientation permission denied:", error);
+          });
+      } else {
+        window.addEventListener("deviceorientation", handleOrientation);
       }
-    } else {
-      window.addEventListener("deviceorientation", handleOrientation);
-    }
-  };
+    };
 
-  initCompass();
-  return () => window.removeEventListener("deviceorientation", handleOrientation);
-}, []);
+    // Delay setup to ensure beam element is created
+    const timeoutId = setTimeout(setupOrientation, 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, []);
 
   return (
     <div className="relative min-h-[70vh] w-full">
