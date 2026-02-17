@@ -349,7 +349,7 @@ const Quiz = () => {
             className="h-[500px] w-full mb-4 flex justify-center items-center"
             style={{
               backgroundImage: "url(/trunk.jpg)",
-              backgroundSize: "contain",
+              backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
@@ -364,7 +364,7 @@ const Quiz = () => {
             </div>
           </div>
         )}
-        <h1 className="text-xl font-bold text-blackfont mb-8 mt-6 text-center">
+        <h1 className="text-xl font-bold text-blackfont pt-5 pb-8 text-center">
           {findingNames[volcanoId - 1]}
         </h1>
         {/* <h1 className="text-lg text-primary mb-6 text-center">
