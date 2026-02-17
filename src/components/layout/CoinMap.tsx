@@ -12,8 +12,7 @@ interface Coordinates {
   lng: number;
 }
 
-mapboxgl.accessToken = 
-process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 interface CoinMapProps {
   destination?: Coordinates | null;
@@ -76,16 +75,16 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const beamElement = useRef<HTMLElement | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
 
+  // Initialize map
   useEffect(() => {
     if (!mapContainer.current) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      // Use Satellite-Streets for an immersive "real world" feel
       style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [0, 0],
-      zoom: 18, // Start closer for immersion
-      pitch: 60, // Tilt the camera
+      zoom: 18,
+      pitch: 60,
       bearing: 0,
       antialias: true,
       attributionControl: false,
@@ -112,127 +111,116 @@ export default function CoinMap({ destination }: CoinMapProps) {
     map.current.addControl(new mapboxgl.NavigationControl(), "top-left");
   }, []);
 
+  // Destination marker
   useEffect(() => {
-    if (!map.current || !destination) return;
+  if (!map.current || !destination) return;
 
+  if (destinationMarker.current) {
+    destinationMarker.current.remove();
+  }
+
+  const destEl = document.createElement("div");
+  destEl.className = "destination-marker";
+  destEl.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
+  destEl.style.cssText = `
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  `;
+  destEl.querySelector("img")!.style.cssText = `
+    width: 100%;
+    height: 100%;
+  `;
+
+  // Store the marker in the ref
+  destinationMarker.current = new mapboxgl.Marker({
+    element: destEl,
+    offset: [0, -50] // Adjust offset as needed
+  })
+    .setLngLat([destination.lng, destination.lat])
+    .addTo(map.current);
+
+  // Cleanup function - should not return anything
+  return () => {
     if (destinationMarker.current) {
       destinationMarker.current.remove();
     }
+  };
+}, [destination]); // Make sure to include all dependencies
 
-    // Create a more stable marker element
-    const volcanoEl = document.createElement("div");
-    volcanoEl.className = "destination-marker";
-    volcanoEl.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
-
-    // Add CSS styles for better positioning
-    volcanoEl.style.cssText = `
-      width: 100px;
-      height: 100px;
-      cursor: pointer;
-    `;
-
-    volcanoEl.querySelector("img")!.style.cssText = `
-      height: 100%;
-      max-width: 200px;
-      filter: brightness(1.5) drop-shadow(0 0 10px white);
-      object-fit: contain;
-    `;
-
-    destinationMarker.current = new mapboxgl.Marker({
-      element: volcanoEl,
-      anchor: "bottom",
-    })
-      .setLngLat([destination.lng, destination.lat])
-      .addTo(map.current);
-
-    return () => {
-      if (destinationMarker.current) {
-        destinationMarker.current.remove();
-      }
-    };
-  }, [destination]);
-
+  // User location marker + beam
   useEffect(() => {
     if (!map.current) return;
 
     const watchId = navigator.geolocation.watchPosition(
       (pos) => {
-        const newLoc = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        };
+        const newLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         setUserLocation(newLoc);
 
         if (!userMarker.current) {
+          // Create marker element
           const userEl = document.createElement("div");
           userEl.className = "user-location-marker";
 
+          // Beam element
           const beam = document.createElement("div");
           beam.className = "user-beam";
           userEl.appendChild(beam);
           beamElement.current = beam;
 
-          // 2. Add the Google Maps styling via CSS-in-JS or a global CSS file
-          // We'll inject a style tag for the pulse animation if it's not in your CSS file
+          // Inject CSS for blue dot + beam + pulse
           const style = document.createElement("style");
           style.innerHTML = `
-          .user-location-marker {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #4285F4; /* Google Blue */
-            border: 3px solid white;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-            position: relative;
-          }
-            .user-beam {
-            position: absolute;
-            top: 120%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 40px solid rgba(66, 133, 244, 0.4); /* Light Blue Beam */
-            transform-origin: 50% 100%; /* Rotate from the bottom center */
-            transform: translate(-50%, -100%) rotate(0deg);
-            z-index: -1;
-            pointer-events: none;
+            .user-location-marker {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background-color: #4285F4;
+              border: 3px solid white;
+              box-shadow: 0 0 5px rgba(0,0,0,0.3);
+              position: relative;
             }
-          /* The Pulsing Halo */
-          .user-location-marker::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: rgba(66, 133, 244, 0.4);
-            animation: pulse 2s infinite;
-            z-index: -1;
-          }
-          @keyframes pulse {
-            0% { width: 20px; height: 20px; opacity: 1; }
-            100% { width: 70px; height: 70px; opacity: 0; }
-          }
-        `;
+            .user-beam {
+              position: absolute;
+              top: 120%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              border-left: 20px solid transparent;
+              border-right: 20px solid transparent;
+              border-bottom: 40px solid rgba(66, 133, 244, 0.4);
+              transform-origin: 50% 100%;
+              transform: translate(-50%, -100%) rotate(0deg);
+              z-index: -1;
+              pointer-events: none;
+              transition: transform 0.3s ease-out;
+            }
+            .user-location-marker::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background-color: rgba(66, 133, 244, 0.4);
+              animation: pulse 2s infinite;
+              z-index: -1;
+            }
+            @keyframes pulse {
+              0% { width: 20px; height: 20px; opacity: 1; }
+              100% { width: 70px; height: 70px; opacity: 0; }
+            }
+          `;
           document.head.appendChild(style);
 
-          userMarker.current = new mapboxgl.Marker({
-            element: userEl,
-            anchor: "center",
-          })
+          // Create Mapbox marker
+          userMarker.current = new mapboxgl.Marker({ element: userEl, anchor: "center" })
             .setLngLat([newLoc.lng, newLoc.lat])
             .addTo(map.current!);
-          map.current!.flyTo({
-            center: [newLoc.lng, newLoc.lat],
-            zoom: 18,
-            pitch: 65,
-            duration: 5000,
-            essential: true,
-          });
+
+          map.current!.flyTo({ center: [newLoc.lng, newLoc.lat], zoom: 18, pitch: 65, duration: 5000, essential: true });
         } else {
           userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
         }
@@ -242,69 +230,45 @@ export default function CoinMap({ destination }: CoinMapProps) {
         }
       },
       (err) => console.error("Location error:", err),
-      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 },
+      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 }
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
   }, [destination]);
 
-  useEffect(() => {
-    if (userLocation && destination) {
-      const dist = haversineDistance(userLocation, destination);
-      setShowEnterAR(dist <= 0.005);
-
-      // Disabled distance check for testing - always show AR button
-      // setShowEnterAR(true);
-    }
-  }, [userLocation, destination]);
-
+  // Device orientation (blue cone rotation)
   useEffect(() => {
     const handleOrientation = (event: DeviceOrientationEvent) => {
       if (!beamElement.current) return;
 
       let heading: number | null = null;
-      
-      // iOS uses webkitCompassHeading (0-360 degrees, 0 = North)
+
       if ((event as any).webkitCompassHeading !== undefined) {
         heading = (event as any).webkitCompassHeading;
-      } 
-      // Android uses alpha (0-360 degrees, but needs calibration)
-      else if (event.alpha !== null) {
-        // For Android, alpha is 0° when pointing North, but increases clockwise
-        // We need to adjust for the difference between device and map orientation
+      } else if (event.alpha !== null) {
         heading = 360 - event.alpha;
       }
 
-      if (heading !== null && beamElement.current) {
-        // Normalize heading to 0-360 range
+      if (heading !== null) {
         const normalizedHeading = ((heading % 360) + 360) % 360;
-        
-        // Apply rotation to beam - beam points in the direction device is facing
         beamElement.current.style.transform = `translate(-50%, -100%) rotate(${normalizedHeading}deg)`;
       }
     };
 
-    // Request permission for iOS 13+
     const setupOrientation = () => {
-      if (
-        typeof (DeviceOrientationEvent as any).requestPermission === "function"
-      ) {
-        (DeviceOrientationEvent as any)
-          .requestPermission()
+      if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+        (DeviceOrientationEvent as any).requestPermission()
           .then((permissionState: string) => {
             if (permissionState === "granted") {
               window.addEventListener("deviceorientation", handleOrientation);
             }
           })
-          .catch((error: any) => {
-            console.error("Device orientation permission denied:", error);
-          });
+          .catch(console.error);
       } else {
         window.addEventListener("deviceorientation", handleOrientation);
       }
     };
 
-    // Delay setup to ensure beam element is created
     const timeoutId = setTimeout(setupOrientation, 1000);
 
     return () => {
@@ -312,6 +276,14 @@ export default function CoinMap({ destination }: CoinMapProps) {
       window.removeEventListener("deviceorientation", handleOrientation);
     };
   }, []);
+
+  // Distance check for AR button
+  useEffect(() => {
+    if (userLocation && destination) {
+      const dist = haversineDistance(userLocation, destination);
+      setShowEnterAR(dist <= 0.005);
+    }
+  }, [userLocation, destination]);
 
   return (
     <div className="relative min-h-[70vh] w-full">
@@ -328,33 +300,26 @@ export default function CoinMap({ destination }: CoinMapProps) {
       <CustomButton
         onClick={() => {
           if (map.current && userLocation) {
-            map.current.flyTo({
-              center: [userLocation.lng, userLocation.lat],
-              zoom: 18,
-            });
+            map.current.flyTo({ center: [userLocation.lng, userLocation.lat], zoom: 18 });
           }
         }}
         className="absolute bottom-10 right-4 text-white px-[11px] py-3 rounded-lg shadow-lg z-50 !w-[46px]"
       >
         <TbFocusCentered size={25} />
       </CustomButton>
+
       {showEnterAR && (
         <div className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-black/70 z-50">
           <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
             <div className="space-y-4 flex flex-col">
               <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-primary mb-2">
-                  {t("congratulation")}
-                </h2>
+                <h2 className="text-2xl font-bold text-primary mb-2">{t("congratulation")}</h2>
                 <p className="text-gray-700 mb-4">{t("text")}</p>
               </div>
-
               <div className="flex justify-center gap-3 pt-2">
                 <CustomButton
                   onClick={() =>
-                    router.push(
-                      `/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`,
-                    )
+                    router.push(`/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`)
                   }
                   className="rounded-xl"
                 >
