@@ -238,7 +238,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
         </div>
       )}
 
-      <CustomButton
+      {/* <CustomButton
         onClick={() => {
           if (map.current && userLocation) {
             map.current.flyTo({
@@ -250,7 +250,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
         className="absolute bottom-10 right-4 text-white px-[11px] py-3 rounded-lg shadow-lg z-50 !w-[46px]"
       >
         <TbFocusCentered size={25} />
-      </CustomButton>
+      </CustomButton> */}
       {showEnterAR && (
         <div className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-black/70 z-50">
           <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
