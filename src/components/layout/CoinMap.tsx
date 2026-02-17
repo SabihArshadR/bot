@@ -75,6 +75,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const destinationMarker = useRef<Marker | null>(null);
   const beamElement = useRef<HTMLElement | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
+  const [orientationPermission, setOrientationPermission] = useState(false);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -258,58 +259,94 @@ export default function CoinMap({ destination }: CoinMapProps) {
     }
   }, [userLocation, destination]);
 
+  // Handle device orientation changes
   useEffect(() => {
+    if (!beamElement.current) return;
+
+    let lastHeading: number | null = null;
+    let animationFrameId: number;
+
+    const updateBeamRotation = (heading: number) => {
+      if (beamElement.current) {
+        beamElement.current.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
+      }
+    };
+
     const handleOrientation = (event: DeviceOrientationEvent) => {
-      if (!beamElement.current) return;
-
-      let heading: number | null = null;
-      
-      // iOS uses webkitCompassHeading (0-360 degrees, 0 = North)
-      if ((event as any).webkitCompassHeading !== undefined) {
-        heading = (event as any).webkitCompassHeading;
-      } 
-      // Android uses alpha (0-360 degrees, but needs calibration)
-      else if (event.alpha !== null) {
-        // For Android, alpha is 0° when pointing North, but increases clockwise
-        // We need to adjust for the difference between device and map orientation
-        heading = 360 - event.alpha;
-      }
-
-      if (heading !== null && beamElement.current) {
-        // Normalize heading to 0-360 range
-        const normalizedHeading = ((heading % 360) + 360) % 360;
+      // Use requestAnimationFrame for smoother animation
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => {
+        let heading: number | null = null;
         
-        // Apply rotation to beam - beam points in the direction device is facing
-        beamElement.current.style.transform = `translate(-50%, -100%) rotate(${normalizedHeading}deg)`;
-      }
+        // iOS uses webkitCompassHeading (0-360 degrees, 0 = North)
+        if ((event as any).webkitCompassHeading !== undefined) {
+          heading = (event as any).webkitCompassHeading;
+        } 
+        // Standard compass heading (Android, some browsers)
+        else if (event.alpha !== null) {
+          // Convert from device orientation to map heading
+          // Adjust for device orientation (portrait/landscape)
+          const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+          let alpha = event.alpha; // 0-360 degrees
+          let beta = event.beta;   // -180 to 180 degrees
+          let gamma = event.gamma; // -90 to 90 degrees
+
+          // Calculate heading using device orientation
+          // This is a simplified version - you might need to adjust based on testing
+          if (isPortrait) {
+            heading = (360 - alpha + 360) % 360;
+          } else {
+            // Landscape mode
+            heading = (360 - alpha + 90) % 360;
+          }
+        }
+
+        // Only update if we have a valid heading and it's different from last time
+        if (heading !== null && heading !== lastHeading) {
+          lastHeading = heading;
+          updateBeamRotation(heading);
+        }
+      });
     };
 
-    // Request permission for iOS 13+
-    const setupOrientation = () => {
-      if (
-        typeof (DeviceOrientationEvent as any).requestPermission === "function"
-      ) {
-        (DeviceOrientationEvent as any)
-          .requestPermission()
-          .then((permissionState: string) => {
-            if (permissionState === "granted") {
-              window.addEventListener("deviceorientation", handleOrientation);
+    // Check if device orientation is supported
+    if (window.DeviceOrientationEvent) {
+      // iOS 13+ requires permission
+      if (typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
+        const requestPermission = async () => {
+          try {
+            const permission = await (DeviceOrientationEvent as any).requestPermission();
+            if (permission === 'granted') {
+              window.addEventListener('deviceorientation', handleOrientation, true);
+              setOrientationPermission(true);
             }
-          })
-          .catch((error: any) => {
-            console.error("Device orientation permission denied:", error);
-          });
+          } catch (error) {
+            console.error('Orientation permission denied:', error);
+          }
+        };
+        
+        // Show a button to request permission
+        const handleUserGesture = () => {
+          requestPermission();
+          document.removeEventListener('click', handleUserGesture);
+        };
+        
+        document.addEventListener('click', handleUserGesture);
+        return () => {
+          document.removeEventListener('click', handleUserGesture);
+          cancelAnimationFrame(animationFrameId);
+          window.removeEventListener('deviceorientation', handleOrientation);
+        };
       } else {
-        window.addEventListener("deviceorientation", handleOrientation);
+        // For other browsers/devices that don't require permission
+        window.addEventListener('deviceorientation', handleOrientation, true);
+        setOrientationPermission(true);
       }
-    };
-
-    // Delay setup to ensure beam element is created
-    const timeoutId = setTimeout(setupOrientation, 1000);
+    }
 
     return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("deviceorientation", handleOrientation);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('deviceorientation', handleOrientation);
     };
   }, []);
 
