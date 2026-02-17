@@ -125,11 +125,9 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
     // Add CSS styles for better positioning
     volcanoEl.style.cssText = `
-      width: 200px;
-      height: 200px;
+      width: 100px;
+      height: 100px;
       cursor: pointer;
-      position: relative;
-      transform: translate(-50%, -100%);
     `;
 
     volcanoEl.querySelector("img")!.style.cssText = `
@@ -162,19 +160,64 @@ export default function CoinMap({ destination }: CoinMapProps) {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         };
-        console.log(newLoc);
         setUserLocation(newLoc);
 
         if (!userMarker.current) {
           const userEl = document.createElement("div");
-          userEl.style.cssText = `
+          userEl.className = "user-location-marker";
+
+          const beam = document.createElement("div");
+          beam.className = "user-beam";
+          userEl.appendChild(beam);
+
+          // 2. Add the Google Maps styling via CSS-in-JS or a global CSS file
+          // We'll inject a style tag for the pulse animation if it's not in your CSS file
+          const style = document.createElement("style");
+          style.innerHTML = `
+          .user-location-marker {
             width: 20px;
             height: 20px;
-            border: 3px solid white;
             border-radius: 50%;
-            background-color: #0d52ff;
+            background-color: #4285F4; /* Google Blue */
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            position: relative;
+          }
+            .user-beam {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid rgba(66, 133, 244, 0.4); /* Light Blue Beam */
+            transform-origin: 50% 100%; /* Rotate from the bottom center */
+            transform: translate(-50%, -100%) rotate(0deg);
+            z-index: -1;
+            pointer-events: none;
+            }
+          /* The Pulsing Halo */
+          .user-location-marker::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-          `;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(66, 133, 244, 0.4);
+            animation: pulse 2s infinite;
+            z-index: -1;
+          }
+          @keyframes pulse {
+            0% { width: 20px; height: 20px; opacity: 1; }
+            100% { width: 70px; height: 70px; opacity: 0; }
+          }
+        `;
+          document.head.appendChild(style);
+
           userMarker.current = new mapboxgl.Marker({
             element: userEl,
             anchor: "center",
@@ -212,6 +255,39 @@ export default function CoinMap({ destination }: CoinMapProps) {
       // setShowEnterAR(true);
     }
   }, [userLocation, destination]);
+
+  useEffect(() => {
+    const beamEl = document.querySelector(".user-beam") as HTMLElement;
+
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      // webkitCompassHeading is for iOS, alpha is for Android
+      const heading = (event as any).webkitCompassHeading || event.alpha;
+
+      if (heading && beamEl) {
+        // We subtract the heading because the beam needs to rotate
+        // relative to the "North" of the map
+        beamEl.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
+      }
+    };
+
+    // Request permission for iOS 13+
+    if (
+      typeof (DeviceOrientationEvent as any).requestPermission === "function"
+    ) {
+      (DeviceOrientationEvent as any)
+        .requestPermission()
+        .then((permissionState: string) => {
+          if (permissionState === "granted") {
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+        });
+    } else {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
+
+    return () =>
+      window.removeEventListener("deviceorientation", handleOrientation);
+  }, []);
 
   return (
     <div className="relative min-h-[70vh] w-full">
