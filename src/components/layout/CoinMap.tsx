@@ -69,13 +69,11 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const router = useRouter();
   const t = useTranslations("CoinMap");
   const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
-  const [userHeading, setUserHeading] = useState<number | null>(null);
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<Map | null>(null);
   const userMarker = useRef<Marker | null>(null);
   const destinationMarker = useRef<Marker | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
-  const userMarkerElement = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -155,119 +153,6 @@ export default function CoinMap({ destination }: CoinMapProps) {
     };
   }, [destination]);
 
-  // Create user location marker element with direction indicator
-  const createUserLocationElement = () => {
-    const container = document.createElement('div');
-    container.style.position = 'relative';
-    container.style.width = '40px';
-    container.style.height = '40px';
-    container.style.display = 'flex';
-    container.style.justifyContent = 'center';
-    container.style.alignItems = 'center';
-
-    // Outer pulsing circle
-    const pulse = document.createElement('div');
-    pulse.style.position = 'absolute';
-    pulse.style.width = '100%';
-    pulse.style.height = '100%';
-    pulse.style.backgroundColor = 'rgba(13, 82, 255, 0.3)';
-    pulse.style.borderRadius = '50%';
-    pulse.style.animation = 'pulse 2s infinite';
-    
-    // Inner circle with direction indicator
-    const innerCircle = document.createElement('div');
-    innerCircle.style.position = 'relative';
-    innerCircle.style.width = '60%';
-    innerCircle.style.height = '60%';
-    innerCircle.style.backgroundColor = '#0d52ff';
-    innerCircle.style.border = '2px solid white';
-    innerCircle.style.borderRadius = '50%';
-    innerCircle.style.display = 'flex';
-    innerCircle.style.justifyContent = 'center';
-    innerCircle.style.alignItems = 'center';
-    innerCircle.style.overflow = 'hidden';
-
-    // Direction indicator (triangle)
-    const directionIndicator = document.createElement('div');
-    directionIndicator.style.position = 'absolute';
-    directionIndicator.style.width = '0';
-    directionIndicator.style.height = '0';
-    directionIndicator.style.borderLeft = '6px solid transparent';
-    directionIndicator.style.borderRight = '6px solid transparent';
-    directionIndicator.style.borderBottom = '10px solid white';
-    directionIndicator.style.top = '2px';
-    directionIndicator.style.transformOrigin = 'center bottom';
-    directionIndicator.id = 'direction-indicator';
-
-    container.appendChild(pulse);
-    container.appendChild(innerCircle);
-    innerCircle.appendChild(directionIndicator);
-
-    // Add CSS animation for pulsing effect
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes pulse {
-        0% {
-          transform: scale(0.8);
-          opacity: 0.8;
-        }
-        70% {
-          transform: scale(1.2);
-          opacity: 0.2;
-        }
-        100% {
-          transform: scale(0.8);
-          opacity: 0.8;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    userMarkerElement.current = container;
-    return container;
-  };
-
-  // Update marker rotation based on heading
-  const updateMarkerRotation = (heading: number) => {
-    if (userMarkerElement.current) {
-      const indicator = userMarkerElement.current.querySelector('#direction-indicator');
-      if (indicator) {
-        (indicator as HTMLElement).style.transform = `rotate(${heading}deg)`;
-      }
-    }
-  };
-
-  // Watch for device orientation changes
-  useEffect(() => {
-    if (window.DeviceOrientationEvent) {
-      const handleOrientation = (event: DeviceOrientationEvent) => {
-        if (event.alpha !== null) {
-          const heading = event.alpha; // 0-360 degrees
-          setUserHeading(heading);
-          updateMarkerRotation(heading);
-        }
-      };
-
-      // Request permission for iOS 13+ devices
-      if (typeof DeviceOrientationEvent !== 'undefined' && 
-          typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
-        (DeviceOrientationEvent as any).requestPermission()
-          .then((response: string) => {
-            if (response === 'granted') {
-              window.addEventListener('deviceorientation', handleOrientation, true);
-            }
-          })
-          .catch(console.error);
-      } else {
-        window.addEventListener('deviceorientation', handleOrientation, true);
-      }
-
-      return () => {
-        window.removeEventListener('deviceorientation', handleOrientation, true);
-      };
-    }
-  }, []);
-
   useEffect(() => {
     if (!map.current) return;
 
@@ -281,27 +166,30 @@ export default function CoinMap({ destination }: CoinMapProps) {
         setUserLocation(newLoc);
 
         if (!userMarker.current) {
-          const userEl = createUserLocationElement();
+          const userEl = document.createElement("div");
+          userEl.style.cssText = `
+            width: 20px;
+            height: 20px;
+            border: 3px solid white;
+            border-radius: 50%;
+            background-color: #0d52ff;
+            transform: translate(-50%, -50%);
+          `;
           userMarker.current = new mapboxgl.Marker({
             element: userEl,
-            anchor: 'center',
-            rotation: userHeading || 0,
+            anchor: "center",
           })
             .setLngLat([newLoc.lng, newLoc.lat])
             .addTo(map.current!);
-          
           map.current!.flyTo({
             center: [newLoc.lng, newLoc.lat],
             zoom: 18,
             pitch: 65,
-            duration: 2000,
+            duration: 5000,
             essential: true,
           });
         } else {
           userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
-          if (userHeading !== null) {
-            updateMarkerRotation(userHeading);
-          }
         }
 
         if (map.current && destination) {
