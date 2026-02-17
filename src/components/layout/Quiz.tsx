@@ -343,7 +343,7 @@ const Quiz = () => {
 
   if (quizCompleted) {
     return (
-      <div className="flex flex-col h-[85vh] items-center bg-lightbrown">
+      <div className="flex flex-col h-[90vh] items-center bg-lightbrown">
         {findingImages[volcanoId - 1] && (
           <div
             className="h-[500px] w-full mb-4 flex justify-center items-center"
@@ -370,7 +370,7 @@ const Quiz = () => {
         {/* <h1 className="text-lg text-primary mb-6 text-center">
           {t1("description")}
         </h1> */}
-        <div className="w-full px-5 pb-5">
+        <div className="w-full px-5 pb-5 bg-lightbrown">
 
         <CustomButton
           onClick={() => {
