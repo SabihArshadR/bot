@@ -25,14 +25,15 @@ const drawRoute = async (map: Map, start: Coordinates, end: Coordinates) => {
       `https://api.mapbox.com/directions/v5/mapbox/walking/${start.lng},${start.lat};${end.lng},${end.lat}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`
     );
     const data = await query.json();
+    if (!data.routes[0]) return;
     const route = data.routes[0].geometry;
 
     const geojson: GeoJSON.FeatureCollection<GeoJSON.LineString> = {
       type: "FeatureCollection",
       features: [
-        {
-          type: "Feature",
-          geometry: route,
+        { 
+          type: "Feature", 
+          geometry: route, 
           properties: {},
         },
       ],
@@ -48,15 +49,14 @@ const drawRoute = async (map: Map, start: Coordinates, end: Coordinates) => {
         id: "route",
         type: "line",
         source: "route",
-        layout: {
-          "line-join": "round",
-          "line-cap": "round",
+        layout: { 
+          "line-join": "round", 
+          "line-cap": "round", 
         },
-        paint: {
-          "line-color": "#1052ff",
-          "line-width": 6,
-          "line-blur": 2,
-          "line-opacity": 0.9,
+        paint: { 
+          "line-color": "#1052ff", 
+          "line-width": 6, 
+          "line-opacity": 0.8, 
         },
       });
     }
@@ -80,18 +80,17 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      // Use Satellite-Streets for an immersive "real world" feel
+      
       style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [0, 0],
-      zoom: 18, // Start closer for immersion
-      pitch: 60, // Tilt the camera
+      zoom: 18,
+      pitch: 60,
       bearing: 0,
       antialias: true,
       attributionControl: false,
     });
 
     map.current.on("style.load", () => {
-      // Add 3D Terrain
       map.current?.addSource("mapbox-dem", {
         type: "raster-dem",
         url: "mapbox://mapbox.mapbox-terrain-dem-v1",
@@ -99,115 +98,104 @@ export default function CoinMap({ destination }: CoinMapProps) {
         maxzoom: 14,
       });
       map.current?.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
-
-      // Add Realistic Sky/Atmosphere
-      map.current?.setFog({
-        range: [0.5, 10],
-        color: "white",
-        "horizon-blend": 0.1,
+      map.current?.setFog({ 
+        range: [0.5, 10], 
+        color: "white", 
+        "horizon-blend": 0.1, 
       });
     });
 
     map.current.addControl(new mapboxgl.NavigationControl(), "top-left");
   }, []);
 
-  useEffect(() => {
-    if (!map.current || !destination) return;
-
-    if (destinationMarker.current) {
-      destinationMarker.current.remove();
-    }
-
-    // Create a more stable marker element
-    const volcanoEl = document.createElement("div");
-    volcanoEl.className = "destination-marker";
-    volcanoEl.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
-
-    // Add CSS styles for better positioning
-    volcanoEl.style.cssText = `
-      width: 200px;
-      height: 200px;
-      cursor: pointer;
-      position: relative;
-      transform: translate(-50%, -100%);
-    `;
-
-    volcanoEl.querySelector("img")!.style.cssText = `
-      height: 100%;
-      max-width: 200px;
-      filter: brightness(1.5) drop-shadow(0 0 10px white);
-      object-fit: contain;
-    `;
-
-    destinationMarker.current = new mapboxgl.Marker({
-      element: volcanoEl,
-      anchor: "bottom",
-    })
-      .setLngLat([destination.lng, destination.lat])
-      .addTo(map.current);
-
-    return () => {
-      if (destinationMarker.current) {
-        destinationMarker.current.remove();
+  // 2. Handle Heading (Compass) and Permissions
+  const startTrackingOrientation = () => {
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      // @ts-ignore - Handle iOS (webkitCompassHeading) and Android (alpha)
+      const heading = e.webkitCompassHeading || (e.alpha ? 360 - e.alpha : 0);
+      
+      if (userMarker.current) {
+        const el = userMarker.current.getElement();
+        // Rotate the marker element itself
+        el.style.transform = `rotate(${heading}deg)`;
       }
+      
+      // Optional: Auto-rotate the map to follow the phone's direction
+      // map.current?.setBearing(heading); 
     };
-  }, [destination]);
 
+    if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+      (DeviceOrientationEvent as any).requestPermission()
+        .then((state: string) => {
+          if (state === "granted") window.addEventListener("deviceorientation", handleOrientation);
+        });
+    } else {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
+  };
+
+  // 3. Handle User Location (GPS)
   useEffect(() => {
     if (!map.current) return;
 
     const watchId = navigator.geolocation.watchPosition(
       (pos) => {
-        const newLoc = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        };
-        console.log(newLoc);
+        const newLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         setUserLocation(newLoc);
 
         if (!userMarker.current) {
           const userEl = document.createElement("div");
+          // Custom Arrow Shape for the User Marker
           userEl.style.cssText = `
-            width: 20px;
-            height: 20px;
-            border: 3px solid white;
-            border-radius: 50%;
-            background-color: #0d52ff;
-            transform: translate(-50%, -50%);
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 25px solid #0d52ff;
+            filter: drop-shadow(0 0 5px white);
+            transition: transform 0.1s linear;
           `;
+
           userMarker.current = new mapboxgl.Marker({
             element: userEl,
-            anchor: "center",
+            rotationAlignment: 'map', // Crucial for compass accuracy
           })
             .setLngLat([newLoc.lng, newLoc.lat])
             .addTo(map.current!);
-          map.current!.flyTo({
-            center: [newLoc.lng, newLoc.lat],
-            zoom: 18,
-            pitch: 65,
-            duration: 5000,
-            essential: true,
-          });
+
+          map.current!.flyTo({ center: [newLoc.lng, newLoc.lat], duration: 3000 });
         } else {
           userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
         }
 
-        if (map.current && destination) {
-          drawRoute(map.current, newLoc, destination);
-        }
+        if (destination) drawRoute(map.current!, newLoc, destination);
       },
-      (err) => console.error("Location error:", err),
-      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 },
+      (err) => console.error(err),
+      { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
+  }, [destination]);
+
+  // 4. Handle Destination Marker
+  useEffect(() => {
+    if (!map.current || !destination) return;
+    if (destinationMarker.current) destinationMarker.current.remove();
+
+    const volcanoEl = document.createElement("div");
+    volcanoEl.className = "destination-marker";
+    volcanoEl.innerHTML = '<img src="/intro.gif" alt="Treasure" style="width:120px; height:120px; filter: brightness(1.5) drop-shadow(0 0 10px white); object-fit: contain;" />';
+
+    destinationMarker.current = new mapboxgl.Marker({ element: volcanoEl, anchor: "bottom" })
+      .setLngLat([destination.lng, destination.lat])
+      .addTo(map.current);
   }, [destination]);
 
   useEffect(() => {
     if (userLocation && destination) {
       const dist = haversineDistance(userLocation, destination);
       setShowEnterAR(dist <= 0.005);
-
+      
       // Disabled distance check for testing - always show AR button
       // setShowEnterAR(true);
     }
@@ -227,10 +215,11 @@ export default function CoinMap({ destination }: CoinMapProps) {
 
       <CustomButton
         onClick={() => {
+          startTrackingOrientation();
           if (map.current && userLocation) {
-            map.current.flyTo({
-              center: [userLocation.lng, userLocation.lat],
-              zoom: 18,
+            map.current.flyTo({ 
+              center: [userLocation.lng, userLocation.lat], 
+              zoom: 18, 
             });
           }
         }}
@@ -238,7 +227,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
       >
         <TbFocusCentered size={25} />
       </CustomButton>
-      {showEnterAR && (
+       {showEnterAR && (
         <div className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-black/70 z-50">
           <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
             <div className="space-y-4 flex flex-col">
