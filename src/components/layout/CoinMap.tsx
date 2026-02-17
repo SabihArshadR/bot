@@ -12,7 +12,8 @@ interface Coordinates {
   lng: number;
 }
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+mapboxgl.accessToken = 
+process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 interface CoinMapProps {
   destination?: Coordinates | null;
@@ -74,76 +75,23 @@ export default function CoinMap({ destination }: CoinMapProps) {
   const destinationMarker = useRef<Marker | null>(null);
   const [showEnterAR, setShowEnterAR] = useState(false);
 
-  // Inject styles only once
-  useEffect(() => {
-    if (document.getElementById("user-beam-styles")) return;
-
-    const style = document.createElement("style");
-    style.id = "user-beam-styles";
-    style.innerHTML = `
-      .user-location-marker {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #4285F4;
-        border: 3px solid white;
-        box-shadow: 0 0 6px rgba(0,0,0,0.4);
-        position: relative;
-      }
-
-      .user-beam {
-        position: absolute;
-        top: -45px;                    /* above the dot */
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-left: 18px solid transparent;
-        border-right: 18px solid transparent;
-        border-bottom: 50px solid rgba(66, 133, 244, 0.45);
-        transform-origin: 50% 100%;    /* rotate from bottom center */
-        transform: translate(-50%, 0%) rotate(0deg);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .user-location-marker::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: rgba(66, 133, 244, 0.35);
-        animation: pulse 2.2s infinite ease-out;
-        z-index: -2;
-      }
-
-      @keyframes pulse {
-        0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.7; }
-        100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0;   }
-      }
-    `;
-    document.head.appendChild(style);
-  }, []);
-
-  // Map initialization
   useEffect(() => {
     if (!mapContainer.current) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
+      // Use Satellite-Streets for an immersive "real world" feel
       style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [0, 0],
-      zoom: 18,
-      pitch: 60,
+      zoom: 18, // Start closer for immersion
+      pitch: 60, // Tilt the camera
       bearing: 0,
       antialias: true,
       attributionControl: false,
     });
 
     map.current.on("style.load", () => {
+      // Add 3D Terrain
       map.current?.addSource("mapbox-dem", {
         type: "raster-dem",
         url: "mapbox://mapbox.mapbox-terrain-dem-v1",
@@ -152,6 +100,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
       });
       map.current?.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
 
+      // Add Realistic Sky/Atmosphere
       map.current?.setFog({
         range: [0.5, 10],
         color: "white",
@@ -160,13 +109,8 @@ export default function CoinMap({ destination }: CoinMapProps) {
     });
 
     map.current.addControl(new mapboxgl.NavigationControl(), "top-left");
-
-    return () => {
-      map.current?.remove();
-    };
   }, []);
 
-  // Destination marker
   useEffect(() => {
     if (!map.current || !destination) return;
 
@@ -174,10 +118,12 @@ export default function CoinMap({ destination }: CoinMapProps) {
       destinationMarker.current.remove();
     }
 
+    // Create a more stable marker element
     const volcanoEl = document.createElement("div");
     volcanoEl.className = "destination-marker";
     volcanoEl.innerHTML = '<img src="/intro.gif" alt="Treasure" />';
 
+    // Add CSS styles for better positioning
     volcanoEl.style.cssText = `
       width: 100px;
       height: 100px;
@@ -199,11 +145,12 @@ export default function CoinMap({ destination }: CoinMapProps) {
       .addTo(map.current);
 
     return () => {
-      destinationMarker.current?.remove();
+      if (destinationMarker.current) {
+        destinationMarker.current.remove();
+      }
     };
   }, [destination]);
 
-  // User location + route
   useEffect(() => {
     if (!map.current) return;
 
@@ -223,97 +170,123 @@ export default function CoinMap({ destination }: CoinMapProps) {
           beam.className = "user-beam";
           userEl.appendChild(beam);
 
+          // 2. Add the Google Maps styling via CSS-in-JS or a global CSS file
+          // We'll inject a style tag for the pulse animation if it's not in your CSS file
+          const style = document.createElement("style");
+          style.innerHTML = `
+          .user-location-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #4285F4; /* Google Blue */
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            position: relative;
+          }
+            .user-beam {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid rgba(66, 133, 244, 0.4); /* Light Blue Beam */
+            transform-origin: 50% 100%; /* Rotate from the bottom center */
+            transform: translate(-50%, -100%) rotate(0deg);
+            z-index: -1;
+            pointer-events: none;
+            }
+          /* The Pulsing Halo */
+          .user-location-marker::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(66, 133, 244, 0.4);
+            animation: pulse 2s infinite;
+            z-index: -1;
+          }
+          @keyframes pulse {
+            0% { width: 20px; height: 20px; opacity: 1; }
+            100% { width: 70px; height: 70px; opacity: 0; }
+          }
+        `;
+          document.head.appendChild(style);
+
           userMarker.current = new mapboxgl.Marker({
             element: userEl,
             anchor: "center",
           })
             .setLngLat([newLoc.lng, newLoc.lat])
             .addTo(map.current!);
-
           map.current!.flyTo({
             center: [newLoc.lng, newLoc.lat],
             zoom: 18,
             pitch: 65,
-            duration: 4000,
+            duration: 5000,
             essential: true,
           });
         } else {
           userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
         }
 
-        if (destination && map.current) {
+        if (map.current && destination) {
           drawRoute(map.current, newLoc, destination);
         }
       },
-      (err) => console.error("Geolocation error:", err),
-      { enableHighAccuracy: true, maximumAge: 8000, timeout: 6000 }
+      (err) => console.error("Location error:", err),
+      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 },
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
   }, [destination]);
 
-  // Show AR button when close
   useEffect(() => {
     if (userLocation && destination) {
       const dist = haversineDistance(userLocation, destination);
-      setShowEnterAR(dist <= 0.005); // ~5 meters
+      setShowEnterAR(dist <= 0.005);
+
+      // Disabled distance check for testing - always show AR button
+      // setShowEnterAR(true);
     }
   }, [userLocation, destination]);
 
-  // Device orientation → beam rotation
   useEffect(() => {
-    let beamEl: HTMLElement | null = null;
-
-    const updateBeam = () => {
-      beamEl = document.querySelector(".user-beam") as HTMLElement;
-    };
-
-    // Initial lookup + retry in case marker mounts late
-    updateBeam();
-    const interval = setInterval(updateBeam, 800);
+    const beamEl = document.querySelector(".user-beam") as HTMLElement;
 
     const handleOrientation = (event: DeviceOrientationEvent) => {
-      if (!beamEl) return;
+      // webkitCompassHeading is for iOS, alpha is for Android
+      const heading = (event as any).webkitCompassHeading || event.alpha;
 
-      // iOS gives webkitCompassHeading (0 = North, clockwise)
-      // Android usually gives alpha (0 = North when absolute)
-      const heading =
-        (event as any).webkitCompassHeading ?? event.alpha ?? null;
-
-      if (heading != null && !isNaN(heading)) {
-        // Most common: rotate clockwise as heading increases
-        // If beam points the wrong way → try 360 - heading
-        beamEl.style.transform = `translate(-50%, 0%) rotate(${heading}deg)`;
-        // console.log("Heading applied:", heading.toFixed(0));
+      if (heading && beamEl) {
+        // We subtract the heading because the beam needs to rotate
+        // relative to the "North" of the map
+        beamEl.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
       }
     };
 
-    const requestOrientationAccess = async () => {
-      if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
-        // iOS 13+
-        try {
-          const permission = await (DeviceOrientationEvent as any).requestPermission();
-          console.log("DeviceOrientation permission:", permission);
-          if (permission === "granted") {
+    // Request permission for iOS 13+
+    if (
+      typeof (DeviceOrientationEvent as any).requestPermission === "function"
+    ) {
+      (DeviceOrientationEvent as any)
+        .requestPermission()
+        .then((permissionState: string) => {
+          if (permissionState === "granted") {
             window.addEventListener("deviceorientation", handleOrientation);
-          } else {
-            console.warn("Orientation access denied by user");
           }
-        } catch (err) {
-          console.error("Permission request error:", err);
-        }
-      } else {
-        // Android / others
-        window.addEventListener("deviceorientation", handleOrientation);
-      }
-    };
+        });
+    } else {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
 
-    requestOrientationAccess();
-
-    return () => {
+    return () =>
       window.removeEventListener("deviceorientation", handleOrientation);
-      clearInterval(interval);
-    };
   }, []);
 
   return (
@@ -321,8 +294,8 @@ export default function CoinMap({ destination }: CoinMapProps) {
       <div ref={mapContainer} className="w-full h-[770px] relative" />
 
       {destination && userLocation && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-full shadow-lg z-50 text-sm font-semibold flex items-center gap-2 border border-gray-200">
-          <span className="text-blue-600 font-bold">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white text-backblack px-4 py-2 rounded shadow z-50 text-sm font-semibold flex items-center gap-2">
+          <span className="text-blue-600">
             {haversineDistance(userLocation, destination).toFixed(2)} km
           </span>
         </div>
@@ -334,35 +307,36 @@ export default function CoinMap({ destination }: CoinMapProps) {
             map.current.flyTo({
               center: [userLocation.lng, userLocation.lat],
               zoom: 18,
-              pitch: 65,
-              duration: 1500,
             });
           }
         }}
-        className="absolute bottom-12 right-5 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-xl z-50 w-14 h-14 flex items-center justify-center"
+        className="absolute bottom-10 right-4 text-white px-[11px] py-3 rounded-lg shadow-lg z-50 !w-[46px]"
       >
-        <TbFocusCentered size={28} />
+        <TbFocusCentered size={25} />
       </CustomButton>
-
       {showEnterAR && (
-        <div className="fixed inset-0 p-5 flex items-center justify-center bg-black/70 z-50">
-          <div className="w-full max-w-md bg-[#F9F7F2] rounded-3xl shadow-2xl p-6 border border-gray-100">
-            <div className="text-center space-y-5">
-              <h2 className="text-3xl font-bold text-primary">
-                {t("congratulation")}
-              </h2>
-              <p className="text-gray-700 text-lg">{t("text")}</p>
+        <div className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-black/70 z-50">
+          <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
+            <div className="space-y-4 flex flex-col">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-bold text-primary mb-2">
+                  {t("congratulation")}
+                </h2>
+                <p className="text-gray-700 mb-4">{t("text")}</p>
+              </div>
 
-              <CustomButton
-                onClick={() =>
-                  router.push(
-                    `/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`
-                  )
-                }
-                className="w-full text-lg py-4 rounded-2xl"
-              >
-                {t("button")}
-              </CustomButton>
+              <div className="flex justify-center gap-3 pt-2">
+                <CustomButton
+                  onClick={() =>
+                    router.push(
+                      `/poiIntro?lat=${destination?.lat}&lng=${destination?.lng}`,
+                    )
+                  }
+                  className="rounded-xl"
+                >
+                  {t("button")}
+                </CustomButton>
+              </div>
             </div>
           </div>
         </div>
