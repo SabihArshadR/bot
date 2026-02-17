@@ -152,99 +152,36 @@ export default function CoinMap({ destination }: CoinMapProps) {
   }, [destination]);
 
   useEffect(() => {
-    if (!map.current) return;
+  if (!map.current) return;
 
-    const watchId = navigator.geolocation.watchPosition(
-      (pos) => {
-        const newLoc = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        };
-        setUserLocation(newLoc);
+  const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true,
+    },
+    trackUserLocation: true, // keeps map centered on user
+    showUserHeading: true,   // shows cone / shadow for orientation
+  });
 
-        if (!userMarker.current) {
-          const userEl = document.createElement("div");
-          userEl.className = "user-location-marker";
+  map.current.addControl(geolocate, "top-left");
 
-          const beam = document.createElement("div");
-          beam.className = "user-beam";
-          userEl.appendChild(beam);
+  // Automatically trigger the geolocation when map loads
+  geolocate.on('geolocate', (event) => {
+    const newLoc = {
+      lat: event.coords.latitude,
+      lng: event.coords.longitude,
+    };
+    setUserLocation(newLoc);
 
-          // 2. Add the Google Maps styling via CSS-in-JS or a global CSS file
-          // We'll inject a style tag for the pulse animation if it's not in your CSS file
-          const style = document.createElement("style");
-          style.innerHTML = `
-          .user-location-marker {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #4285F4; /* Google Blue */
-            border: 3px solid white;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-            position: relative;
-          }
-            .user-beam {
-            position: absolute;
-            top: 120%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 40px solid rgba(66, 133, 244, 0.4); /* Light Blue Beam */
-            transform-origin: 50% 100%; /* Rotate from the bottom center */
-            transform: translate(-50%, -100%) rotate(0deg);
-            z-index: -1;
-            pointer-events: none;
-            }
-          /* The Pulsing Halo */
-          .user-location-marker::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: rgba(66, 133, 244, 0.4);
-            animation: pulse 2s infinite;
-            z-index: -1;
-          }
-          @keyframes pulse {
-            0% { width: 20px; height: 20px; opacity: 1; }
-            100% { width: 70px; height: 70px; opacity: 0; }
-          }
-        `;
-          document.head.appendChild(style);
+    if (destination && map.current) {
+      drawRoute(map.current, newLoc, destination);
+    }
+  });
 
-          userMarker.current = new mapboxgl.Marker({
-            element: userEl,
-            anchor: "center",
-          })
-            .setLngLat([newLoc.lng, newLoc.lat])
-            .addTo(map.current!);
-          map.current!.flyTo({
-            center: [newLoc.lng, newLoc.lat],
-            zoom: 18,
-            pitch: 65,
-            duration: 5000,
-            essential: true,
-          });
-        } else {
-          userMarker.current.setLngLat([newLoc.lng, newLoc.lat]);
-        }
+  // Optional: trigger once when map loads
+  geolocate.trigger();
 
-        if (map.current && destination) {
-          drawRoute(map.current, newLoc, destination);
-        }
-      },
-      (err) => console.error("Location error:", err),
-      { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 },
-    );
+}, [destination]);
 
-    return () => navigator.geolocation.clearWatch(watchId);
-  }, [destination]);
 
   useEffect(() => {
     if (userLocation && destination) {
