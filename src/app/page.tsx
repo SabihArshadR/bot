@@ -19,7 +19,7 @@ export default function Home() {
 
       const timer = setTimeout(() => {
         setShowBotPopup(false);
-      }, 3000);
+      }, 7000);
 
       return () => clearTimeout(timer);
     }

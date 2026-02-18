@@ -192,11 +192,11 @@ function OptimizedCanvas({
   const cameraConfig = useMemo(
     () => ({
       position: cam as [number, number, number],
-      fov: 20,
+      fov: modelPath.includes('1.glb') ? 30 : 20,
       near: 0.005,
       far: 1000,
     }),
-    [],
+    [modelPath], 
   );
 
   const [autoRotate, setAutoRotate] = useState(true);
