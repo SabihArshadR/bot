@@ -15,7 +15,7 @@ interface BotPopupProps {
 
 const BotPopup = ({ onClose }: BotPopupProps) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
+    <div className="fixed inset-0 flex justify-center z-50 bg-white">
       <div className="w-full max-w-[400px] mx-auto">
         <div className="bg-white flex flex-col justify-center items-center pb-10">
           {/* <h1 className="text-2xl font-semibold text-[#160500] mt-10">
