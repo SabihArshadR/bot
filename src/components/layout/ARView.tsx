@@ -549,7 +549,8 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
     <AEntity
       ref={avatarRef}
       position={`${position.x} ${position.y} ${position.z}`}
-      rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
+      // rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
+      rotation={`-10 ${userRotationY} 0`}
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
