@@ -21,6 +21,7 @@ import CompletePopup from "./CompletePopup";
 import Notification from "@/assets/notification.png";
 import { useCallback } from "react";
 import BotCompletion from "./BotCompletion";
+import { useAudio } from "@/context/AudioContext";
 
 const Dashboard = () => {
   const { user, refreshUser, loading: userLoading } = useUser();
@@ -35,6 +36,7 @@ const Dashboard = () => {
   const [showAmicsNotification, setShowAmicsNotification] = useState(false);
   const [showProgressNotification, setShowProgressNotification] = useState(false);
   // const [showBotCompletion, setShowBotCompletion] = useState(false);
+  // const { unlockCompletionAudio } = useAudio();
 
   useEffect(() => {
     refreshUser();
@@ -130,6 +132,7 @@ const Dashboard = () => {
 
   const handleMapClick = () => {
     playCardSound();
+    // unlockCompletionAudio();
     if (user) {
       localStorage.setItem("lastSeenMapPOIs", user.POIsCompleted.toString());
       setShowMapNotification(false);

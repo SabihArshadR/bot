@@ -18,6 +18,7 @@ interface AudioContextType {
   setVolume: (volume: number) => void;
   isPopupActive: boolean;
   setPopupActive: (isActive: boolean) => void;
+  // unlockCompletionAudio: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -282,6 +283,29 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  // AudioProvider.tsx
+
+// const unlockCompletionAudio = useCallback(() => {
+//   if (completionSoundRef.current) {
+//     // 1. Set volume to 0 so the user hears nothing
+//     completionSoundRef.current.volume = 0; 
+    
+//     // 2. Play it briefly
+//     completionSoundRef.current.play()
+//       .then(() => {
+//         // 3. Immediately pause and reset it
+//         completionSoundRef.current?.pause();
+//         completionSoundRef.current!.currentTime = 0;
+//         // 4. Set volume back to normal for when it actually needs to play
+//         completionSoundRef.current!.volume = 0.5; 
+//         console.log("Completion sound authorized by Chrome");
+//       })
+//       .catch(err => console.log("Unlock failed:", err));
+//   }
+// }, []);
+
+// Expose unlockCompletionAudio in your context provider
+
   return (
     <AudioContext.Provider
       value={{
@@ -290,6 +314,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         setVolume,
         isPopupActive,
         setPopupActive,
+        // unlockCompletionAudio
       }}
     >
       {children}
