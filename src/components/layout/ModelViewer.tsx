@@ -192,7 +192,7 @@ function OptimizedCanvas({
   const cameraConfig = useMemo(
     () => ({
       position: cam as [number, number, number],
-      fov: 28,
+      fov: 20,
       near: 0.005,
       far: 1000,
     }),
@@ -329,7 +329,7 @@ function ModelViewerComponent({
         isOpen ? "opacity-100" : "pointer-events-none opacity-0"
       } ${className}`}
       style={{
-        backgroundImage: `url(/findingsbg.jpg)`,
+        backgroundImage: `url(/trunk.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',
@@ -351,7 +351,7 @@ function ModelViewerComponent({
                 <div 
                 className="absolute inset-0 z-0"
                 style={{
-                  backgroundImage: `url(/findingsbg.jpg)`,
+                  backgroundImage: `url(/trunk.jpg)`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   // filter: 'blur(8px) brightness(0.7)',

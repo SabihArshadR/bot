@@ -147,7 +147,8 @@
     "text6a": "Great!",
     "text6b": "You have collected the",
     "text6c": "5 food items",
-    "text6d": "At last, we’ve brought the dance back and the giant can finally go back to sleep!"
+    "text6d": "At last, we’ve brought the dance back and the giant can finally go back to sleep!",
+    "again" : "If you want to play again press the restart button"
   },
   "Level": {
     "title1": "Hello, ",

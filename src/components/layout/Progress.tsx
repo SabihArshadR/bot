@@ -36,8 +36,10 @@ const Progress = () => {
   // Play sound effect when animation is triggered
   useEffect(() => {
     if (shouldAnimate) {
-      const audio = new Audio('/button-sounds/17.mp3');
-      audio.play().catch(error => console.error('Error playing sound:', error));
+      const audio = new Audio("/button-sounds/17.mp3");
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
     }
   }, [shouldAnimate]);
 
@@ -134,21 +136,57 @@ const Progress = () => {
 
   const getProgressElement = () => {
     const completedPOIs = user?.POIsCompleted || 0;
-    const animationClass = shouldAnimate ? 'animate-bounce' : '';
+    const animationClass = shouldAnimate ? "animate-bounce" : "";
 
     switch (completedPOIs) {
       case 0:
-        return <Image src={Element1} alt="Progress Level 1" className={animationClass} />;
+        return (
+          <Image
+            src={Element1}
+            alt="Progress Level 1"
+            className={animationClass}
+          />
+        );
       case 1:
-        return <Image src={Element2} alt="Progress Level 2" className={animationClass} />;
+        return (
+          <Image
+            src={Element2}
+            alt="Progress Level 2"
+            className={animationClass}
+          />
+        );
       case 2:
-        return <Image src={Element3} alt="Progress Level 3" className={animationClass} />;
+        return (
+          <Image
+            src={Element3}
+            alt="Progress Level 3"
+            className={animationClass}
+          />
+        );
       case 3:
-        return <Image src={Element4} alt="Progress Level 4" className={animationClass} />;
+        return (
+          <Image
+            src={Element4}
+            alt="Progress Level 4"
+            className={animationClass}
+          />
+        );
       case 4:
-        return <Image src={Element5} alt="Progress Level 5" className={animationClass} />;
+        return (
+          <Image
+            src={Element5}
+            alt="Progress Level 5"
+            className={animationClass}
+          />
+        );
       default:
-        return <Image src={Element6} alt="Progress Complete" className={animationClass} />;
+        return (
+          <Image
+            src={Element6}
+            alt="Progress Complete"
+            className={animationClass}
+          />
+        );
     }
   };
 
@@ -185,6 +223,11 @@ const Progress = () => {
           <p className="text-[24px] font-semibold text-blackfont mt-[37px] px-5">
             {t(`${textKey}d`)}
           </p>
+          {completedPOIs === totalPOIs && (
+            <p className="text-[24px] font-semibold text-blackfont mt-[37px] px-5">
+              {t("again")}
+            </p>
+          )}
         </div>
       );
     } else {
@@ -234,8 +277,13 @@ const Progress = () => {
     <div className="flex flex-col items-center justify-center bg-white">
       <style jsx global>{`
         @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
         }
         .animate-bounce {
           animation: bounce 0.8s ease-in-out 1;

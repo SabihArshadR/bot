@@ -147,7 +147,8 @@
     "text6a": "Génial !",
     "text6b": "Tu as collecté les",
     "text6c": "5 aliments",
-    "text6d": "Enfin, nous avons fait revenir la danse et le géant peut enfin se rendormir !"
+    "text6d": "Enfin, nous avons fait revenir la danse et le géant peut enfin se rendormir !",
+    "again" : "Si vous voulez rejouer, appuyez sur le bouton de redémarrage."
   },
   "Level": {
     "title1": "Bonjour, ",

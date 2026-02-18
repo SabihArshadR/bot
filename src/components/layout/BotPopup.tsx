@@ -6,6 +6,7 @@ import logo3 from "@/assets/3.png";
 import logo4 from "@/assets/4.png";
 import logo5 from "@/assets/5.png";
 import logo6 from "@/assets/6.png";
+import logo7 from "@/assets/7.jpeg";
 import Image from "next/image";
 
 interface BotPopupProps {
@@ -50,7 +51,12 @@ const BotPopup = ({ onClose }: BotPopupProps) => {
           />
           <Image
             src={logo6}
-            alt="log5"
+            alt="log6"
+            className="w-[200px] h-[100px] object-cover"
+          />
+          <Image
+            src={logo7}
+            alt="logo7"
             className="w-[200px] h-[100px] object-cover"
           />
         </div>

@@ -147,7 +147,8 @@
     "text6a": "¡Genial!",
     "text6b": "Has recogido los",
     "text6c": "5 alimentos",
-    "text6d": "¡Por fin hemos recuperado la danza y el gigante ya puede volver a dormir!"
+    "text6d": "¡Por fin hemos recuperado la danza y el gigante ya puede volver a dormir!",
+    "again" : "Si quieres volver a jugar, pulsa el botón de reinicio."
   },
   "Level": {
     "title1": "Hola, ",
