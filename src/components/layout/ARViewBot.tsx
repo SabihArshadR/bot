@@ -14,7 +14,7 @@ const ARing = (props: any) => React.createElement("a-ring", props);
 const subtitle = [
   {
     time: 0,
-    text: "Hola a tothom. Soc el gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim,",
+    text: "Hola a tothom. Soc el Gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim,",
   },
   {
     time: 6,

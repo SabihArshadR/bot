@@ -81,7 +81,8 @@
     "pic3": "Espacios de la Batalla del Ebro",
     "pic4": "Memorial Democrático",
     "pic5": "Terra Enllà",
-    "pic6": "Marcados por el 38"
+    "pic6": "Marcados por el 38",
+    "pic7": "Reserva de la Biosfera | Tierras del Ebro"
   },
   "Link": {
     "link1": "https://bot.altanet.org/",
@@ -90,6 +91,7 @@
     "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
     "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
     "link6": "https://marcatspel38.com/ ",
+    "link7": "https://www.terresdelebrebiosfera.cat/",
     "title": "Més informació"
   },
   "Map": {
@@ -148,7 +150,7 @@
     "text6b": "Has recogido los",
     "text6c": "5 alimentos",
     "text6d": "¡Por fin hemos recuperado la danza y el gigante ya puede volver a dormir!",
-    "again" : "Si quieres volver a jugar, pulsa el botón de reinicio."
+    "again": "Si quieres volver a jugar, pulsa el botón de reinicio."
   },
   "Level": {
     "title1": "Hola, ",

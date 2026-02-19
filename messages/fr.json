@@ -81,7 +81,8 @@
     "pic3": "Espaces de la bataille de l’Èbre",
     "pic4": "Mémorial démocratique",
     "pic5": "Terra Enllà",
-    "pic6": "Marqués par 38"
+    "pic6": "Marqués par 38",
+    "pic7": "Réserve de biosphère | Terres de l’Èbre"
   },
   "Link": {
     "link1": "https://bot.altanet.org/",
@@ -90,6 +91,7 @@
     "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
     "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
     "link6": "https://marcatspel38.com/ ",
+    "link7": "https://www.terresdelebrebiosfera.cat/",
     "title": "Més informació"
   },
   "Map": {
@@ -148,7 +150,7 @@
     "text6b": "Tu as collecté les",
     "text6c": "5 aliments",
     "text6d": "Enfin, nous avons fait revenir la danse et le géant peut enfin se rendormir !",
-    "again" : "Si vous voulez rejouer, appuyez sur le bouton de redémarrage."
+    "again": "Si vous voulez rejouer, appuyez sur le bouton de redémarrage."
   },
   "Level": {
     "title1": "Bonjour, ",

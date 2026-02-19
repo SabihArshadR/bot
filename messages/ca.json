@@ -81,7 +81,8 @@
     "pic3": "Espais de la Batalla de l’Ebre",
     "pic4": "Memorial Democràtic",
     "pic5": "Terra Enllà",
-    "pic6": "Marcats pel 38"
+    "pic6": "Marcats pel 38",
+    "pic7": "Reserva de la Biosfera | Terres de l'Ebre"
   },
   "Link": {
     "link1": "https://bot.altanet.org/",
@@ -90,6 +91,7 @@
     "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
     "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
     "link6": "https://marcatspel38.com/ ",
+    "link7": "https://www.terresdelebrebiosfera.cat/",
     "title": "Més informació"
   },
   "Map": {
@@ -146,7 +148,7 @@
     "text6b": "Has recol·lectat",
     "text6c": "5 aliments",
     "text6d": "Per fi hem recuperat la Dansada i el gegant ja pot tornar a dormir!",
-    "again" : "Si vols tornar a jugar, prem el botó de reiniciar."
+    "again": "Si vols tornar a jugar, prem el botó de reiniciar."
   },
   "Level": {
     "title1": "Hola, ",
@@ -194,7 +196,7 @@
     "button3": "MAPA FAQ",
     "ar": {
       "q1": "Què és la realitat augmentada (AR) i com la fem servir a Despertat pel silenci?",
-      "a1": "La realitat augmentada és una tecnologia que permet veure elements digitals —com objectes o personatges— superposats a l’entorn real a través de la càmera del vostre mòbil. \n \n En aquest joc la fem servir per: \n \n ● Veure el gegant de les muntanyes de Bot dins del vostre entorn real​ \n ● Recol·lectar aliments (pa, oli, ametlles, raïm i salsitxes)​ \n ● Recuperar els elements de la Dansada quan responeu correctament les preguntes \n \n La realitat augmentada forma part del repte: cal que trobeu els objectes a cada punt per poder avançar en la història.",
+      "a1": "La realitat augmentada és una tecnologia que permet veure elements digitals —com objectes o personatges— superposats a l’entorn real a través de la càmera del vostre mòbil. \n\n En aquest joc la fem servir per: \n\n ● Veure el Gegant de les muntanyes de Bot dins del vostre entorn real​ \n ● Recol·lectar aliments (pa, oli, ametlles, raïm i salsitxes)​ \n ● Recuperar els elements de la Dansada quan responeu correctament les preguntes \n\n La realitat augmentada forma part del repte: cal que trobeu els objectes a cada punt per poder avançar en la història.",
       "q2": "Cal descarregar cap aplicació?",
       "a2": "No. \n \n És una aplicació web (webapp). Només cal que accediu a l’enllaç amb el navegador del vostre mòbil (Chrome, Safari o similar). \n \n No cal instal·lar cap app ni registrar-vos.",
       "q3": "El vostre mòbil és compatible amb la realitat augmentada?",
@@ -206,15 +208,15 @@
       "q6": "És segur utilitzar la realitat augmentada mentre camineu?",
       "a6": "Sí, però amb responsabilitat. \n\n És important:\n\n ● No caminar mirant fixament la pantalla​ \n ● Estar atents a l’entorn físic (vehicles, desnivells, altres persones)​ \n ● Aturar-vos quan utilitzeu la càmera \n\n La seguretat sempre és prioritària.",
       "q7": "Podeu fer fotos o vídeos amb la realitat augmentada?",
-      "a7": "Sí. \n\n Podeu fer captures de pantalla o enregistrar vídeos mentre interactueu amb: \n\n ● El gegant​ \n ● Els aliments que recolliu​ \n ● Els moments en què recupereu elements de la Dansada \n\n És una bona manera de conservar el record de l’experiència i compartir-lo en família o amb amics."
+      "a7": "Sí. \n\n Podeu fer captures de pantalla o enregistrar vídeos mentre interactueu amb: \n\n ● El Gegant​  \n ● Els aliments que recolliu \n​ ● Els moments en què recupereu elements de la Dansada \n\n És una bona manera de conservar el record de l’experiència i compartir-lo en família o amb amics."
     },
     "game": {
       "q1": "Quin és l’objectiu del joc?",
-      "a1": "L’objectiu és ajudar el gegant de les muntanyes de Bot a recuperar la Dansada. \n\n Al llarg del recorregut haureu de: \n\n ● Descobrir què va passar al poble durant la Guerra Civil \n​ ● Recol·lectar aliments amb realitat augmentada (pa, oli, ametlles, raïm i salsitxes)​ \n ● Respondre correctament les preguntes de cada parada \n\n Quan hàgiu recuperat tots els elements de la Dansada, la música podrà tornar a sonar.",
+      "a1": "L’objectiu és ajudar el Gegant de les muntanyes de Bot a recuperar la Dansada. \n\n Al llarg del recorregut haureu de: \n\n ● Descobrir què va passar al poble durant la Guerra Civil \n​ ● Recol·lectar aliments amb realitat augmentada (pa, oli, ametlles, raïm i salsitxes)​ \n ● Respondre correctament les preguntes de cada parada \n\n Quan hàgiu recuperat tots els elements de la Dansada, la música podrà tornar a sonar.",
       "q2": "Quina diferència hi ha entre els aliments i els elements de la Dansada?",
       "a2": "Els aliments són els objectes que heu de buscar i recol·lectar amb realitat augmentada a cada punt del recorregut. Simbolitzen l’esforç i la supervivència de la gent d’aquells anys. \n\n Els elements de la Dansada són les peces que recupereu quan responeu correctament la pregunta final de cada parada. Són els símbols que permeten que la tradició torni a sonar.",
       "q3": "Com podeu aconseguir els aliments i els elements de la Dansada?",
-      "a3": "Heu d’arribar físicament als punts geolocalitzats que apareixen al mapa. \n\n A cada parada: \n\n ● El gegant us explicarà un fragment de la història​  \n ● Haureu de buscar els aliments amb realitat augmentada \n​ ● Després haureu de respondre una pregunta \n\n Si completeu el repte i encerteu la pregunta, recuperareu un element de la Dansada.",
+      "a3": "Heu d’arribar físicament als punts geolocalitzats que apareixen al mapa. \n\n A cada parada: \n\n  ● El Gegant us explicarà un fragment de la història​ \n ● Haureu de buscar els aliments amb realitat augmentada ​ \n ● Després haureu de respondre una pregunta \n\n Si completeu el repte i encerteu la pregunta, recuperareu un element de la Dansada.",
       "q4": "Què passa si no encerteu un repte o una pregunta?",
       "a4": "Els reptes interactius es completen quan heu recol·lectat tots els aliments que apareixen en realitat augmentada. \n\n El repte no finalitza fins que els hàgiu trobat tots. \n\n Si no encerteu la pregunta final, el sistema us permet tornar-ho a intentar. Cal respondre correctament per poder recuperar l’element de la Dansada i avançar.",
       "q5": "Cal estar registrats per jugar?",
@@ -412,7 +414,7 @@
     "audio": "Activar l’àudio?",
     "option1": "Sí",
     "option2": "No",
-    "info1": "Interactua amb el gegant",
+    "info1": "Interactua amb el Gegant",
     "info2": "Toca i arrossega amb un dit per girar-lo",
     "info3": "Pessiga amb dos dits per fer zoom"
   },

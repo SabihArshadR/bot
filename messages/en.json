@@ -81,7 +81,8 @@
     "pic3": "Spaces of the Battle of the Ebro",
     "pic4": "Democratic Memorial",
     "pic5": "Terra Enllà",
-    "pic6": "Marked by ’38"
+    "pic6": "Marked by ’38",
+    "pic7": "Biosphere Reserve | Lands of the Ebro"
   },
   "Link": {
     "link1": "https://bot.altanet.org/",
@@ -90,6 +91,7 @@
     "link4": "https://memoria.gencat.cat/ca/que-fem/espais-de-memoria/index.html",
     "link5": "https://terraenlla.com/ca/rutesbatallaebre/",
     "link6": "https://marcatspel38.com/ ",
+    "link7": "https://www.terresdelebrebiosfera.cat/",
     "title": "Més informació"
   },
   "Map": {
@@ -148,7 +150,7 @@
     "text6b": "You have collected the",
     "text6c": "5 food items",
     "text6d": "At last, we’ve brought the dance back and the giant can finally go back to sleep!",
-    "again" : "If you want to play again press the restart button"
+    "again": "If you want to play again press the restart button"
   },
   "Level": {
     "title1": "Hello, ",

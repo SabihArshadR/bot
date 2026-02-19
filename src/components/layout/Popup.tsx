@@ -9,6 +9,7 @@ import pic3 from "../../../public/history/3.3.png";
 import pic4 from "../../../public/history/4.4.png";
 import pic5 from "../../../public/history/5.5.png";
 import pic6 from "../../../public/history/6.6.png";
+import pic7 from "../../../public/history/7.7.jpg";
 import { useCallback } from "react";
 
 const images = [
@@ -18,6 +19,7 @@ const images = [
   { id: 4, image: pic4, link: 4 },
   { id: 5, image: pic5, link: 5 },
   { id: 6, image: pic6, link: 6 },
+  { id: 7, image: pic7, link: 7 },
 ];
 
 const SplashPopUp2 = ({ handleClose }: { handleClose: () => void }) => {
