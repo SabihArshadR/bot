@@ -165,12 +165,29 @@ const BotIntroduction = () => {
                   audioEnabled={audioEnabled === true}
                 />
               </div>
-              <div className="absolute top-[410px] flex justify-center z-10">
-                <Image
-                  src={icon}
-                  alt="AR icon"
-                  onClick={() => router.push("/ar-bot")}
-                />
+              <div className="absolute top-[420px] flex justify-center z-10">
+                <div 
+                  style={{
+                    animation: 'heartbeat 1.5s ease-in-out infinite',
+                    transformOrigin: 'center center'
+                  }}
+                >
+                  <Image
+                    src={icon}
+                    alt="AR icon"
+                    onClick={() => router.push("/ar-bot")}
+                    className="hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <style jsx global>{`
+                  @keyframes heartbeat {
+                    0% { transform: scale(1); }
+                    14% { transform: scale(1.1); }
+                    28% { transform: scale(1); }
+                    42% { transform: scale(1.1); }
+                    70% { transform: scale(1); }
+                  }
+                `}</style>
               </div>
             </div>
           </div>
