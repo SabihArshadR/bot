@@ -66,8 +66,8 @@ const SplashPopUp2 = ({ handleClose }: { handleClose: () => void }) => {
                   <Image
                     src={image}
                     alt={`Logo ${id}`}
-                    width={100}
-                    height={100}
+                    width={id === 7 ? 200 : 100}
+                    height={id === 7 ? 200 : 100}
                     className="object-cover"
                   />
                 </div>
