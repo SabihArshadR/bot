@@ -27,6 +27,41 @@ const BotIntroduction = () => {
   // const locale = useLocale() as string;
 
   useEffect(() => {
+  const hasVisited = localStorage.getItem("botIntroVisited");
+
+  if (!hasVisited) {
+    // First visit
+    localStorage.setItem("botIntroVisited", "true");
+
+    if (audioRef.current) {
+      audioRef.current.volume = 0.8;
+      audioRef.current.muted = false;
+
+      audioRef.current.play().catch((error) => {
+        console.error("Auto play failed:", error);
+      });
+    }
+
+    // Start typewriter after 7 seconds
+    const timer = setTimeout(() => {
+      setStartTypewriter(true);
+    }, 7000);
+
+    return () => clearTimeout(timer);
+  } else {
+    // Not first visit → start immediately without delay
+    setStartTypewriter(true);
+  }
+
+  return () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+}, []);
+
+  useEffect(() => {
     // Set up audio, play muted automatically
     if (audioRef.current) {
       audioRef.current.volume = 0.8; // Set volume to 80%
@@ -130,6 +165,7 @@ const BotIntroduction = () => {
         <div>
           <div className="flex justify-center pt-5">
             <p className="text-base text-[#160500] leading-[24px] italic max-w-[384px] text-center min-h-[120px]">
+              {startTypewriter && (
               <Typewriter
                 // text={t("text")}
                 text="Hola a tothom. Soc el Gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim, on sempre m’arriba l’eco del poble quan és festa. Cada any, la Dansada m’acompanya fins i tot mentre dormo. Però avui… no ha sonat res. Cap gralla, cap timbal, cap ball. El silenci m’ha despertat de cop: un silenci estrany, pesant, com si el poble s’hagués apagat. I amb aquest silenci he notat la fam i la foscor que planen pels carrers. Per això he baixat al poble a saber què està passant, perquè si la Dansada no torna a sonar, jo no puc tornar a descansar. I aquí és on entreu vosaltres. A cada indret de la ruta descobrireu un fragment d’aquesta història. Per avançar i ajudar-me a recuperar la Dansada, haureu de recollir aliments amb realitat augmentada: pa, oli, ametlles, raïm i salsitxes. Són més que menjar: simbolitzen l’esforç, la solidaritat i la supervivència de la gent d’aquells anys. A més, a cada parada haureu de respondre una pregunta. Si l’encerteu, guanyareu els instruments de la Dansada i elements propis d’aquesta tradició. Quan hàgiu recuperat tots els elements, jo podré tornar a dormir… i la música, l’esperança i l’alegria tornaran a omplir els carrers del poble. Us espero al primer punt de la ruta. Trobareu el mapa a la pàgina principal del joc. Fins aviat!"
@@ -139,6 +175,7 @@ const BotIntroduction = () => {
                 loop={true}
                 className="text-lg leading-relaxed"
               />
+              )}
               <audio
                 ref={audioRef}
                 // src={`/audios/${locale === "ca" ? "rutaintrocatalan" : locale === "es" ? "rutaintrospanish" : locale === "fr" ? "rutaintrofrench" : "rutaintroenglish"}.mp3`}

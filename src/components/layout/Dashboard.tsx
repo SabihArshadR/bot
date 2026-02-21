@@ -8,7 +8,9 @@ import Card3 from "@/assets/card3.svg";
 import Card4 from "@/assets/card4.svg";
 import Card5 from "@/assets/card5.svg";
 import Card6 from "@/assets/card6.svg";
-import Logo from "@/assets/DashboardLogo.png";
+import Logo1 from "@/assets/DL1.jpg";
+import Logo2 from "@/assets/DL2.jpg";
+import Logo3 from "@/assets/DL3.jpg";
 import Card from "../ui/Card";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -37,6 +39,26 @@ const Dashboard = () => {
   const [showProgressNotification, setShowProgressNotification] = useState(false);
   // const [showBotCompletion, setShowBotCompletion] = useState(false);
   // const { unlockCompletionAudio } = useAudio();
+  const logos = [Logo1, Logo2, Logo3];
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+
+  useEffect(() => {
+    // Determine the duration: 10s for the last logo, 5s for others
+    const duration = currentLogoIndex === 2 ? 10000 : 5000;
+
+    const timer = setTimeout(() => {
+      setCurrentLogoIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [currentLogoIndex]);
+
+  const handleLogoInteraction = () => {
+    setCurrentLogoIndex((prev) => {
+      // If at DL1 (index 0), going back takes us to DL3 (index 2)
+      return prev === 0 ? logos.length - 1 : prev - 1;
+    });
+  };
 
   useEffect(() => {
     refreshUser();
@@ -194,12 +216,23 @@ const Dashboard = () => {
         />
       )}
       <div className="pb-10 bg-green">
-        <div className="">
+        <div className="relative overflow-hidden cursor-pointer" onClick={handleLogoInteraction}>
           <Image
-            src={Logo}
-            alt="Logo"
-            className="object-cover h-[430px] w-full"
+            src={logos[currentLogoIndex]}
+            alt={`Logo ${currentLogoIndex + 1}`}
+            className="object-cover h-[430px] w-full transition-opacity duration-500"
+            priority // Ensure images load fast for the slider
           />
+          
+          {/* Optional: Visual Dots to show progress */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {logos.map((_, i) => (
+              <div 
+                key={i} 
+                className={`h-2 w-2 rounded-full ${i === currentLogoIndex ? 'bg-white' : 'bg-white/50'}`} 
+              />
+            ))}
+          </div>
         </div>
         <div className="flex justify-between mt-[33px] px-6 gap-4 font-karla">
           <Card onClick={handleMapClick}>
