@@ -227,6 +227,29 @@ const Page = ({
     };
   }, []);
 
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlayingState) {
+      audioRef.current.pause();
+      setIsPlayingState(false);
+    } else {
+      audioRef.current.play();
+      setIsPlayingState(true);
+    }
+  };
+
+  const skip = (seconds: number) => {
+    if (!audioRef.current) return;
+    // This moves the audio time, which automatically updates subtitles and animation
+    audioRef.current.currentTime = Math.max(
+      0,
+      Math.min(
+        audioRef.current.duration,
+        audioRef.current.currentTime + seconds,
+      ),
+    );
+  };
+
   const startOrientationTracking = () => {
     const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
       setDeviceOrientation({
@@ -349,7 +372,6 @@ const Page = ({
     if (showMovementInstructions) {
       setShowMovementInstructions(false);
     }
-
 
     const touches = e.touches;
     gestureState.current.start = true;
@@ -666,6 +688,57 @@ const Page = ({
               {t2("info2")} <br></br> {t2("info3")}
             </p>
           </div>
+        </div>
+      )}
+
+      {/* Media Controls - Only show after avatar is placed */}
+      {avatarPos && (
+        <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[2147483649] flex items-center gap-6 bg-black/60 backdrop-blur-md px-6 py-1 rounded-full border border-white/20">
+          {/* Rewind 5s */}
+          <button
+            onClick={() => skip(-5)}
+            className="text-white active:scale-90 transition-transform"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.5 5V19L3 12L12.5 5ZM21 5V19L11.5 12L21 5Z" />
+            </svg>
+          </button>
+
+          {/* Play / Pause */}
+          <button
+            onClick={togglePlay}
+            className="text-white bg-white/20 p-3 rounded-full active:scale-95 transition-all"
+          >
+            {isPlayingState ? (
+              <svg
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+            ) : (
+              <svg
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            )}
+          </button>
+
+          {/* Advance 5s */}
+          <button
+            onClick={() => skip(5)}
+            className="text-white active:scale-90 transition-transform"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.5 5V19L21 12L11.5 5ZM2 5V19L11.5 12L2 5Z" />
+            </svg>
+          </button>
         </div>
       )}
     </div>

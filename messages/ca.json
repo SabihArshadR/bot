@@ -73,6 +73,8 @@
     "lang2": "Castellà",
     "lang3": "Anglès",
     "lang4": "Francès",
+    "select" : "Selecciona l’idioma",
+    "continue" : "Continua",
     "complete": "Enhorabona! Has finalitzat l’aventura Canyelles i la història del meteorit. Si la vols repetir, ves al perfil, on trobaràs el botó per reiniciar.",
     "keep_playing": "Continua",
     "read_more": "Més informació",

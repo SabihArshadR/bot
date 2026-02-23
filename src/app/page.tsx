@@ -2,6 +2,7 @@
 import BotIntroduction from "@/components/layout/BotIntroduction";
 import BotPopup from "@/components/layout/BotPopup";
 import Dashboard from "@/components/layout/Dashboard";
+import LanguageSelection from "@/components/layout/LS";
 import CustomButton from "@/components/ui/Button";
 import DashboardWrapper from "@/layouts/DashboardWrapper";
 import { useTranslations } from "next-intl";
@@ -9,19 +10,26 @@ import { useEffect , useState } from "react";
 export default function Home() {
   const [showCookies, setShowCookies] = useState(false);
   const [showBotPopup, setShowBotPopup] = useState(false);
+  const [isFirstVisit, setIsFirstVisit] = useState(false);
+  const [afterPopup, setAfterPopup] = useState(false);
+  const [hasSelectedLanguage, setHasSelectedLanguage] = useState(false);
   const t = useTranslations("Login");
 
   useEffect(() => {
-    const hasSeenPopup = localStorage.getItem("hasSeenRutaPopup");
-    if (!hasSeenPopup) {
+    const hasSeen = localStorage.getItem("hasSeenRutaPopup");
+    if (!hasSeen) {
+      setIsFirstVisit(true);
       setShowBotPopup(true);
       localStorage.setItem("hasSeenRutaPopup", "true");
 
       const timer = setTimeout(() => {
         setShowBotPopup(false);
-      }, 7000);
+        setAfterPopup(true);
+      }, 1000);
 
       return () => clearTimeout(timer);
+    } else {
+      setAfterPopup(true);
     }
   }, []);
 
@@ -29,6 +37,13 @@ export default function Home() {
     const accepted = localStorage.getItem("cookiesAccepted");
     if (!accepted) {
       setShowCookies(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const selected = localStorage.getItem("languageSelected");
+    if (selected === "true") {
+      setHasSelectedLanguage(true);
     }
   }, []);
 
@@ -40,7 +55,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <BotIntroduction />
+        {afterPopup && (isFirstVisit && !hasSelectedLanguage ? <LanguageSelection onContinue={() => setHasSelectedLanguage(true)} /> : <BotIntroduction />)}
         {showBotPopup && <BotPopup onClose={() => setShowBotPopup(false)} />}
       </div>
       {showCookies && (

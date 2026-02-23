@@ -14,6 +14,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Typewriter } from "../ui/Typewriter";
 import InlineModelViewer from "./inlineModelViewer";
 import Logoo from "@/assets/headerlogo.svg";
+import DropDown from "../ui/DropDown";
 
 const BotIntroduction = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -107,8 +108,11 @@ const BotIntroduction = () => {
   }, []);
 
   return (
-    <div className="desktop:flex tablet:flex mobile:block flex-col justify-center items-center min-h-[85vh] relative bg-white">
+    <div className="desktop:flex tablet:flex mobile:block flex-col justify-center items-center min-h-[85vh] relative bg-white">      
       <div className="desktop:max-w-[400px] tablet:max-w-[400px] mobile:w-full">
+        {/* <div className="flex justify-end pr-5 pt-2 bg-green">
+          <DropDown />
+        </div> */}
         {showAudioPrompt && (
           <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-200">
             <div className="bg-white rounded-xl shadow-2xl p-4 min-w-[280px] max-w-[320px] border border-gray-100">
@@ -127,7 +131,7 @@ const BotIntroduction = () => {
                   onClick={() => handleAudioChoice(false)}
                   className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm
                              hover:bg-gray-200 transition-colors font-medium transition-all duration-400 ease-in-out hover:brightness-150 active:brightness-150 active:-translate-y-[5px]"
-                >
+                             >
                   <FaVolumeMute className="text-xs" /> {t("option2")}
                 </button>
               </div>
@@ -135,7 +139,7 @@ const BotIntroduction = () => {
           </div>
         )}
 
-        <div className="flex justify-center items-center w-full px-[14px] h-[183px] bg-green object-cover">
+        <div className="flex justify-center items-center w-full px-[14px] h-[140px] bg-green object-cover">
           <div>
             <div>
               <Image

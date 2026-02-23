@@ -73,6 +73,8 @@
     "lang2": "Spanish",
     "lang3": "English",
     "lang4": "French",
+    "select": "Select Language",
+    "continue" : "Continue",
     "complete": "Congratulations! You have completed the adventure 'The Friends of the Basalt Cliff'. If you want to repeat it, go to your profile, where you’ll find the button to restart.",
     "keep_playing": "Continue",
     "read_more": "Read more",

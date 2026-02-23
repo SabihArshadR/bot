@@ -73,6 +73,8 @@
     "lang2": "Castellano",
     "lang3": "Inglés",
     "lang4": "Francés",
+    "continue" : "Continuar",
+    "select" : "Seleccionar idioma",
     "complete": "¡Enhorabuena! Has completado la aventura 'Los Amigos del Acantilado Basáltico'. Si quieres repetirla, ve al perfil, donde encontrarás el botón para reiniciar.",
     "keep_playing": "Continuar",
     "read_more": "Más información",
