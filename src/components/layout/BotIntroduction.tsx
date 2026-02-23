@@ -33,24 +33,30 @@ const BotIntroduction = () => {
     // First visit
     localStorage.setItem("botIntroVisited", "true");
 
-    if (audioRef.current) {
-      audioRef.current.volume = 0.8;
-      audioRef.current.muted = false;
-
-      audioRef.current.play().catch((error) => {
-        console.error("Auto play failed:", error);
-      });
-    }
-
-    // Start typewriter after 7 seconds
     const timer = setTimeout(() => {
       setStartTypewriter(true);
+
+      if (audioRef.current) {
+        audioRef.current.volume = 0.8;
+        audioRef.current.muted = true; // start muted
+        audioRef.current.play().catch((error) => {
+          console.error("Auto play failed:", error);
+        });
+      }
     }, 7000);
 
     return () => clearTimeout(timer);
   } else {
-    // Not first visit → start immediately without delay
+    // Returning visit → start immediately
     setStartTypewriter(true);
+
+    if (audioRef.current) {
+      audioRef.current.volume = 0.8;
+      audioRef.current.muted = true;
+      audioRef.current.play().catch((error) => {
+        console.error("Auto play failed:", error);
+      });
+    }
   }
 
   return () => {
@@ -60,25 +66,6 @@ const BotIntroduction = () => {
     }
   };
 }, []);
-
-  useEffect(() => {
-    // Set up audio, play muted automatically
-    if (audioRef.current) {
-      audioRef.current.volume = 0.8; // Set volume to 80%
-      audioRef.current.muted = true;
-      audioRef.current.play().catch((error) => {
-        console.error("Auto play failed:", error);
-      });
-    }
-
-    // Cleanup function to pause audio when component unmounts
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-      }
-    };
-  }, []);
 
   useEffect(() => {
     // Play or pause audio based on user's choice
