@@ -54,10 +54,7 @@ const Dashboard = () => {
   }, [currentLogoIndex]);
 
   const handleLogoInteraction = () => {
-    setCurrentLogoIndex((prev) => {
-      // If at DL1 (index 0), going back takes us to DL3 (index 2)
-      return prev === 0 ? logos.length - 1 : prev - 1;
-    });
+    setCurrentLogoIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));
   };
 
   useEffect(() => {
