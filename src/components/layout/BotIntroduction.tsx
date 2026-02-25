@@ -28,45 +28,45 @@ const BotIntroduction = () => {
   // const locale = useLocale() as string;
 
   useEffect(() => {
-  const hasVisited = localStorage.getItem("botIntroVisited");
+    const hasVisited = localStorage.getItem("botIntroVisited");
 
-  if (!hasVisited) {
-    // First visit
-    localStorage.setItem("botIntroVisited", "true");
+    if (!hasVisited) {
+      // First visit
+      localStorage.setItem("botIntroVisited", "true");
 
-    const timer = setTimeout(() => {
+      const timer = setTimeout(() => {
+        setStartTypewriter(true);
+
+        if (audioRef.current) {
+          audioRef.current.volume = 0.8;
+          audioRef.current.muted = true; // start muted
+          audioRef.current.play().catch((error) => {
+            console.error("Auto play failed:", error);
+          });
+        }
+      }, 7000);
+
+      return () => clearTimeout(timer);
+    } else {
+      // Returning visit → start immediately
       setStartTypewriter(true);
 
       if (audioRef.current) {
         audioRef.current.volume = 0.8;
-        audioRef.current.muted = true; // start muted
+        audioRef.current.muted = true;
         audioRef.current.play().catch((error) => {
           console.error("Auto play failed:", error);
         });
       }
-    }, 7000);
-
-    return () => clearTimeout(timer);
-  } else {
-    // Returning visit → start immediately
-    setStartTypewriter(true);
-
-    if (audioRef.current) {
-      audioRef.current.volume = 0.8;
-      audioRef.current.muted = true;
-      audioRef.current.play().catch((error) => {
-        console.error("Auto play failed:", error);
-      });
     }
-  }
 
-  return () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-  };
-}, []);
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     // Play or pause audio based on user's choice
@@ -108,7 +108,7 @@ const BotIntroduction = () => {
   }, []);
 
   return (
-    <div className="desktop:flex tablet:flex mobile:block flex-col justify-center items-center min-h-[85vh] relative bg-white">      
+    <div className="desktop:flex tablet:flex mobile:block flex-col justify-center items-center min-h-[85vh] relative bg-white">
       <div className="desktop:max-w-[400px] tablet:max-w-[400px] mobile:w-full">
         {/* <div className="flex justify-end pr-5 pt-2 bg-green">
           <DropDown />
@@ -131,7 +131,7 @@ const BotIntroduction = () => {
                   onClick={() => handleAudioChoice(false)}
                   className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm
                              hover:bg-gray-200 transition-colors font-medium transition-all duration-400 ease-in-out hover:brightness-150 active:brightness-150 active:-translate-y-[5px]"
-                             >
+                >
                   <FaVolumeMute className="text-xs" /> {t("option2")}
                 </button>
               </div>
@@ -157,15 +157,14 @@ const BotIntroduction = () => {
           <div className="flex justify-center pt-5">
             <p className="text-base text-[#160500] leading-[24px] italic max-w-[384px] text-center min-h-[120px]">
               {startTypewriter && (
-              <Typewriter
-                // text={t("text")}
-                text="Hola a tothom. Soc el Gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim, on sempre m’arriba l’eco del poble quan és festa. Cada any, la Dansada m’acompanya fins i tot mentre dormo. Però avui… no ha sonat res. Cap gralla, cap timbal, cap ball. El silenci m’ha despertat de cop: un silenci estrany, pesant, com si el poble s’hagués apagat. I amb aquest silenci he notat la fam i la foscor que planen pels carrers. Per això he baixat al poble a saber què està passant, perquè si la Dansada no torna a sonar, jo no puc tornar a descansar. I aquí és on entreu vosaltres. A cada indret de la ruta descobrireu un fragment d’aquesta història. Per avançar i ajudar-me a recuperar la Dansada, haureu de recollir aliments amb realitat augmentada: pa, oli, ametlles, raïm i salsitxes. Són més que menjar: simbolitzen l’esforç, la solidaritat i la supervivència de la gent d’aquells anys. A més, a cada parada haureu de respondre una pregunta. Si l’encerteu, guanyareu els instruments de la Dansada i elements propis d’aquesta tradició. Quan hàgiu recuperat tots els elements, jo podré tornar a dormir… i la música, l’esperança i l’alegria tornaran a omplir els carrers del poble. Us espero al primer punt de la ruta. Trobareu el mapa a la pàgina principal del joc. Fins aviat!"
-                speed={57}
-                wordsPerPage={30}
-                pauseAfterPage={0}
-                loop={true}
-                className="text-lg leading-relaxed"
-              />
+                <Typewriter
+                  text={t("text")}
+                  speed={57}
+                  wordsPerPage={30}
+                  pauseAfterPage={0}
+                  loop={true}
+                  className="text-lg leading-relaxed"
+                />
               )}
               <audio
                 ref={audioRef}
@@ -194,10 +193,10 @@ const BotIntroduction = () => {
                 />
               </div>
               <div className="absolute top-[420px] flex justify-center z-10">
-                <div 
+                <div
                   style={{
-                    animation: 'heartbeat 1.5s ease-in-out infinite',
-                    transformOrigin: 'center center'
+                    animation: "heartbeat 1.5s ease-in-out infinite",
+                    transformOrigin: "center center",
                   }}
                 >
                   <Image
@@ -209,11 +208,21 @@ const BotIntroduction = () => {
                 </div>
                 <style jsx global>{`
                   @keyframes heartbeat {
-                    0% { transform: scale(1); }
-                    14% { transform: scale(1.1); }
-                    28% { transform: scale(1); }
-                    42% { transform: scale(1.1); }
-                    70% { transform: scale(1); }
+                    0% {
+                      transform: scale(1);
+                    }
+                    14% {
+                      transform: scale(1.1);
+                    }
+                    28% {
+                      transform: scale(1);
+                    }
+                    42% {
+                      transform: scale(1.1);
+                    }
+                    70% {
+                      transform: scale(1);
+                    }
                   }
                 `}</style>
               </div>

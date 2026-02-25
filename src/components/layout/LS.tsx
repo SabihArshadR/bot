@@ -45,7 +45,7 @@ const FlagIcons: any = {
   ),
 };
 
-const locales = ["ca", "en", "es", "fr"];
+const locales = ["ca", "es", "en", "fr"];
 
 interface LanguageSelectionProps {
   onContinue: () => void;
@@ -57,8 +57,8 @@ const LanguageSelection = ({ onContinue }: LanguageSelectionProps) => {
 
   const languageNames: Record<string, string> = {
     ca: t2("lang1"),
-    es: t2("lang2"),
     en: t2("lang3"),
+    es: t2("lang2"),
     fr: t2("lang4"),
   };
   const handleContinue = () => {

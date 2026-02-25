@@ -40,21 +40,34 @@ const Dashboard = () => {
   // const [showBotCompletion, setShowBotCompletion] = useState(false);
   // const { unlockCompletionAudio } = useAudio();
   const logos = [Logo1, Logo2, Logo3];
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return parseInt(localStorage.getItem('currentLogoIndex') || '0');
+    }
+    return 0;
+  });
 
   useEffect(() => {
     // Determine the duration: 10s for the last logo, 5s for others
     const duration = currentLogoIndex === 2 ? 10000 : 5000;
 
     const timer = setTimeout(() => {
-      setCurrentLogoIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));
+      setCurrentLogoIndex((prev) => {
+        const next = (prev === logos.length - 1 ? 0 : prev + 1);
+        localStorage.setItem('currentLogoIndex', next.toString());
+        return next;
+      });
     }, duration);
 
     return () => clearTimeout(timer);
   }, [currentLogoIndex]);
 
   const handleLogoInteraction = () => {
-    setCurrentLogoIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));
+    setCurrentLogoIndex((prev) => {
+      const next = (prev === logos.length - 1 ? 0 : prev + 1);
+      localStorage.setItem('currentLogoIndex', next.toString());
+      return next;
+    });
   };
 
   useEffect(() => {
@@ -221,15 +234,6 @@ const Dashboard = () => {
             priority // Ensure images load fast for the slider
           />
           
-          {/* Optional: Visual Dots to show progress */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {logos.map((_, i) => (
-              <div 
-                key={i} 
-                className={`h-2 w-2 rounded-full ${i === currentLogoIndex ? 'bg-white' : 'bg-white/50'}`} 
-              />
-            ))}
-          </div>
         </div>
         <div className="flex justify-between mt-[33px] px-6 gap-4 font-karla">
           <Card onClick={handleMapClick}>
