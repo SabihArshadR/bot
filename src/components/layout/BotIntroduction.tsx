@@ -168,8 +168,8 @@ const BotIntroduction = () => {
               )}
               <audio
                 ref={audioRef}
-                // src={`/audios/${locale === "ca" ? "rutaintrocatalan" : locale === "es" ? "rutaintrospanish" : locale === "fr" ? "rutaintrofrench" : "rutaintroenglish"}.mp3`}
-                src="/audios/botintroduction.mp3"
+                src={`/audios/${locale === "ca" ? "botintrocatalan" : locale === "es" ? "botintrospanish" : locale === "fr" ? "botintrofrench" : "botintroenglish"}.mp3`}
+                // src="/audios/botintroduction.mp3"
                 preload="metadata"
                 style={{ display: "none" }}
               />
