@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Loading from "@/components/layout/Loading";
 import CustomButton from "../ui/Button";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const AScene = (props: any) => React.createElement("a-scene", props);
 const ACamera = (props: any) => React.createElement("a-camera", props);
@@ -11,7 +11,7 @@ const AEntity = (props: any) => React.createElement("a-entity", props);
 const ACircle = (props: any) => React.createElement("a-circle", props);
 const ARing = (props: any) => React.createElement("a-ring", props);
 
-const subtitle = [
+const subtitleC = [
   {
     time: 0,
     text: "Hola a tothom. Soc el Gegant de les muntanyes de Bot i fa molts anys que dormo dalt del cim,",
@@ -63,6 +63,171 @@ const subtitle = [
   {
     time: 77,
     text: "Fins a la pròxima!",
+  },
+];
+
+const subtitleS = [
+  {
+    time: 0,
+    text: "Hola a todos. Soy el Gigante de las montañas de Bot y desde hace muchos años duermo en la cima,",
+  },
+  {
+    time: 6,
+    text: "donde siempre me llega el eco del pueblo cuando está de fiesta. Cada año, la Dansada me acompaña incluso cuando duermo.",
+  },
+  {
+    time: 14,
+    text: "Pero hoy… no ha sonado nada. Ni dulzaina, ni tambor, ni baile. El silencio me ha despertado de golpe: un silencio extraño, pesado, como si el pueblo se hubiera apagado.",
+  },
+  {
+    time: 27,
+    text: "Y con ese silencio he sentido el hambre y la oscuridad que planean por las calles.",
+  },
+  {
+    time: 31,
+    text: "Por eso he bajado al pueblo para saber qué está pasando, porque si la Dansada no vuelve a sonar, no puedo volver a descansar.",
+  },
+  {
+    time: 38,
+    text: "Y aquí es donde entráis vosotros.",
+  },
+  {
+    time: 41,
+    text: "En cada lugar de la ruta descubriréis un fragmento de esta historia. Para avanzar y ayudarme a recuperar la Dansada,",
+  },
+  {
+    time: 47,
+    text: "tendréis que recoger alimentos con realidad aumentada: pan, aceite, almendras, uvas y salchichas.",
+  },
+  {
+    time: 55,
+    text: "Son más que comida: simbolizan el esfuerzo, la solidaridad y la supervivencia de la gente de aquellos años.",
+  },
+  {
+    time: 62,
+    text: "Además, en cada parada tendréis que responder una pregunta. Si acertáis, ganaréis los instrumentos de la Dansada y elementos propios de esta tradición.",
+  },
+  {
+    time: 71,
+    text: "Cuando hayáis recuperado todos los elementos, podré volver a dormir… y la música, la esperanza y la alegría volverán a llenar las calles del pueblo.",
+  },
+  {
+    time: 80,
+    text: "Os espero en el primer punto de la ruta. Encontraréis el mapa en la página principal del juego.",
+  },
+  {
+    time: 85,
+    text: "¡Hasta la próxima!",
+  },
+];
+
+const subtitleF = [
+  {
+    time: 0,
+    text: "Bonjour à tous. Je suis le Géant des montagnes de Bot et depuis de nombreuses années, je dors au sommet,",
+  },
+  {
+    time: 7,
+    text: "où l'écho du village m'atteint toujours lors des célébrations. Chaque année, la Dansada m'accompagne, même lorsque je dors.",
+  },
+  {
+    time: 16,
+    text: "Mais aujourd'hui… rien n'a sonné. Ni chalumeau, ni tambour, ni danse. Le silence m'a réveillé soudainement : un silence étrange, lourd, comme si le village s'était éteint.",
+  },
+  {
+    time: 28,
+    text: "Et avec ce silence, j'ai ressenti la faim et l'obscurité qui flottent dans les rues.",
+  },
+  {
+    time: 34,
+    text: "C'est pourquoi je suis descendu au village pour découvrir ce qui se passe, car si la Dansada ne se remet pas à sonner, je ne peux pas retourner à mon repos.",
+  },
+  {
+    time: 45,
+    text: "Et c'est là que vous intervenez.",
+  },
+  {
+    time: 48,
+    text: "À chaque arrêt du parcours, vous découvrirez un fragment de cette histoire. Pour avancer et m'aider à récupérer la Dansada,",
+  },
+  {
+    time: 56,
+    text: "vous devrez collecter de la nourriture en réalité augmentée : pain, huile d'olive, amandes, raisins et saucisses.",
+  },
+  {
+    time: 65,
+    text: "Ce sont plus que de la nourriture — elles symbolisent l'effort, la solidarité et la survie des gens de ces années.",
+  },
+  {
+    time: 72,
+    text: "De plus, à chaque arrêt, vous devrez répondre à une question. Si vous répondez correctement, vous gagnerez les instruments de la Dansada et des éléments appartenant à cette tradition.",
+  },
+  {
+    time: 84,
+    text: "Une fois que vous aurez récupéré tous les éléments, je pourrai dormir à nouveau… et la musique, l'espoir et la joie rempliront à nouveau les rues du village.",
+  },
+  {
+    time: 96,
+    text: "Je vous attendrai au premier point du parcours. Vous trouverez la carte sur la page principale du jeu.",
+  },
+  {
+    time: 104,
+    text: "À la prochaine fois!",
+  },
+];
+
+const subtitleE = [
+  {
+    time: 0,
+    text: "Hello everyone. I am the Giant of the mountains of Bot, and for many years I have been sleeping at the summit,",
+  },
+  {
+    time: 7,
+    text: "where the echo of the village always reaches me when there is a celebration. Every year, the Dansada accompanies me, even while I sleep.",
+  },
+  {
+    time: 16,
+    text: "But today… nothing has sounded. No shawm, no drum, no dancing. The silence woke me suddenly: a strange, heavy silence, as if the village had gone dark.",
+  },
+  {
+    time: 28,
+    text: "And with that silence, I felt the hunger and the darkness drifting through the streets.",
+  },
+  {
+    time: 34,
+    text: "That is why I have come down to the village to find out what is happening, because if the Dansada does not sound again, I cannot return to my rest.",
+  },
+  {
+    time: 45,
+    text: "And this is where you come in.",
+  },
+  {
+    time: 48,
+    text: "At each stop along the route, you will discover a fragment of this story. To move forward and help me recover the Dansada,",
+  },
+  {
+    time: 56,
+    text: "you will need to collect food using augmented reality: bread, olive oil, almonds, grapes, and sausages.",
+  },
+  {
+    time: 65,
+    text: "They are more than food — they symbolize effort, solidarity, and the survival of the people of those years.",
+  },
+  {
+    time: 72,
+    text: "In addition, at each stop you will have to answer a question. If you answer correctly, you will earn the instruments of the Dansada and elements that belong to this tradition.",
+  },
+  {
+    time: 84,
+    text: "Once you have recovered all the elements, I will be able to sleep again… and music, hope, and joy will once again fill the streets of the village.",
+  },
+  {
+    time: 96,
+    text: "I will be waiting for you at the first point of the route. You will find the map on the main page of the game.",
+  },
+  {
+    time: 104,
+    text: "See you next time!",
   },
 ];
 
@@ -162,6 +327,15 @@ const Page = ({
   const [showSubtitleButton, setShowSubtitleButton] = useState(false);
   const t = useTranslations("gameText");
   const t2 = useTranslations("intro");
+  const locale = useLocale();
+
+  const subtitlesMap: Record<string, typeof subtitleE> = {
+    ca: subtitleC,
+    es: subtitleS,
+    fr: subtitleF,
+    en: subtitleE,
+  };
+  const subtitle = subtitlesMap[locale] ?? subtitleE;
   const [showMovementInstructions, setShowMovementInstructions] =
     useState(false);
 

@@ -29,8 +29,8 @@ const Page = () => {
           // router.push(`/ar?lat=${lat}&lng=${lng}`);
           router.push("/");
         }}
-        // audioUrl={`/audios/${locale === 'ca' ? 'rutaintrocatalan' : locale === 'es' ? 'rutaintrospanish' : locale === 'fr' ? 'rutaintrofrench' : 'rutaintroenglish'}.mp3`}
-        audioUrl="/audios/botintroduction.mp3"
+        audioUrl={`/audios/${locale === 'ca' ? 'botintrocatalan' : locale === 'es' ? 'botintrospanish' : locale === 'fr' ? 'botintrofrench' : 'botintroenglish'}.mp3`}
+        // audioUrl="/audios/botintroduction.mp3"
         linkLoad={true}
         from="POI"
       />
