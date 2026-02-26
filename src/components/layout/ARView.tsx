@@ -493,479 +493,483 @@ const subtitle5c = [
 const subtitle1f = [
   {
     time: 0,
-    text: "Hola! Soc el gegant de les muntanyes de Bot i som a l’estació, un lloc que sempre ha estat sinònim de camins, d’arribades i de comiats.",
+    text: "Bonjour ! Je suis le Géant des montagnes de Bot et nous sommes à la gare, un lieu qui a toujours été synonyme de chemins, d’arrivées et d’adieux.",
   },
   {
-    time: 8,
-    text: "Però durant la Guerra Civil, aquest espai va viure dies de por, presses i decisions difícils.",
+    time: 10,
+    text: "Mais pendant la guerre civile espagnole, cet espace a vécu des jours de peur, de précipitation et de décisions difficiles.",
   },
   {
-    time: 14,
-    text: "A la primera setmana d’abril de 1938, el front va arribar a la Terra Alta. El 2 d’abril, Bot va ser ocupat per soldats italians de la Divisió Littorio, aliats de Franco.",
+    time: 17,
+    text: "Au cours de la première semaine d’avril 1938, le front est arrivé en Terra Alta. Le 2 avril, Bot fut occupé par des soldats italiens de la Division Littorio, alliés de Franco.",
   },
   {
-    time: 25,
-    text: "Abans que entressin al poble, moltes famílies van fugir per por de represàlies. Entre elles, l’alcalde i altres veïns compromesos amb la República.",
+    time: 28,
+    text: "Avant leur entrée dans le village, de nombreuses familles ont fui par crainte de représailles. Parmi elles, le maire et d’autres habitants engagés aux côtés de la République.",
   },
   {
-    time: 34,
-    text: "Alguns no tornarien mai: un d’ells, per exemple, acabaria morint assassinat al camp de concentració de Gusen l’any 1941.",
+    time: 37,
+    text: "Certains ne reviendraient jamais : l’un d’eux, par exemple, mourut assassiné au camp de concentration de Gusen en 1941.",
   },
   {
-    time: 42,
-    text: "L’estada dels italians va ser breu, però el pas de la guerra va deixar una petjada profunda. Al cementiri de Bot s’hi van enterrar més de 130 soldats morts als combats del Baix Ebre.",
+    time: 45,
+    text: "Le séjour des Italiens fut bref, mais la guerre laissa une empreinte profonde. Plus de 130 soldats morts lors des combats du Baix Ebre furent enterrés au cimetière de Bot.",
   },
   {
-    time: 52,
-    text: "Quan el front es va estabilitzar al riu Ebre, el poble va adquirir un paper clau a la rereguarda, i el tren va esdevenir una peça fonamental.",
+    time: 54,
+    text: "Lorsque le front se stabilisa sur l’Èbre, le village joua un rôle clé à l’arrière, et le train devint un élément fondamental.",
   },
   {
-    time: 60,
-    text: "La línia ferroviària de la Val de Zafán, llargament esperada des del segle XIX, es va allargar fins a Pinell de Brai per facilitar el moviment ràpid de tropes i material.",
+    time: 61,
+    text: "La ligne ferroviaire de la Val de Zafán, attendue depuis le XIXe siècle, fut prolongée jusqu’à Pinell de Brai afin de faciliter le déplacement rapide des troupes et du matériel.",
   },
   {
-    time: 70,
-    text: "Aquella obra ferroviària, pensada inicialment per unir Aragó amb el port dels Alfacs i ajudar a vendre productes del camp i el carbó de Terol, va acabar tenint un ús militar.",
+    time: 71,
+    text: "Conçue à l’origine pour relier l’Aragon au port des Alfacs et favoriser la commercialisation des produits agricoles et du charbon de Teruel, elle finit par avoir un usage militaire.",
   },
   {
-    time: 79,
-    text: "La via, paral·lela a l’Ebre, també servia per reforçar la defensa del territori.",
+    time: 80,
+    text: "La voie, parallèle à l’Èbre, servait également à renforcer la défense du territoire.",
   },
   {
-    time: 84,
-    text: "La matinada del 25 de juliol de 1938, amb l’inici de la batalla de l’Ebre, l’estació de Bot va tornar a ser protagonista.",
+    time: 86,
+    text: "À l’aube du 25 juillet 1938, au début de la bataille de l’Èbre, la gare de Bot redevint un lieu stratégique.",
   },
   {
-    time: 92,
-    text: "Hi havia pocs soldats, sobretot enginyers encarregats del servei del tren, però aquell mateix dia van prendre una decisió urgent:",
+    time: 93,
+    text: "Peu de soldats s’y trouvaient, principalement des ingénieurs chargés du service ferroviaire, mais ce jour-là ils prirent une décision urgente :",
   },
   {
-    time: 99,
-    text: "van aixecar i tornar a col·locar un tram de via per deixar-la inutilitzada i frenar l’avanç de l’Exèrcit de l’Ebre, que ja havia pres l’estació de Pinell de Brai.",
+    time: 100,
+    text: "ils démontèrent puis replacèrent un tronçon de voie afin de la rendre inutilisable et freiner l’avancée de l’Armée de l’Èbre, qui avait déjà pris la gare de Pinell de Brai.",
   },
   {
     time: 109,
-    text: "Els dies següents van ser de tensió constant. Alguns soldats republicans van arribar fins a les portes del poble i hi va haver intercanvis de trets.",
+    text: "Les jours suivants furent marqués par une tension constante. Des soldats républicains arrivèrent jusqu’aux portes du village et des échanges de tirs eurent lieu.",
   },
   {
     time: 116,
-    text: "Des de l’ermita de Sant Josep també es disparava cap a l’estació.",
+    text: "Depuis l’ermitage de Sant Josep, on tirait également en direction de la gare.",
   },
   {
-    time: 119,
-    text: "Amb l’arribada de reforços franquistes, els atacs es van aturar, però Bot va començar a omplir-se de tropes, material de guerra, cuines de campanya, hospitals i serveis.",
+    time: 120,
+    text: "Avec l’arrivée de renforts franquistes, les attaques cessèrent, mais Bot se remplit de troupes, de matériel de guerre, de cuisines de campagne, d’hôpitaux et de services.",
   },
   {
-    time: 129,
-    text: "Fins i tot el pas soterrat de l’estació es va fer servir com a lloc de comandament.",
+    time: 130,
+    text: "Même le passage souterrain de la gare servit de poste de commandement.",
   },
   {
     time: 134,
-    text: "El 2 de setembre de 1938, el poble va patir un dels bombardejos més durs: sis avions “Katiuska” i dotze caces van atacar l’estació i el nucli antic.",
+    text: "Le 2 septembre 1938, le village subit l’un des bombardements les plus violents : six avions « Katiuska » et douze chasseurs attaquèrent la gare et le centre ancien.",
   },
   {
     time: 143,
-    text: "Hi van morir veïns i treballadors del ferrocarril, i als afores del poble les baixes militars van ser nombroses.",
+    text: "Des habitants et des cheminots périrent, et les pertes militaires furent nombreuses aux abords du village.",
   },
   {
-    time: 149,
-    text: "Davant d’aquesta situació, l’Ajuntament va haver de reunir-se en sessió permanent per poder donar resposta a totes les necessitats.",
+    time: 148,
+    text: "Face à cette situation, le conseil municipal dut se réunir en session permanente pour répondre aux urgences.",
   },
   {
-    time: 155,
-    text: "Avui, aquell tren ja no circula. Després de dècades de servei, la línia es va tancar definitivament als anys setanta.",
+    time: 154,
+    text: "Aujourd’hui, ce train ne circule plus. Après des décennies de service, la ligne fut définitivement fermée dans les années 1970.",
   },
   {
-    time: 161,
-    text: "Però el camí no s’ha perdut: des de l’any 2000, l’antic traçat és una via verda que permet caminar i anar en bicicleta entre túnels i viaductes, convertint un espai de guerra en un espai de memòria i pau.",
+    time: 162,
+    text: "Mais le tracé n’a pas disparu : depuis 2000, l’ancienne voie est devenue une voie verte permettant de marcher ou de faire du vélo à travers tunnels et viaducs, transformant un espace de guerre en un espace de mémoire et de paix.",
   },
   {
-    time: 174,
-    text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada els pans de pagès que trobareu a l’entorn.",
+    time: 173,
+    text: "J’ai maintenant besoin de votre aide. Cherchez en réalité augmentée les pains de campagne que vous trouverez autour de vous.",
   },
   {
-    time: 180,
-    text: "Quan els trobeu, us faré una pregunta. Si la responeu bé, recuperarem un element de la Dansada.",
+    time: 179,
+    text: "Lorsque vous les aurez trouvés, je vous poserai une question. Si vous répondez correctement, nous récupérerons un élément de la Dansada.",
   },
   {
     time: 186,
-    text: "Vos espero a la propera parada!",
+    text: "Je vous attends à la prochaine étape !",
   },
 ];
 
 const subtitle2f = [
   {
     time: 0,
-    text: "Ara us vull explicar una altra cosa que va passar aquí quan va començar la batalla de l’Ebre:",
+    text: "Bonjour ! Je voudrais maintenant vous raconter autre chose qui s’est passée ici lorsque la bataille de l’Èbre a commencé :",
   },
   {
-    time: 5,
-    text: "en pocs dies, Bot es va convertir en un lloc clau de la rereguarda, és a dir, just darrere del front.",
+    time: 8,
+    text: "En quelques jours, Bot est devenu un lieu clé de l’arrière-front, c’est-à-dire juste derrière la ligne de combat.",
   },
   {
-    time: 11,
-    text: "Per atendre els ferits, al poble s’hi van instal·lar fins a tres hospitals, amb equips per fer operacions, i també un punt de socors on rebien els soldats, els feien les primeres cures i els repartien cap als diferents espais.",
+    time: 15,
+    text: "Pour soigner les blessés, jusqu’à trois hôpitaux furent installés dans le village, équipés pour pratiquer des opérations, ainsi qu’un poste de secours où les soldats étaient accueillis, recevaient les premiers soins puis étaient répartis vers différents espaces.",
   },
   {
-    time: 25,
-    text: "Els qui estaven massa greus per ser traslladats es quedaven hospitalitzats a Bot.",
+    time: 29,
+    text: "Ceux qui étaient trop gravement blessés pour être transférés restaient hospitalisés à Bot.",
   },
   {
-    time: 30,
-    text: "Dos hospitals, segons recorden veïns i estudiosos, eren al carrer Freixes, a la casa Freixes i a un antic local que avui ja no existeix, on ara hi ha el mercat municipal.",
+    time: 34,
+    text: "Selon les souvenirs d’habitants et les travaux d’historiens, deux hôpitaux se trouvaient dans la rue Freixes (dans la maison Freixes et dans un ancien local aujourd’hui disparu, à l’emplacement actuel du marché municipal).",
   },
   {
-    time: 41,
-    text: "Un altre hospital era al carrer Major, a la casa Paladella. Allà van adaptar les plantes de la casa per posar-hi molts llits en habitacions grans, amb una sala d’operacions.",
+    time: 45,
+    text: "Un autre hôpital était situé dans la rue Major, dans la maison Paladella. Les étages de la maison furent aménagés pour y installer de nombreux lits dans de grandes salles, avec une salle d’opération.",
   },
   {
-    time: 51,
-    text: "Hi treballaven infermeres i també dones del poble, que ajudaven amb feines com netejar i desinfectar material, fer els llits o preparar àpats.",
+    time: 56,
+    text: "Des infirmières y travaillaient, ainsi que des femmes du village qui aidaient à nettoyer et désinfecter le matériel, faire les lits ou préparer les repas.",
   },
   {
-    time: 61,
-    text: "A mesura que la batalla avançava, van arribar milers de ferits i la feina es va intensificar molt, sobretot a partir del 3 de setembre de 1938, quan va començar una nova ofensiva.",
+    time: 65,
+    text: "Au fur et à mesure que la bataille avançait, des milliers de blessés arrivèrent et le travail s’intensifia considérablement, surtout à partir du 3 septembre 1938, lorsqu’une nouvelle offensive commença.",
   },
   {
-    time: 73,
-    text: "A la plaça del poble, sovint s’hi veien ambulàncies entrant i sortint per portar els pacients d’un lloc a un altre.",
+    time: 76,
+    text: "Sur la place du village, on voyait souvent des ambulances entrer et sortir pour transporter les patients d’un endroit à un autre.",
   },
   {
-    time: 79,
-    text: "Aquesta història fins i tot surt en una novel·la: El monarca de las sombras, de Javier Cercas, on apareix l’hospital de la casa Paladella.",
+    time: 84,
+    text: "Cette histoire apparaît même dans un roman : El monarca de las sombras de Javier Cercas, où l’hôpital de la maison Paladella est mentionné.",
   },
   {
-    time: 86,
-    text: "I, enmig de tot plegat, molts veïns que es van quedar al poble també van ajudar com van poder, per exemple cosint roba; diuen que alguns militars alemanys pagaven amb bitllets antics del seu país.",
+    time: 91,
+    text: "Et au milieu de tout cela, de nombreux habitants restés au village aidèrent comme ils le pouvaient, par exemple en cousant des vêtements ; on raconte que certains militaires allemands payaient avec d’anciens billets de leur pays.",
   },
   {
-    time: 98,
-    text: "Ara heu d’ajudar-me! Busqueu amb la realitat augmentada els setrills d’oli que trobareu a l’entorn.",
-  },
-  {
-    time: 104,
-    text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
+    time: 102,
+    text: "À présent, vous devez m’aider ! Cherchez en réalité augmentée les huiliers que vous trouverez autour de vous.",
   },
   {
     time: 109,
-    text: "Ens veiem a la propera parada!",
+    text: "Lorsque vous les aurez trouvés, je vous poserai une question et, si vous répondez correctement, vous gagnerez un élément de la Dansada.",
+  },
+  {
+    time: 115,
+    text: "À la prochaine étape !",
   },
 ];
 
 const subtitle3f = [
   {
     time: 0,
-    text: "Hola! Ara us vull explicar una part de la història que va passar al poble abans que arribés el front.",
+    text: "Bonjour ! Je voudrais maintenant vous raconter une partie de l’histoire qui s’est déroulée dans le village avant l’arrivée du front.",
   },
   {
-    time: 6,
-    text: "L’estiu de 1936, amb l’inici de la Guerra Civil, Catalunya no va caure sota el cop militar, però va començar un temps de grans canvis.",
+    time: 7,
+    text: "À l’été 1936, au début de la guerre civile espagnole, la Catalogne ne tomba pas sous le coup d’État militaire, mais une période de profonds changements commença.",
   },
   {
-    time: 14,
-    text: "A molts pobles, també aquí a Bot, persones i col·lectius que es declaraven antifeixistes van prendre decisions ràpides per sobreviure i reorganitzar la vida quotidiana.",
+    time: 17,
+    text: "Dans de nombreux villages, y compris ici à Bot, des personnes et des collectifs se déclarant antifascistes prirent des décisions rapides pour survivre et réorganiser la vie quotidienne.",
   },
   {
-    time: 23,
-    text: "A Bot, alguns béns van ser confiscats: cases, finques, molins d’oli, cellers i corrals que pertanyien a propietaris considerats de dretes.",
+    time: 28,
+    text: "À Bot, certains biens furent confisqués : maisons, terres, moulins à huile, caves et étables appartenant à des propriétaires considérés comme de droite.",
   },
   {
-    time: 32,
-    text: "Part d’aquests recursos van passar a mans de col·lectivitats de treballadors, que els van fer servir per assegurar menjar i feina en un moment molt difícil.",
+    time: 37,
+    text: "Une partie de ces ressources passa aux mains de collectivités de travailleurs, qui les utilisèrent pour garantir nourriture et travail en une période très difficile.",
   },
   {
-    time: 38,
-    text: "Fins i tot la pedra sobrant d’unes obres a l’església es va reutilitzar per construir un corral.",
+    time: 45,
+    text: "Même les pierres restantes de travaux réalisés à l’église furent réutilisées pour construire une étable.",
   },
   {
-    time: 44,
-    text: "Aquells mesos també van deixar ferides profundes. L’església parroquial va ser saquejada i modificada, i l’ermita de Sant Josep, als afores del poble, va ser incendiada.",
+    time: 51,
+    text: "Ces mois laissèrent aussi de profondes blessures. L’église paroissiale fut pillée et transformée, et l’ermitage de Sant Josep, à la périphérie du village, fut incendié.",
   },
   {
-    time: 53,
-    text: "Però el més dur va ser la detenció de molts veïns:",
+    time: 61,
+    text: "Mais le plus dur fut l’arrestation de nombreux habitants :",
   },
   {
-    time: 56,
-    text: "una quarantena van ser empresonats i tretze d’ells assassinats sense judici. Van morir en diferents indrets, lluny del poble, durant els mesos d’agost i setembre de 1936.",
+    time: 64,
+    text: "une quarantaine furent emprisonnés et treize d’entre eux exécutés sans jugement. Ils moururent en différents lieux, loin du village, durant les mois d’août et septembre 1936.",
   },
   {
-    time: 66,
-    text: "Anys més tard, durant la dictadura, aquests morts van ser recordats només des d’una mirada, i durant dècades una gran placa amb una creu presidia la façana de l’església.",
+    time: 74,
+    text: "Des années plus tard, sous la dictature, ces morts furent commémorés d’un seul point de vue, et pendant des décennies une grande plaque avec une croix domina la façade de l’église.",
   },
   {
-    time: 76,
-    text: "Aquesta placa es va retirar l’any 2010, quan es va rehabilitar el temple.",
-  },
-  {
-    time: 81,
-    text: "Amb el pas del temps, es va formar un nou ajuntament amb representants de partits i sindicats antifeixistes.",
+    time: 84,
+    text: "Cette plaque fut retirée en 2010 lors de la restauration de l’édifice.",
   },
   {
     time: 88,
-    text: "Enmig de l’escassetat, el poble va haver d’inventar solucions pràctiques: com que faltava moneda petita, l’Ajuntament va imprimir bitllets municipals per poder comprar i vendre aliments.",
+    text: "Avec le temps, un nouveau conseil municipal fut formé avec des représentants de partis et de syndicats antifascistes.",
   },
   {
-    time: 97,
-    text: "N’hi havia de diferents valors, des d’una pesseta fins a deu cèntims.",
+    time: 95,
+    text: "Face à la pénurie, le village dut inventer des solutions pratiques : faute de petite monnaie, la mairie imprima des billets municipaux pour permettre l’achat et la vente de denrées alimentaires.",
   },
   {
-    time: 100,
-    text: "La guerra també va portar gent de fora. Bot va acollir famílies refugiades d’altres zones, mentre molts veïns en edat militar van ser cridats a lluitar.",
+    time: 105,
+    text: "Ils existaient en différentes valeurs, d’une peseta jusqu’à dix centimes.",
   },
   {
-    time: 108,
-    text: "Alguns ho van fer de manera voluntària, d’altres obligats. En total, vint-i-sis veïns o residents de Bot van morir al front, en un bàndol o en l’altre.",
+    time: 120,
+    text: "La guerre amena aussi des personnes venues d’ailleurs. Bot accueillit des familles réfugiées d’autres régions, tandis que de nombreux habitants en âge de combattre furent appelés au front.",
   },
   {
-    time: 116,
-    text: "Quan el poble va ser ocupat pels franquistes l’abril de 1938, va començar una nova etapa de por. Amb les noves autoritats, molts veïns d’esquerres van ser detinguts, jutjats o empresonats.",
+    time: 120,
+    text: "Certains s’engagèrent volontairement, d’autres y furent contraints. Au total, vingt-six habitants ou résidents de Bot moururent au combat, dans un camp ou dans l’autre.",
   },
   {
-    time: 126,
-    text: "Alguns van ser afusellats, altres condemnats a presó, i alguns van quedar lliures per manca de proves. En total, més d’un centenar de botencs van patir la repressió.",
+    time: 130,
+    text: "Lorsque le village fut occupé par les franquistes en avril 1938, une nouvelle période de peur commença. Sous les nouvelles autorités, de nombreux habitants de gauche furent arrêtés, jugés ou emprisonnés.",
   },
   {
-    time: 136,
-    text: "Moltes famílies van optar per fugir. Amb la derrota republicana, alguns veïns van travessar la frontera cap a França.",
+    time: 141,
+    text: "Certains furent fusillés, d’autres condamnés à la prison, et d’autres encore libérés faute de preuves. Au total, plus d’une centaine d’habitants de Bot subirent la répression.",
   },
   {
-    time: 142,
-    text: "Allà, dones i infants van viure en camps de concentració en condicions molt dures. I els qui tornaven sovint no eren ben rebuts: alguns patien humiliacions públiques i eren assenyalats durant anys.",
-  },
-  {
-    time: 154,
-    text: "És una història difícil, però forma part del camí del poble. I entendre-la també és una manera de cuidar la memòria.",
+    time: 152,
+    text: "Beaucoup de familles choisirent de fuir. Après la défaite républicaine, certains habitants traversèrent la frontière vers la France.",
   },
   {
     time: 159,
-    text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada les ametlles que trobareu a l’entorn.",
+    text: "Là-bas, des femmes et des enfants vécurent dans des camps de concentration dans des conditions très dures. Et ceux qui revenaient n’étaient souvent pas bien accueillis : certains subirent des humiliations publiques et furent stigmatisés pendant des années.",
   },
   {
-    time: 165,
-    text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
+    time: 171,
+    text: "C’est une histoire difficile, mais elle fait partie du parcours du village. La comprendre est aussi une manière de préserver la mémoire.",
   },
   {
-    time: 169,
-    text: "Ens veiem a la propera parada!",
+    time: 179,
+    text: "J’ai maintenant besoin de votre aide. Cherchez en réalité augmentée les amandes que vous trouverez autour de vous.",
+  },
+  {
+    time: 185,
+    text: "Lorsque vous les aurez trouvées, je vous poserai une question et, si vous répondez correctement, vous gagnerez un élément de la Dansada.",
+  },
+  {
+    time: 191,
+    text: "À la prochaine étape !",
   },
 ];
 
 const subtitle4f = [
   {
     time: 0,
-    text: "Hola! Ara som en un lloc on el silenci pesa diferent, perquè sota aquesta terra s’hi amaguen moltes històries de la guerra.",
+    text: "Bonjour ! Nous nous trouvons maintenant dans un lieu où le silence pèse différemment, car sous cette terre se cachent de nombreuses histoires de la guerre.",
   },
   {
     time: 8,
-    text: "Durant l’any 1938, el cementiri de Bot es va convertir en un lloc d’enterrament de soldats franquistes.",
+    text: "En 1938, le cimetière de Bot devint un lieu d’inhumation de soldats franquistes.",
   },
   {
-    time: 15,
-    text: "Quan el poble va ser ocupat el 2 d’abril i els combats es van intensificar a la zona de Paüls i Xerta, molts soldats caiguts van ser enterrats aquí.",
+    time: 14,
+    text: "Lorsque le village fut occupé le 2 avril et que les combats s’intensifièrent dans la région de Paüls et Xerta, de nombreux soldats tombés au combat furent enterrés ici.",
   },
   {
-    time: 22,
-    text: "La majoria eren italians, enviats per Mussolini per ajudar Franco, tot i que també n’hi havia alguns d’espanyols.",
+    time: 23,
+    text: "La plupart étaient italiens, envoyés par Mussolini pour soutenir Franco, bien qu’il y eût aussi quelques Espagnols.",
   },
   {
-    time: 28,
-    text: "Durant un temps, aquest va ser el cementiri de la zona amb més soldats feixistes enterrats.",
+    time: 30,
+    text: "Pendant un temps, ce fut le cimetière de la région comptant le plus grand nombre de soldats fascistes enterrés.",
   },
   {
-    time: 33,
-    text: "Els soldats eren sepultats de manera senzilla, embolicats amb un llençol i sense taüt. A sobre de cada tomba s’hi col·locava una creu de fusta amb el seu nom, la graduació i la unitat.",
+    time: 35,
+    text: "Les soldats étaient inhumés simplement, enveloppés dans un drap et sans cercueil. Une croix en bois portant leur nom, leur grade et leur unité était placée au-dessus de chaque tombe.",
   },
   {
-    time: 44,
-    text: "Més endavant, algunes d’aquestes creus es van substituir per làpides. També es va aixecar una gran creu monumental, i en diverses ocasions els seus companys els van retre homenatge.",
+    time: 45,
+    text: "Plus tard, certaines de ces croix furent remplacées par des pierres tombales. Une grande croix monumentale fut également érigée, et leurs compagnons leur rendirent hommage à plusieurs reprises.",
   },
   {
     time: 55,
-    text: "D’aquells actes se n’han conservat fotografies.",
+    text: "Des photographies de ces cérémonies ont été conservées.",
   },
   {
     time: 58,
-    text: "Quan la guerra va acabar, els cossos dels soldats italians van ser traslladats a Saragossa, on es va construir un mausoleu per reunir-los tots.",
+    text: "Après la guerre, les corps des soldats italiens furent transférés à Saragosse, où un mausolée fut construit pour les regrouper.",
   },
   {
-    time: 66,
-    text: "Tot i això, al cementiri de Bot encara es conserven moltes de les seves làpides, algunes mig enterrades en un dels passadissos.",
+    time: 65,
+    text: "Malgré cela, de nombreuses pierres tombales subsistent encore dans le cimetière de Bot, certaines à moitié enfouies le long d’une allée.",
   },
   {
-    time: 74,
-    text: "Amb l’inici de la batalla de l’Ebre, el 25 de juliol de 1938, Bot va quedar just darrere del front. El poble es va omplir d’hospitals, serveis militars i soldats.",
+    time: 71,
+    text: "Au début de la bataille de l’Èbre, le 25 juillet 1938, Bot se retrouva juste derrière le front. Le village se remplit d’hôpitaux, de services militaires et de soldats.",
   },
   {
-    time: 85,
-    text: "Els morts arribaven en carros fins al cementiri, i aviat ja no hi cabien. Per això es va habilitar una gran finca agrícola darrere del fossar com a nova necròpoli militar.",
+    time: 81,
+    text: "Les morts arrivaient en charrette jusqu’au cimetière, et l’espace vint rapidement à manquer. On aménagea alors un grand terrain agricole derrière le cimetière pour en faire une nouvelle nécropole militaire.",
   },
   {
-    time: 95,
-    text: "Allà s’hi van enterrar prop de mil cinc-cents soldats, la majoria morts durant les contraofensives de la tardor.",
+    time: 91,
+    text: "Près de mille cinq cents soldats y furent enterrés, la plupart morts lors des contre-offensives de l’automne.",
   },
   {
-    time: 102,
-    text: "Hi havia soldats espanyols de diferents bàndols i també un grup de mercenaris marroquins.",
+    time: 96,
+    text: "On y trouvait des soldats espagnols de différents camps ainsi qu’un groupe de mercenaires marocains.",
   },
   {
-    time: 106,
-    text: "Els cossos es col·locaven en llargues rases, amb una petita ampolla entre les cames on s’hi posava el nom. A sobre, una creueta de fusta.",
+    time: 101,
+    text: "Les corps étaient déposés dans de longues fosses, avec une petite bouteille placée entre les jambes contenant leur nom. Au-dessus, une petite croix en bois.",
   },
   {
-    time: 115,
-    text: "Aquest espai va quedar intacte durant molts anys, tancat amb filferro. Però la primavera de 1959 tot va canviar.",
+    time: 109,
+    text: "Cet espace resta intact pendant de nombreuses années, entouré de fil de fer. Mais au printemps 1959, tout changea.",
   },
   {
-    time: 122,
-    text: "La dictadura franquista va ordenar exhumar les restes per portar-les al Valle de los Caídos, un gran monument funerari construït per Franco.",
+    time: 116,
+    text: "La dictature franquiste ordonna l’exhumation des restes pour les transférer au Valle de los Caídos, un grand monument funéraire construit par Franco.",
   },
   {
-    time: 129,
-    text: "Al poble, molts veïns van ser obligats a participar en les excavacions.",
+    time: 124,
+    text: "De nombreux habitants du village furent contraints de participer aux fouilles.",
   },
   {
-    time: 132,
-    text: "Mentre retiraven ossos, sovint hi apareixien objectes personals com rellotges, cadenes o rosaris.",
+    time: 127,
+    text: "En retirant les ossements, on trouvait souvent des objets personnels comme des montres, des chaînes ou des chapelets.",
   },
   {
-    time: 138,
-    text: "En total, més de mil soldats van ser traslladats. Avui, aquell lloc és només una finca amb ametllers abandonats.",
+    time: 133,
+    text: "Au total, plus de mille soldats furent transférés. Aujourd’hui, cet endroit n’est plus qu’un terrain d’amandiers abandonnés.",
   },
   {
-    time: 145,
-    text: "Entre els enterrats també hi havia alguns requetès catalans, soldats carlistes que lluitaven amb Franco.",
+    time: 140,
+    text: "Parmi les enterrés figuraient aussi des requetés catalans, soldats carlistes combattant aux côtés de Franco.",
   },
   {
-    time: 150,
-    text: "Les restes d’alguns d’ells no van ser traslladades, sinó portades més tard al monestir de Montserrat.",
+    time: 146,
+    text: "Les restes de certains d’entre eux ne furent pas transférés mais plus tard conduits au monastère de Montserrat.",
   },
   {
-    time: 155,
-    text: "Un dels soldats, veí de Bot, va ser enterrat al panteó familiar, on encara descansa.",
+    time: 151,
+    text: "L’un de ces soldats, habitant de Bot, fut inhumé dans le caveau familial, où il repose encore.",
   },
   {
-    time: 160,
-    text: "Sobre els soldats marroquins, no tot és clar. Alguns historiadors pensen que també van ser traslladats, però d’altres creuen que no, perquè al Valle de los Caídos només s’hi portaven soldats espanyols i catòlics.",
+    time: 156,
+    text: "Concernant les soldats marocains, tout n’est pas clair. Certains historiens pensent qu’ils furent également transférés, tandis que d’autres estiment que non, car seuls des soldats espagnols et catholiques étaient envoyés au Valle de los Caídos.",
   },
   {
-    time: 170,
-    text: "El que sí se sap és que van ser enterrats en una zona separada.",
+    time: 168,
+    text: "Ce que l’on sait, c’est qu’ils furent enterrés dans une zone séparée.",
   },
   {
-    time: 173,
-    text: "Avui, dins el cementiri, hi ha un monòlit que recorda totes les víctimes de la Guerra Civil. No parla de bàndols, sinó de persones. I aquest és el silenci que cal escoltar.",
+    time: 172,
+    text: "Aujourd’hui, à l’intérieur du cimetière, un monolithe rend hommage à toutes les victimes de la guerre civile. Il ne parle pas de camps, mais de personnes. Et c’est ce silence qu’il faut savoir écouter.",
   },
   {
     time: 182,
-    text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada els raïms que hi ha a l’entorn.",
+    text: "J’ai maintenant besoin de votre aide. Cherchez en réalité augmentée les grappes de raisin autour de vous.",
   },
   {
-    time: 188,
-    text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu un element de la Dansada.",
+    time: 187,
+    text: "Lorsque vous les aurez trouvées, je vous poserai une question et, si vous répondez correctement, vous gagnerez un élément de la Dansada.",
+  },
+  {
+    time: 194,
+    text: "Je vous attends à la dernière étape !",
   },
 ];
 
 const subtitle5f = [
   {
     time: 0,
-    text: "Hola! Hem arribat a l’última parada. Caminem per un tram de via que sembla tranquil, però que amaga una història molt dura.",
+    text: "Bonjour ! Nous sommes arrivés à la dernière étape. Nous marchons le long d’un tronçon de voie ferrée qui semble paisible, mais qui cache une histoire très dure.",
   },
   {
-    time: 8,
-    text: "Aquí, el tren no només va portar soldats i mercaderies: també va portar patiment.",
+    time: 9,
+    text: "Ici, le train n’a pas seulement transporté des soldats et des marchandises : il a aussi transporté la souffrance.",
   },
   {
-    time: 14,
-    text: "Quan les tropes franquistes van ocupar el marge dret de l’Ebre, la primavera de 1938, el ferrocarril de la Val de Zafán es va convertir en una prioritat militar.",
+    time: 16,
+    text: "Lorsque les troupes franquistes occupèrent la rive droite de l’Èbre au printemps 1938, le chemin de fer de la Val de Zafán devint une priorité militaire.",
   },
   {
-    time: 23,
-    text: "Calia fer-lo arribar tan lluny com fos possible per controlar el territori.",
+    time: 25,
+    text: "Il fallait le prolonger le plus loin possible pour contrôler le territoire.",
   },
   {
-    time: 28,
-    text: "Per això, en pocs mesos, la línia es va allargar fins a Valljunquera i després fins a Pinell de Brai, passant per Bot.",
+    time: 29,
+    text: "En quelques mois, la ligne fut étendue jusqu’à Valljunquera puis jusqu’à Pinell de Brai, en passant par Bot.",
   },
   {
-    time: 35,
-    text: "Per fer-ho, el règim franquista no va contractar treballadors lliures. Va portar presoners republicans des dels camps de concentració.",
+    time: 36,
+    text: "Pour cela, le régime franquiste ne fit pas appel à des ouvriers libres. Il fit venir des prisonniers républicains depuis les camps de concentration.",
   },
   {
-    time: 42,
-    text: "Eren soldats vençuts, obligats a treballar en unitats anomenades Batallons de Treballadors.",
+    time: 44,
+    text: "Il s’agissait de soldats vaincus, contraints de travailler dans des unités appelées Bataillons de travailleurs.",
   },
   {
-    time: 47,
-    text: "A la Val de Zafán n’hi van arribar diversos, i van ser els encarregats d’estendre vies, moure pedres i obrir camins.",
+    time: 50,
+    text: "Plusieurs de ces bataillons furent envoyés sur la ligne de la Val de Zafán pour poser les rails, déplacer des pierres et ouvrir des chemins dans des conditions très dures.",
   },
   {
-    time: 54,
-    text: "Cal saber que gran part del traçat ja s’havia construït abans de la guerra. Durant anys, molts obrers havien obert túnels i aixecat viaductes enmig d’un paisatge difícil, amb problemes de diners, vagues i acomiadaments.",
+    time: 58,
+    text: "Il faut savoir qu’une grande partie du tracé avait déjà été construite avant la guerre. Pendant des années, des ouvriers avaient creusé des tunnels et bâti des viaducs dans un paysage difficile, malgré des problèmes financiers, des grèves et des licenciements.",
   },
   {
-    time: 66,
-    text: "Però la guerra ho va accelerar tot, i el treball forçat va substituir la feina lliure.",
+    time: 72,
+    text: "Mais la guerre accéléra tout, et le travail forcé remplaça le travail libre.",
   },
   {
-    time: 71,
-    text: "Durant la batalla de l’Ebre, el tren va tenir un paper clau. Quan l’estació de Pinell de Brai va quedar en mans republicanes, el front es va fixar entre aquell punt i Bot.",
+    time: 76,
+    text: "Pendant la bataille de l’Èbre, le train joua un rôle essentiel. Lorsque la gare de Pinell de Brai passa aux mains des républicains, le front se fixa entre ce point et Bot.",
   },
   {
-    time: 81,
-    text: "Hi va haver combats fins i tot dins dels túnels.",
+    time: 86,
+    text: "Des combats eurent même lieu à l’intérieur des tunnels.",
   },
   {
-    time: 84,
-    text: "Mentrestant, l’estació de Bot rebia una enorme quantitat de material de guerra: armes, munició, provisions.",
+    time: 90,
+    text: "Pendant ce temps, la gare de Bot recevait d’énormes quantités de matériel de guerre : armes, munitions et provisions.",
   },
   {
-    time: 89,
-    text: "Cada dia hi arribaven combois immensos, carregats amb milers de tones. Els ferits menys greus també eren evacuats en tren cap a l’Aragó.",
+    time: 97,
+    text: "Chaque jour arrivaient d’immenses convois chargés de milliers de tonnes. Les blessés les moins graves étaient également évacués par train vers l’Aragon.",
   },
   {
-    time: 98,
-    text: "Quan la batalla va acabar, els treballs a la línia es van reprendre amb encara més mà d’obra forçada.",
-  },
-  {
-    time: 103,
-    text: "Els presoners van haver d’obrir pedreres, carregar amb les pedres, col·locar rails i reconstruir viaductes malmesos.",
+    time: 105,
+    text: "Après la bataille, les travaux reprirent avec encore davantage de main-d’œuvre forcée.",
   },
   {
     time: 110,
-    text: "Més endavant, els Batallons de Treballadors van ser substituïts per altres unitats de càstig formades per soldats considerats desafectes al règim.",
+    text: "Les prisonniers durent ouvrir des carrières, transporter des pierres, poser des rails et reconstruire des viaducs endommagés.",
   },
   {
-    time: 118,
-    text: "Entre 1938 i 1942, milers de presos van treballar aquí en condicions molt dures: a la intempèrie, amb poc menjar, descans escàs i càstigs constants.",
+    time: 117,
+    text: "Plus tard, les Bataillons de travailleurs furent remplacés par d’autres unités disciplinaires composées de soldats considérés comme peu fidèles au régime.",
   },
   {
-    time: 130,
-    text: "Tot i això, el contacte continu amb el poble va fer que, de vegades, naixessin relacions humanes inesperades, fins i tot històries d’amor. Si us hi fixeu bé, encara avui es poden veure les petjades d’aquells anys.",
+    time: 125,
+    text: "Entre 1938 et 1942, des milliers de prisonniers travaillèrent ici dans des conditions extrêmement difficiles : exposés aux intempéries, avec peu de nourriture, peu de repos et des punitions constantes.",
   },
   {
-    time: 141,
-    text: "A l’altra banda del riu Canaletes hi ha una balma on es va construir un polvorí per guardar explosius.",
-  },
-  {
-    time: 146,
-    text: "I a l’entrada d’alguns túnels encara es veuen marques de bales, record dels combats viscuts durant la guerra.",
+    time: 138,
+    text: "Malgré cela, le contact régulier avec les habitants donna parfois lieu à des relations humaines inattendues, voire à des histoires d’amour. Si vous observez attentivement, vous pourrez encore voir aujourd’hui des traces de ces années.",
   },
   {
     time: 151,
-    text: "Aquest camí tranquil va ser, durant un temps, un lloc de treball forçat i de guerra. I caminar-lo avui també és una manera de recordar-ho.",
+    text: "De l’autre côté de la rivière Canaletes se trouve une cavité rocheuse où fut construit un dépôt d’explosifs.",
   },
   {
-    time: 158,
-    text: "Ara necessito la vostra ajuda. Busqueu amb la realitat augmentada les salsitxes que hi ha a l’entorn.",
+    time: 157,
+    text: "À l’entrée de certains tunnels, on peut encore apercevoir des impacts de balles, souvenirs des combats de la guerre.",
   },
   {
     time: 163,
-    text: "Quan ho aconseguiu, us faré una pregunta i, si l’encerteu, guanyareu el darrer element de la Dansada que farà que torni a sonar i que pugui tornar a descansar.",
+    text: "Ce chemin paisible fut autrefois un lieu de travail forcé et de guerre. Le parcourir aujourd’hui est aussi une manière de se souvenir.",
   },
   {
-    time: 170,
-    text: "Endavant!",
+    time: 172,
+    text: "J’ai maintenant besoin de votre aide. Cherchez en réalité augmentée les saucisses autour de vous.",
+  },
+  {
+    time: 177,
+    text: "Lorsque vous les aurez trouvées, je vous poserai une question et, si vous répondez correctement, vous gagnerez le dernier élément de la Dansada, qui lui permettra de résonner à nouveau et me laissera enfin retourner à mon repos.",
+  },
+  {
+    time: 187,
+    text: "En avant !",
   },
 ];
 
@@ -2117,29 +2121,34 @@ const Page = ({
     !(window as any).MSStream;
 
   const updateSubtitle = (currentTime: number, subtitles: any[]) => {
-    if (!subtitles || subtitles.length === 0) return;
+  if (!subtitles || subtitles.length === 0) return;
 
-    // Find the current subtitle based on time
-    let newIndex = 0;
-    for (let i = 0; i < subtitles.length; i++) {
-      if (currentTime >= subtitles[i].time) {
-        newIndex = i;
-      } else {
-        break;
-      }
+  // 1. Find the correct index
+  let newIndex = 0;
+  for (let i = 0; i < subtitles.length; i++) {
+    // If current time is past this subtitle's start time, it's a candidate
+    if (currentTime >= subtitles[i].time) {
+      newIndex = i;
+    } else {
+      // Since subtitles are usually chronological, we can stop once 
+      // we find a subtitle that hasn't started yet
+      break;
     }
+  }
 
-    // Ensure the first subtitle is shown if currentTime is very small
-    if (currentTime < subtitles[0].time) {
-      newIndex = 0;
-    }
+  // 2. Force index 0 if we are at the very beginning of the audio
+  if (currentTime < subtitles[0].time) {
+    newIndex = 0;
+  }
 
-    if (currentSubtitleIndex !== newIndex) {
-      setCurrentSubtitleIndex(newIndex);
-      setActiveSubtitle(subtitles[newIndex]);
-      setShowSubtitleButton(true);
-    }
-  };
+  // 3. Update state only if the index actually changed
+  // This prevents the "disappearing" act when scrubbing back to 0:00
+  if (currentSubtitleIndex !== newIndex || activeSubtitle === null) {
+    setCurrentSubtitleIndex(newIndex);
+    setActiveSubtitle(subtitles[newIndex]);
+    setShowSubtitleButton(true);
+  }
+};
 
   const toggleSubtitles = () => {
     const newShowSubtitles = !showSubtitles;
@@ -2325,6 +2334,29 @@ const Page = ({
       gestureState.current.startMid = getTouchMidpoint(touches[0], touches[1]);
       gestureState.current.startPos = { ...avatarPos };
     }
+  };
+
+   const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlayingState) {
+      audioRef.current.pause();
+      setIsPlayingState(false);
+    } else {
+      audioRef.current.play();
+      setIsPlayingState(true);
+    }
+  };
+
+  const skip = (seconds: number) => {
+    if (!audioRef.current) return;
+    // This moves the audio time, which automatically updates subtitles and animation
+    audioRef.current.currentTime = Math.max(
+      0,
+      Math.min(
+        audioRef.current.duration,
+        audioRef.current.currentTime + seconds,
+      ),
+    );
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
@@ -2639,6 +2671,55 @@ const Page = ({
               {t2("info2")} <br></br> {t2("info3")}
             </p>
           </div>
+        </div>
+      )}
+      {avatarPos && (
+        <div className="fixed bottom-40 left-1/2 -translate-x-1/2 z-[2147483649] flex items-center gap-6 bg-black/60 backdrop-blur-md px-6 py-1 rounded-full border border-white/20">
+          {/* Rewind 5s */}
+          <button
+            onClick={() => skip(-5)}
+            className="text-white active:scale-90 transition-transform"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.5 5V19L3 12L12.5 5ZM21 5V19L11.5 12L21 5Z" />
+            </svg>
+          </button>
+
+          {/* Play / Pause */}
+          <button
+            onClick={togglePlay}
+            className="text-white bg-white/20 p-3 rounded-full active:scale-95 transition-all"
+          >
+            {isPlayingState ? (
+              <svg
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+            ) : (
+              <svg
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            )}
+          </button>
+
+          {/* Advance 5s */}
+          <button
+            onClick={() => skip(5)}
+            className="text-white active:scale-90 transition-transform"
+          >
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.5 5V19L21 12L11.5 5ZM2 5V19L11.5 12L2 5Z" />
+            </svg>
+          </button>
         </div>
       )}
     </div>

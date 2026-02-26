@@ -124,55 +124,55 @@ const subtitleS = [
 const subtitleF = [
   {
     time: 0,
-    text: "Bonjour à tous. Je suis le Géant des montagnes de Bot et depuis de nombreuses années, je dors au sommet,",
+    text: "Bonjour à tous. Je suis le Géant des montagnes de Bot et, depuis de nombreuses années, je dors au sommet,",
   },
   {
     time: 7,
-    text: "où l'écho du village m'atteint toujours lors des célébrations. Chaque année, la Dansada m'accompagne, même lorsque je dors.",
+    text: "là où l’écho du village me parvient toujours lorsqu’il est en fête. Chaque année, la Dansada m’accompagne, même pendant mon sommeil.",
   },
   {
-    time: 16,
-    text: "Mais aujourd'hui… rien n'a sonné. Ni chalumeau, ni tambour, ni danse. Le silence m'a réveillé soudainement : un silence étrange, lourd, comme si le village s'était éteint.",
+    time: 15,
+    text: "Mais aujourd’hui… rien n’a résonné. Ni hautbois populaire, ni tambour, ni danse. Le silence m’a réveillé d’un coup : un silence étrange, lourd, comme si le village s’était éteint.",
   },
   {
-    time: 28,
-    text: "Et avec ce silence, j'ai ressenti la faim et l'obscurité qui flottent dans les rues.",
+    time: 29,
+    text: "Et avec ce silence, j’ai ressenti la faim et l’obscurité qui planent dans les rues.",
   },
   {
-    time: 34,
-    text: "C'est pourquoi je suis descendu au village pour découvrir ce qui se passe, car si la Dansada ne se remet pas à sonner, je ne peux pas retourner à mon repos.",
+    time: 35,
+    text: "C’est pourquoi je suis descendu au village pour comprendre ce qu’il se passe, car si la Dansada ne résonne plus, je ne peux pas retourner à mon repos.",
   },
   {
-    time: 45,
-    text: "Et c'est là que vous intervenez.",
+    time: 41,
+    text: "Et c’est là que vous intervenez.",
   },
   {
-    time: 48,
-    text: "À chaque arrêt du parcours, vous découvrirez un fragment de cette histoire. Pour avancer et m'aider à récupérer la Dansada,",
+    time: 43,
+    text: "À chaque étape du parcours, vous découvrirez un fragment de cette histoire. Pour avancer et m’aider à retrouver la Dansada,",
   },
   {
-    time: 56,
-    text: "vous devrez collecter de la nourriture en réalité augmentée : pain, huile d'olive, amandes, raisins et saucisses.",
+    time: 50,
+    text: "vous devrez collecter des aliments en réalité augmentée : du pain, de l’huile d’olive, des amandes, du raisin et des saucisses.",
   },
   {
-    time: 65,
-    text: "Ce sont plus que de la nourriture — elles symbolisent l'effort, la solidarité et la survie des gens de ces années.",
+    time: 58,
+    text: "Ce sont plus que des aliments : ils symbolisent l’effort, la solidarité et la survie des habitants de ces années-là.",
   },
   {
-    time: 72,
-    text: "De plus, à chaque arrêt, vous devrez répondre à une question. Si vous répondez correctement, vous gagnerez les instruments de la Dansada et des éléments appartenant à cette tradition.",
+    time: 66,
+    text: "De plus, à chaque arrêt, vous devrez répondre à une question. Si vous répondez correctement, vous gagnerez les instruments de la Dansada ainsi que des éléments propres à cette tradition.",
   },
   {
-    time: 84,
-    text: "Une fois que vous aurez récupéré tous les éléments, je pourrai dormir à nouveau… et la musique, l'espoir et la joie rempliront à nouveau les rues du village.",
+    time: 77,
+    text: "Lorsque vous aurez récupéré tous les éléments, je pourrai de nouveau m’endormir… et la musique, l’espoir et la joie rempliront à nouveau les rues du village.",
   },
   {
-    time: 96,
-    text: "Je vous attendrai au premier point du parcours. Vous trouverez la carte sur la page principale du jeu.",
+    time: 87,
+    text: "Je vous attends au premier point du parcours. Vous trouverez la carte sur la page principale du jeu.",
   },
   {
-    time: 104,
-    text: "À la prochaine fois!",
+    time: 91,
+    text: "À la prochaine !",
   },
 ];
 
