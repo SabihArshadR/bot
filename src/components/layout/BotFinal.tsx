@@ -21,7 +21,7 @@ const BotFinal = ({ onContinue }: BotFinalProps) => {
     if (currentIndex < 2) {
       const timer = setTimeout(() => {
         setCurrentIndex(currentIndex + 1);
-      }, 3000);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [currentIndex]);
