@@ -20,18 +20,18 @@ type UserContextType = {
   resetUserProgress: () => Promise<void>;
 };
 
-const UserContext = createContext<UserContextType>({
-  user: null,
-  loading: true,
-  refreshUser: async () => {},
-  updateUserProgress: async () => {},
-  resetUserProgress: async () => {},
-});
+// const UserContext = createContext<UserContextType>({
+//   user: null,
+//   loading: true,
+//   refreshUser: async () => {},
+//   updateUserProgress: async () => {},
+//   resetUserProgress: async () => {},
+// });
 
 // Local storage utility functions
 const getUserFromStorage = (): User | null => {
   if (typeof window === "undefined") return null;
-  
+
   try {
     const userData = localStorage.getItem("userData");
     return userData ? JSON.parse(userData) : null;
@@ -43,7 +43,7 @@ const getUserFromStorage = (): User | null => {
 
 const saveUserToStorage = (user: User): void => {
   if (typeof window === "undefined") return;
-  
+
   try {
     localStorage.setItem("userData", JSON.stringify(user));
   } catch (error) {
@@ -63,6 +63,14 @@ const initializeUser = (session: any): User => {
   };
 };
 
+const UserContext = createContext<UserContextType>({
+  user: null,
+  loading: false,
+  refreshUser: async () => {},
+  updateUserProgress: async () => {},
+  resetUserProgress: async () => {},
+});
+
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -71,7 +79,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchUser = async () => {
     try {
       setLoading(true);
-      
+
       if (status === "unauthenticated" || !session) {
         setUser(null);
         return;
@@ -79,13 +87,13 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
       // Try to get user from localStorage first
       let userData = getUserFromStorage();
-      
+
       // If no user data in storage, initialize with session data
       if (!userData) {
         userData = initializeUser(session);
         saveUserToStorage(userData);
       }
-      
+
       setUser(userData);
     } catch (error) {
       console.error("Failed to fetch user:", error);
@@ -152,10 +160,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, [status, session]);
 
   return (
-    <UserContext.Provider 
-      value={{ 
-        user, 
-        loading, 
+    <UserContext.Provider
+      value={{
+        user,
+        loading,
         refreshUser: fetchUser,
         updateUserProgress,
         resetUserProgress,

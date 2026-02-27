@@ -48,10 +48,11 @@ export async function POST(req: Request) {
     });
 
     if (existingUser) {
-      return NextResponse.json(
-        { success: false, error: "Username already exists" },
-        { status: 400 }
-      );
+      // Remove database user existence check logic
+      // return NextResponse.json(
+      //   { success: false, error: "Username already exists" },
+      //   { status: 400 }
+      // );
     }
 
     const newUser = {

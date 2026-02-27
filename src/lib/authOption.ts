@@ -203,11 +203,11 @@ export const authOptions: NextAuthOptions = {
           session.user.name =
             [token.firstName, token.lastName].filter(Boolean).join(" ") ||
             session.user.name;
-          (session.user as any).username = (token as any).username || "";
-          (session.user as any).phone = token.phone || "";
-          (session.user as any).address = token.address || "";
-          (session.user as any).firstName = token.firstName || "";
-          (session.user as any).lastName = token.lastName || "";
+          //   (session.user as any).username = (token as any).username || "";
+          // (session.user as any).phone = token.phone || "";
+          // (session.user as any).address = token.address || "";
+          // (session.user as any).firstName = token.firstName || "";
+          // (session.user as any).lastName = token.lastName || "";
         }
 
         (session.user as any).missingInfo =
