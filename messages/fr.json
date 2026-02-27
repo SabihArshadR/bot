@@ -229,8 +229,8 @@
       "a6": "Oui.\n\nLe jeu est conçu pour être réalisé en groupe : entre amis, en famille ou dans un cadre scolaire.\n\nUn seul appareil par équipe suffit, ainsi que l’envie de découvrir l’histoire ensemble.",
       "q7": "Combien de temps dure le jeu complet ?",
       "a7": "Le parcours complet dure environ une heure et demie.\n\nCela dépend de votre rythme. Vous pouvez le faire en une seule fois ou le répartir en plusieurs moments, car il est disponible toute l’année et à tout moment.",
-      "q8": "Votre progression est-elle sauvegardée ?",
-      "a8": "Le jeu utilise les cookies du navigateur pour mémoriser votre progression dans le parcours.\n\nSi vous supprimez les cookies de votre navigateur ou naviguez en mode privé, le jeu redémarrera et vous devrez recommencer depuis le premier point.\n\nPour éviter cela, nous vous recommandons de ne pas supprimer les données de navigation pendant que vous effectuez le parcours."
+      "a": "Votre progression est-elle sauvegardée ?",
+      "b": "Le jeu utilise les cookies du navigateur pour mémoriser votre progression dans le parcours.\n\nSi vous supprimez les cookies de votre navigateur ou naviguez en mode privé, le jeu redémarrera et vous devrez recommencer depuis le premier point.\n\nPour éviter cela, nous vous recommandons de ne pas supprimer les données de navigation pendant que vous effectuez le parcours."
     },
     "map": {
       "q1": "Comment fonctionne la carte du jeu ?",

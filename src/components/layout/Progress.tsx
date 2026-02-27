@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react";
 import api from "@/lib/axios";
 
 const Progress = () => {
-  const { user, refreshUser } = useUser();
+  const { user, refreshUser, resetUserProgress } = useUser();
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const prevCompletedRef = useRef(0);
 
@@ -251,19 +251,23 @@ const Progress = () => {
     try {
       setLoadingReset(true);
       try {
-        await api.patch("/user/restart");
+        // await api.patch("/user/restart");
+
+        // Reset progress using localStorage function
+        await resetUserProgress();
         // Clear stored progress so that animations can trigger again on the new game
         if (typeof window !== "undefined") {
           localStorage.setItem("prevCompleted", "0");
         }
-        await refreshUser();
+        // await refreshUser();
         setShowPopup(false);
         await router.push("/dashboard");
         window.location.reload();
       } catch (err: any) {
         console.error(
           "Error resetting progress:",
-          err.response?.data || err.message,
+          // err.response?.data || err.message,
+          err.message,
         );
       }
     } catch (err) {

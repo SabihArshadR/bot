@@ -34,23 +34,24 @@ const Quiz = () => {
     t1("finding_4"),
     t1("finding_5"),
   ];
-
+  
   const getBaseUrl = () => {
     if (typeof window !== "undefined") {
       return window.location.origin;
     }
     return process.env.NEXTAUTH_URL || "http://localhost:3000";
   };
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
   const HOST = getBaseUrl();
 
   useEffect(() => {
-    if (!user) return;
-    const POICompleted = parseInt(user?.POIsCompleted ?? 0);
+    if (!user || quizCompleted) return;
+    const POICompleted = user?.POIsCompleted ?? 0;
     if (POICompleted >= volcanoId) {
       router.push("/dashboard");
     }
-  }, [volcanoId, router, user]);
+  }, [volcanoId, router, user, quizCompleted]);
 
   const volcanoQuestions = useMemo(
     () => ({
@@ -225,9 +226,9 @@ const Quiz = () => {
   const [texts, setTexts] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [showPlayAgain, setShowPlayAgain] = useState(false);
-  const [quizCompleted, setQuizCompleted] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState<any | null>(null);
   const [completionSound, setCompletionSound] = useState<HTMLAudioElement | null>(null);
+  const { updateUserProgress } = useUser();
 
   // Clean up audio on unmount
   useEffect(() => {
@@ -311,16 +312,18 @@ const Quiz = () => {
 
   useEffect(() => {
     if (quizCompleted) {
-      const storeQuizStatus = async () => {
-        try {
-          await api.post("/poi-completed", {
-            poiCompleted: volcanoId,
-          });
-        } catch (err: any) {
-          console.error("Failed to update:", err.response?.data || err.message);
-        }
-      };
-      storeQuizStatus();
+      // POI completion moved to button click
+
+      // const storeQuizStatus = async () => {
+      //   try {
+      //     await api.post("/poi-completed", {
+      //       poiCompleted: volcanoId,
+      //     });
+      //   } catch (err: any) {
+      //     console.error("Failed to update:", err.response?.data || err.message);
+      //   }
+      // };
+      // storeQuizStatus();
     }
   }, [quizCompleted, volcanoId]);
 
@@ -373,13 +376,18 @@ const Quiz = () => {
         <div className="w-full px-5 pb-5 bg-lightbrown">
 
         <CustomButton
-          onClick={() => {
-            // Stop the completion sound when going to dashboard
+          onClick={async () => {
+             // Stop the completion sound when going to dashboard
             // if (completionSound) {
             //   completionSound.pause();
             //   completionSound.currentTime = 0;
             // }
             // refreshUser();
+            try {
+              await updateUserProgress(volcanoId);
+            } catch (err: any) {
+              console.error("Failed to update:", err.response?.data || err.message);
+            }
             router.push("/dashboard");
           }}
           >

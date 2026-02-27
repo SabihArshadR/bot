@@ -236,7 +236,7 @@ const Page = () => {
   }, [scriptsLoaded, floatingRocks]);
 
   useEffect(() => {
-    if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
+    if ((user?.POIsCompleted ?? 0) >= 0 && !hasAutoPlayed.current) {
       const handleFirstInteraction = () => {
         backgroundAudioRef.current?.play().catch(() => {});
         if (explosionAudioRef.current) {

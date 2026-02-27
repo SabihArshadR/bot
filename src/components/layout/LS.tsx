@@ -52,7 +52,7 @@ interface LanguageSelectionProps {
 }
 
 const LanguageSelection = ({ onContinue }: LanguageSelectionProps) => {
-  const [selectedLocale, setSelectedLocale] = useState<string>("en");
+  const [selectedLocale, setSelectedLocale] = useState<string>("ca");
   const t2 = useTranslations("Dashboard");
 
   const languageNames: Record<string, string> = {

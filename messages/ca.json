@@ -227,8 +227,8 @@
       "a6": "Sí. \n\n El joc està pensat per fer-se en grup: amb amics, en família o en entorn escolar. \n\n Només cal un dispositiu per equip i ganes de descobrir la història junts.",
       "q7": "Quant dura tot el joc?",
       "a7": "La ruta completa té una durada aproximada d’una hora i mitja. \n\n Depèn del vostre ritme. Podeu fer-la tota seguida o repartir-la en diferents moments, ja que està disponible tot l’any i a qualsevol hora.",
-      "q8": "Es guarda el vostre progrés?",
-      "a8": "El joc funciona mitjançant cookies del navegador per recordar el vostre avanç al recorregut. \n\n Si esborreu les cookies del navegador o navegueu en mode privat, el joc es reiniciarà i haureu de començar des del primer punt.\n\n Per evitar-ho, us recomanem no esborrar les dades de navegació mentre esteu fent el recorregut."
+      "a": "Es guarda el vostre progrés?",
+      "b": "El joc funciona mitjançant cookies del navegador per recordar el vostre avanç al recorregut. \n\n Si esborreu les cookies del navegador o navegueu en mode privat, el joc es reiniciarà i haureu de començar des del primer punt.\n\n Per evitar-ho, us recomanem no esborrar les dades de navegació mentre esteu fent el recorregut."
     },
     "map": {
       "q1": "Com funciona el mapa del joc?",

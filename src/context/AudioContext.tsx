@@ -100,7 +100,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
           setIsPlaying(false);
         }
       };
-    } else if (user?.POIsCompleted < TOTAL_POIS) {
+    } else if (user?.POIsCompleted !== undefined && user.POIsCompleted < TOTAL_POIS) {
       // Game restarted – allow completion sound to be played again later
       setHasPlayedCompletionSound(false);
       // Reset BotFinal visibility for next game completion

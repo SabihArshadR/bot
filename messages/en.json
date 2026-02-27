@@ -229,8 +229,8 @@
       "a6": "Yes.\n\nThe game is designed to be played in groups: with friends, family or in a school setting.\n\nYou only need one device per team and a desire to discover the story together.",
       "q7": "How long does the whole game last?",
       "a7": "The full route lasts approximately one hour and a half.\n\nIt depends on your pace. You can complete it all at once or split it into different moments, as it is available all year round and at any time.",
-      "q8": "Is your progress saved?",
-      "a8": "The game uses browser cookies to remember your progress along the route.\n\nIf you delete your browser cookies or browse in private mode, the game will restart and you will need to begin from the first point.\n\nTo avoid this, we recommend not deleting your browsing data while completing the route."
+      "a": "Is your progress saved?",
+      "b": "The game uses browser cookies to remember your progress along the route.\n\nIf you delete your browser cookies or browse in private mode, the game will restart and you will need to begin from the first point.\n\nTo avoid this, we recommend not deleting your browsing data while completing the route."
     },
     "map": {
       "q1": "How does the game map work?",

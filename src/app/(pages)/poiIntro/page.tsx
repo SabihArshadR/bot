@@ -18,7 +18,7 @@ const Page = () => {
   const poiId = searchParams.get("poiId");
 
   if (!user && !locale) return <Loading />;
-  const audioFile = poiId || (user?.POIsCompleted + 1).toString();
+  const audioFile = poiId || ((user?.POIsCompleted ?? 0) + 1).toString();
 
   return (
         // <div style={{ width: "100%", height: "100vh", position: "relative" }}>
