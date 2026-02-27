@@ -82,8 +82,8 @@ export default function CoinMap({ destination }: CoinMapProps) {
       container: mapContainer.current,
       // Use Satellite-Streets for an immersive "real world" feel
       style: "mapbox://styles/mapbox/satellite-streets-v12",
-      center: [0, 0],
-      zoom: 18, // Start closer for immersion
+      center: [0, 20],
+      zoom: 1.5, // Start closer for immersion
       pitch: 60, // Tilt the camera
       bearing: 0,
       antialias: true,
@@ -151,36 +151,44 @@ export default function CoinMap({ destination }: CoinMapProps) {
     };
   }, [destination]);
 
-  useEffect(() => {
-  if (!map.current) return;
+ useEffect(() => {
+    if (!map.current) return;
 
-  const geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    trackUserLocation: true, // keeps map centered on user
-    showUserHeading: true,   // shows cone / shadow for orientation
-  });
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+      showUserHeading: true,
+    });
 
-  map.current.addControl(geolocate, "top-left");
+    map.current.addControl(geolocate, "top-left");
 
-  // Automatically trigger the geolocation when map loads
-  geolocate.on('geolocate', (event) => {
-    const newLoc = {
-      lat: event.coords.latitude,
-      lng: event.coords.longitude,
+    // Listen for the geolocation event to update state and draw routes
+    geolocate.on("geolocate", (event: any) => {
+      const newLoc = {
+        lat: event.coords.latitude,
+        lng: event.coords.longitude,
+      };
+      setUserLocation(newLoc);
+
+      if (destination) {
+        drawRoute(map.current!, newLoc, destination);
+      }
+    });
+
+    // Trigger geolocation automatically once the map style is loaded
+    map.current.on("load", () => {
+      geolocate.trigger();
+    });
+
+    // Cleanup to prevent multiple controls on re-renders
+    return () => {
+      if (map.current) {
+        map.current.removeControl(geolocate);
+      }
     };
-    setUserLocation(newLoc);
-
-    if (destination && map.current) {
-      drawRoute(map.current, newLoc, destination);
-    }
-  });
-
-  // Optional: trigger once when map loads
-  geolocate.trigger();
-
-}, [destination]);
+  }, [destination]);
 
 
   useEffect(() => {
