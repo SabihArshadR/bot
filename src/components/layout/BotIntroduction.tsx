@@ -44,7 +44,7 @@ const BotIntroduction = () => {
             console.error("Auto play failed:", error);
           });
         }
-      }, 7000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     } else {
