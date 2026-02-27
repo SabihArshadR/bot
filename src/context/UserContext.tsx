@@ -29,11 +29,12 @@ type UserContextType = {
 // });
 
 // Local storage utility functions
-const getUserFromStorage = (): User | null => {
+const getUserFromStorage = (username: string): User | null => {
   if (typeof window === "undefined") return null;
 
   try {
-    const userData = localStorage.getItem("userData");
+    const storageKey = `userData_${username}`;
+    const userData = localStorage.getItem(storageKey);
     return userData ? JSON.parse(userData) : null;
   } catch (error) {
     console.error("Error reading user data from localStorage:", error);
@@ -45,7 +46,8 @@ const saveUserToStorage = (user: User): void => {
   if (typeof window === "undefined") return;
 
   try {
-    localStorage.setItem("userData", JSON.stringify(user));
+    const storageKey = `userData_${user.username}`;
+    localStorage.setItem(storageKey, JSON.stringify(user));
   } catch (error) {
     console.error("Error saving user data to localStorage:", error);
   }
@@ -77,31 +79,34 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { data: session, status } = useSession();
 
   const fetchUser = async () => {
-    try {
-      setLoading(true);
+  try {
+    setLoading(true);
 
-      if (status === "unauthenticated" || !session) {
-        setUser(null);
-        return;
-      }
-
-      // Try to get user from localStorage first
-      let userData = getUserFromStorage();
-
-      // If no user data in storage, initialize with session data
-      if (!userData) {
-        userData = initializeUser(session);
-        saveUserToStorage(userData);
-      }
-
-      setUser(userData);
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
+    if (status === "unauthenticated" || !session) {
       setUser(null);
-    } finally {
-      setLoading(false);
+      return;
     }
-  };
+
+    // Extract username from session
+    const username = (session.user as any)?.username || session.user?.email?.split('@')[0] || 'User';
+
+    // Try to get user from localStorage first
+    let userData = getUserFromStorage(username);
+
+    // If no user data in storage, initialize with session data
+    if (!userData) {
+      userData = initializeUser(session);
+      saveUserToStorage(userData);
+    }
+
+    setUser(userData);
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    setUser(null);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const updateUserProgress = async (poiCompleted: number) => {
     if (!user) return;
