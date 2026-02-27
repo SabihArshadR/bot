@@ -229,8 +229,8 @@
       "a6": "Sí.\n\nEl juego está pensado para realizarse en grupo: con amigos, en familia o en entorno escolar.\n\nSolo se necesita un dispositivo por equipo y ganas de descubrir la historia juntos.",
       "q7": "¿Cuánto dura todo el juego?",
       "a7": "La ruta completa tiene una duración aproximada de una hora y media.\n\nDepende de vuestro ritmo. Podéis hacerla toda seguida o repartirla en distintos momentos, ya que está disponible todo el año y a cualquier hora.",
-      "a": "¿Se guarda vuestro progreso?",
-      "b": "El juego funciona mediante cookies del navegador para recordar vuestro avance en el recorrido.\n\nSi borráis las cookies del navegador o navegáis en modo privado, el juego se reiniciará y tendréis que empezar desde el primer punto.\n\nPara evitarlo, os recomendamos no borrar los datos de navegación mientras estáis realizando el recorrido."
+      "q8": "¿Se guarda vuestro progreso?",
+      "a8": "El juego funciona mediante cookies del navegador para recordar vuestro avance en el recorrido.\n\nSi borráis las cookies del navegador o navegáis en modo privado, el juego se reiniciará y tendréis que empezar desde el primer punto.\n\nPara evitarlo, os recomendamos no borrar los datos de navegación mientras estáis realizando el recorrido."
     },
     "map": {
       "q1": "¿Cómo funciona el mapa del juego?",
