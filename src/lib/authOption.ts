@@ -2,8 +2,6 @@ import GoogleProvider from "next-auth/providers/google";
 import type { NextAuthOptions } from "next-auth";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { getCollection } from "@/lib/mongodb";
-import { ObjectId } from "mongodb";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -35,32 +33,22 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.username) return null;
 
-        const usersCol = await getCollection("users");
-        if (!usersCol) return null;
-
-        const user = await usersCol.findOne({
-          username: credentials.username,
-        });
-        if (!user) return null;
-
+        // Simple validation - accept any non-empty username
+        // In production, you might want to add validation logic here
         return {
-          id: user._id.toString(),
-          email: user.email,
-          username: user.username,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          phone: user.phone,
-          address: user.origin,
+          id: credentials.username,
+          email: `${credentials.username}@example.com`,
+          username: credentials.username,
+          firstName: "",
+          lastName: "",
+          phone: "",
+          address: "",
         };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user, account }) {
-      const usersCol = await getCollection("users");
-
-      let dbUser = null;
-
       if (account) {
         token.accessToken = account.access_token;
 
@@ -101,47 +89,6 @@ export const authOptions: NextAuthOptions = {
             console.error("Microsoft Graph API error:", err);
           }
         }
-        dbUser = await usersCol?.findOne({ email: token.email });
-        token.phone = token.phone || dbUser?.phone || "";
-        token.address = token.address || dbUser?.origin || "";
-        try {
-          if (!dbUser) {
-            await usersCol?.insertOne({
-              email: token.email,
-              password: token.sub || "",
-              firstName: token.firstName,
-              lastName: token.lastName,
-              phone: token.phone,
-              origin: token.address,
-              verificationCode: null,
-              verificationExpires: null,
-              isVerified: true,
-              hasSeenPopup: false,
-              points: 0,
-              currentLevel: 1,
-              POIsCompleted: 0,
-              createdAt: new Date(),
-              updatedAt: new Date(),
-            });
-          } else {
-            const updates: any = {};
-            if (!dbUser.firstName && token.firstName)
-              updates.firstName = token.firstName;
-            if (!dbUser.lastName && token.lastName)
-              updates.lastName = token.lastName;
-            if (!dbUser.phone && token.phone) updates.phone = token.phone;
-            if (!dbUser.origin && token.address) updates.origin = token.address;
-
-            if (Object.keys(updates).length > 0) {
-              await usersCol?.updateOne(
-                { _id: new ObjectId(dbUser._id) },
-                { $set: updates },
-              );
-            }
-          }
-        } catch (err) {
-          console.error("SignIn DB error:", err);
-        }
       }
       if (user) {
         const u = user as any;
@@ -158,57 +105,18 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, token }) {
-      const usersCol = await getCollection("users");
-
       if (session.user) {
-        // First try to find user by ID from token (most reliable)
-        let dbUser = null;
-
-        if (token.sub) {
-          dbUser = await usersCol?.findOne({
-            _id: new ObjectId(token.sub),
-          });
-        }
-
-        // If not found by ID, try email or username
-        if (!dbUser) {
-          dbUser = await usersCol?.findOne({
-            $or: [
-              { email: session.user.email },
-              { username: (token as any).username || session.user.name },
-              { _id: new ObjectId(token.sub || "") },
-            ].filter(Boolean), // Remove any undefined/null conditions
-          });
-        }
-
-        if (dbUser) {
-          // Update session with database values
-          (session.user as any).id = dbUser._id.toString();
-          session.user.name =
-            [dbUser.firstName, dbUser.lastName].filter(Boolean).join(" ") ||
-            dbUser.username ||
-            session.user.name;
-          session.user.email = dbUser.email || session.user.email;
-          (session.user as any).username =
-            dbUser.username || (token as any).username || "";
-          (session.user as any).phone = dbUser.phone || token.phone || "";
-          (session.user as any).address = dbUser.origin || token.address || "";
-          (session.user as any).firstName =
-            dbUser.firstName || token.firstName || "";
-          (session.user as any).lastName =
-            dbUser.lastName || token.lastName || "";
-        } else {
-          // Fallback to token data if no user found in database
-          (session.user as any).id = token.sub || "";
-          session.user.name =
-            [token.firstName, token.lastName].filter(Boolean).join(" ") ||
-            session.user.name;
-          //   (session.user as any).username = (token as any).username || "";
-          // (session.user as any).phone = token.phone || "";
-          // (session.user as any).address = token.address || "";
-          // (session.user as any).firstName = token.firstName || "";
-          // (session.user as any).lastName = token.lastName || "";
-        }
+        // Use token data directly instead of database
+        (session.user as any).id = token.id || token.sub || "";
+        session.user.name =
+          [token.firstName, token.lastName].filter(Boolean).join(" ") ||
+          session.user.name;
+        session.user.email = token.email || session.user.email;
+        (session.user as any).username = (token as any).username || "";
+        (session.user as any).phone = token.phone || "";
+        (session.user as any).address = token.address || "";
+        (session.user as any).firstName = token.firstName || "";
+        (session.user as any).lastName = token.lastName || "";
 
         (session.user as any).missingInfo =
           !(session.user as any).phone || !(session.user as any).address;
