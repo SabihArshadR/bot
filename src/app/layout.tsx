@@ -62,7 +62,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "BOT Despertat pel silenci",
   description:
-    "Canyelles i la història del meteorit és un joc amb realitat augmentada que segueix un itinerari geolocalitzat per Canyelles amb un total de 6 parades conduïdes per un avatar, en Roc, un fragment del meteorit que va caure a Canyelles fa gairebé dos-cents anys. En Roc serà qui us acompanyi en tot el recorregut, explicant històries i anècdotes de Canyelles i la seva gent. A cada parada, hi ha una petita audiodescripció d'en Roc, un repte interactiu amb AR i un qüestionari. L’objectiu és completar l'itinerari i aconseguir les pedres precioses de Canyelles.",
+    "Bot, 1937. La Dansada ha emmudit i el Gegant de les muntanyes de Bot necessita la vostra ajuda. Seguiu el mapa, recolliu aliments amb realitat augmentada, responeu preguntes i feu tornar la música als carrers del poble. Una experiència familiar per descobrir Bot d’una manera diferent.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
