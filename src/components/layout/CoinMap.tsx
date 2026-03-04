@@ -12,8 +12,7 @@ interface Coordinates {
   lng: number;
 }
 
-mapboxgl.accessToken = 
-process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 interface CoinMapProps {
   destination?: Coordinates | null;
@@ -22,7 +21,7 @@ interface CoinMapProps {
 const drawRoute = async (map: Map, start: Coordinates, end: Coordinates) => {
   try {
     const query = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/walking/${start.lng},${start.lat};${end.lng},${end.lat}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`
+      `https://api.mapbox.com/directions/v5/mapbox/walking/${start.lng},${start.lat};${end.lng},${end.lat}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`,
     );
     const data = await query.json();
     const route = data.routes[0].geometry;
@@ -151,7 +150,46 @@ export default function CoinMap({ destination }: CoinMapProps) {
     };
   }, [destination]);
 
- useEffect(() => {
+  //  useEffect(() => {
+  //     if (!map.current) return;
+
+  //     const geolocate = new mapboxgl.GeolocateControl({
+  //       positionOptions: {
+  //         enableHighAccuracy: true,
+  //       },
+  //       trackUserLocation: true,
+  //       showUserHeading: true,
+  //     });
+
+  //     map.current.addControl(geolocate, "top-left");
+
+  //     // Listen for the geolocation event to update state and draw routes
+  //     geolocate.on("geolocate", (event: any) => {
+  //       const newLoc = {
+  //         lat: event.coords.latitude,
+  //         lng: event.coords.longitude,
+  //       };
+  //       setUserLocation(newLoc);
+
+  //       if (destination) {
+  //         drawRoute(map.current!, newLoc, destination);
+  //       }
+  //     });
+
+  //     // Trigger geolocation automatically once the map style is loaded
+  //     map.current.on("load", () => {
+  //       geolocate.trigger();
+  //     });
+
+  //     // Cleanup to prevent multiple controls on re-renders
+  //     return () => {
+  //       if (map.current) {
+  //         map.current.removeControl(geolocate);
+  //       }
+  //     };
+  //   }, [destination]);
+
+  useEffect(() => {
     if (!map.current) return;
 
     const geolocate = new mapboxgl.GeolocateControl({
@@ -159,12 +197,17 @@ export default function CoinMap({ destination }: CoinMapProps) {
         enableHighAccuracy: true,
       },
       trackUserLocation: true,
-      showUserHeading: true,
+      showUserHeading: true, // This enables the arrow
+      showAccuracyCircle: true,
     });
 
     map.current.addControl(geolocate, "top-left");
 
-    // Listen for the geolocation event to update state and draw routes
+    // This is the key: Trigger it as soon as the map is ready
+    map.current.on("load", () => {
+      geolocate.trigger();
+    });
+
     geolocate.on("geolocate", (event: any) => {
       const newLoc = {
         lat: event.coords.latitude,
@@ -177,19 +220,12 @@ export default function CoinMap({ destination }: CoinMapProps) {
       }
     });
 
-    // Trigger geolocation automatically once the map style is loaded
-    map.current.on("load", () => {
-      geolocate.trigger();
-    });
-
-    // Cleanup to prevent multiple controls on re-renders
     return () => {
       if (map.current) {
         map.current.removeControl(geolocate);
       }
     };
   }, [destination]);
-
 
   useEffect(() => {
     if (userLocation && destination) {
